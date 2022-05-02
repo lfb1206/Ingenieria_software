@@ -1,47 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/models/user.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/models/application_record.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/helpers/application_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/helpers/articles_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/mailers/application_mailer.rb": {
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -53,25 +13,11 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/jobs/application_job.rb": {
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
           0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/controllers/application_controller.rb": {
-        "lines": [
-          null,
-          null,
           0,
           0,
           0
@@ -79,9 +25,8 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/controllers/articles_controller.rb": {
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/controllers/application_controller.rb": {
         "lines": [
-          null,
           null,
           null,
           0,
@@ -91,7 +36,19 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/controllers/users/registrations_controller.rb": {
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/controllers/articles_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/controllers/users/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -155,7 +112,44 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/channels/application_cable/connection.rb": {
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/helpers/application_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/helpers/articles_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/jobs/application_job.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -167,11 +161,25 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/channels/application_cable/channel.rb": {
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/models/application_record.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/vcruz/Desktop/Ingeniería de Software/grupo-48/app/models/user.rb": {
         "lines": [
           null,
           null,
           0,
+          null,
+          null,
           0,
           0,
           0
@@ -180,6 +188,6 @@
         }
       }
     },
-    "timestamp": 1651454518
+    "timestamp": 1651458180
   }
 }
