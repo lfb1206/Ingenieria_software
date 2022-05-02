@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
 
   #### INICIO
-  root 'articles#index'
   get '/articles', to: 'articles#index'
 
   #### CREATE
@@ -11,7 +10,8 @@ Rails.application.routes.draw do
   post 'turnos', to: 'turnos#create'
 
   #### READ
-  get 'turnos/index'
+  root 'turnos#index'
+  get 'turnos/index', to: 'turnos#index'
   get 'turnos/show'
 
   #### UPDATE
@@ -21,4 +21,12 @@ Rails.application.routes.draw do
   #### DELETE
   delete 'turnos/delete', to: 'turnos#delete', as: 'turnos_delete'
 
+  #### DEVISE
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
 end
+
+
+
