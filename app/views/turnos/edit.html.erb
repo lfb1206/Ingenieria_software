@@ -1,0 +1,37 @@
+<h1>Turnos#edit</h1>
+
+<%= form_with(model: @turno, method: :patch, url: turnos_update_path(:id => @turno.id)) do |form| %>
+
+    <div>
+        <%= form.label :Id_usuario %>
+        <%= form.text_field :id_usuario%>
+    </div>
+    <div>
+        <%= form.label :Cantidad_asientos %>
+        <%= form.text_field :cantidad_asientos%>
+    </div>
+    <div>
+        <%= form.label :Hora_salida %>
+        <%= form.text_field :hora_salida%>
+    </div>
+    <div>
+        <%= form.label :Direccion_salida %>
+        <%= form.text_field :direccion_salida%>
+    </div>
+    <div>
+        <%= form.label :Direccion_llegada %>
+        <%= form.text_field :direccion_llegada%>
+    </div>
+    <div>
+        <%= form.label :Dia_semana %>
+        <%= form.text_field :dia_semana%>
+    </div>
+    <div>
+        <%= form.label :Tipo %>
+        <%= form.text_field :tipo%>
+    </div>
+    <div>
+        <%= form.submit 'Editar turno' %>
+    </div>
+
+<% end %>
