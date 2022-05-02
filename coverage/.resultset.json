@@ -1,18 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/Rakefile": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1
-        ]
-      },
       "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/models/user.rb": {
         "lines": [
           null,
@@ -31,6 +19,24 @@
           null,
           null,
           1,
+          1,
+          null
+        ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/helpers/application_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/helpers/articles_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
           1,
           null
         ]
@@ -149,28 +155,6 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/helpers/articles_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/helpers/application_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/lucasfernandez/Documents/Ingenieria de software/grupo-48/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
@@ -196,6 +180,6 @@
         }
       }
     },
-    "timestamp": 1651425616
+    "timestamp": 1651454518
   }
 }
