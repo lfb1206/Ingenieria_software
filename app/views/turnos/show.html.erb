@@ -1,0 +1,34 @@
+<h1>Turnos#show</h1>
+
+<p>
+    <strong>Id_usuario: </strong>
+    <%= @turno.id_usuario %>
+</p>
+<p>
+    <strong>Cantidad_asientos: </strong>
+    <%= @turno.cantidad_asientos %>
+</p>
+<p>
+    <strong>Hora_salida: </strong>
+    <%= @turno.hora_salida %>
+</p>
+<p>
+    <strong>Direccion_salida: </strong>
+    <%= @turno.direccion_salida %>
+</p>
+<p>
+    <strong>Direccion_llegada: </strong>
+    <%= @turno.direccion_llegada %>
+</p>
+<p>
+    <strong>Dia_semana: </strong>
+    <%= @turno.dia_semana %>
+</p>
+<p>
+    <strong>Tipo: </strong>
+    <%= @turno.tipo %>
+</p>
+
+<%= link_to 'Volver', turnos_index_path%>
+<%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
+<%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>

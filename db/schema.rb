@@ -15,6 +15,18 @@ ActiveRecord::Schema.define(version: 2022_04_30_190013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "turnos", force: :cascade do |t|
+    t.integer "id_usuario"
+    t.integer "cantidad_asientos"
+    t.time "hora_salida"
+    t.string "direccion_salida"
+    t.string "direccion_llegada"
+    t.string "dia_semana"
+    t.string "tipo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
