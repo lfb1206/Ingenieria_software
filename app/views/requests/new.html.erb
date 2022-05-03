@@ -1,0 +1,31 @@
+<h1>Requests#new</h1>
+
+<%= form_with(model: @request, method: :post) do |form| %>
+
+     <div>
+        <%= form.label :Id_solicitud %>
+        <%= form.text_field :id_solicitud%>
+    </div>
+    <div>
+        <%= form.label :Id_usuario %>
+        <%= form.text_field :id_usuario%>
+    </div>
+    <div>
+        <%= form.label :Id_publicacion %>
+        <%= form.text_field :id_publicacion%>
+    </div>
+    <div>
+        <%= form.label :Estado %>
+        <%= form.text_field :estado%>
+    </div>
+    <div>
+        <%= form.label :Descripcion %>
+        <%= form.text_field :descripcion%>
+    </div>
+    <div>
+        <%= form.submit 'Crear request' %>
+        <%= print("Se apreto el boton") %>
+    </div>
+
+<%= link_to 'Volver atras', requests_index_path %>
+<% end %>

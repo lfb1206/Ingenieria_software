@@ -1,0 +1,17 @@
+<h1>Publicaciones_Request</h1>
+
+<%= notice %>
+
+<div style="display: flex, flex-flow: row wrap; ">
+    <% @requests.each do |request|%>
+        <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+        <h3><%= request.id_solicitud%></h3>
+        <p><%= request.id_usuario%><p>
+        <p><%= request.id_publicacion%><p>
+        <p><%= request.estado%><p>
+        <p><%= request.descripcion%><p>
+        <p><%= link_to 'Ver detalles', requests_show_path(:id => request.id) %></p>
+</div>
+<% end %>
+
+<%= link_to 'Nuevo request', requests_new_path %>

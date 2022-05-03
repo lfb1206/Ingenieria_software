@@ -1,0 +1,27 @@
+<h1>Requests#show</h1>
+
+<p>
+    <strong>Id_solicitud: </strong>
+    <%= @request.id_solicitud %>
+</p>
+<p>
+    <strong>id_usuarios: </strong>
+    <%= @request.id_usuario %>
+</p>
+<p>
+    <strong>Id_publicaciones: </strong>
+    <%= @request.id_publicacion %>
+</p>
+<p>
+    <strong>Estado: </strong>
+    <%= @request.estado %>
+</p>
+<p>
+    <strong>Descripcion: </strong>
+    <%= @request.descripcion %>
+</p>
+
+
+<%= link_to 'Volver', requests_index_path%>
+<%= link_to 'Editar', requests_edit_path(:id => @request.id)%>
+<%= link_to 'Eliminar', requests_delete_path(:id => @request.id), method: :delete%>
