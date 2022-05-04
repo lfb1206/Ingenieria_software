@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'factories/user'
+
 
 RSpec.describe User, type: :model do
   # Similar al before each, pero ahora usando los métodos let y create de FactoryBot
   # Además, usamos la factory de perfiles que definimos
-  let(:user) { create(:user) }
-  let(:second_user) { create(:user) }
+  let(:user) {create(:user)}
+  let(:second_user) {create(:user)}
 
   it 'is valid with valid attributes' do
     expect(user).to be_valid

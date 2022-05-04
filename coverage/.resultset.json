@@ -64,6 +64,27 @@
           null
         ]
       },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/request.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/turno.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/application_controller.rb": {
         "lines": [
           null,
@@ -149,33 +170,10 @@
           null
         ]
       },
-      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/request.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null
-        ]
-      },
       "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/turno.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
           0,
           0,
           0,
@@ -414,6 +412,6 @@
         }
       }
     },
-    "timestamp": 1651693182
+    "timestamp": 1651698936
   }
 }
