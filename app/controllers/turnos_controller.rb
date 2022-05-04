@@ -1,12 +1,14 @@
-class TurnosController < ApplicationController
+# frozen_string_literal: true
 
+class TurnosController < ApplicationController
   #### CREATE
   def new
     @turno = Turno.new
   end
 
   def create
-    @turnos_params = params.require(:turno).permit(:id_usuario, :cantidad_asientos, :hora_salida, :direccion_salida, :direccion_llegada, :dia_semana, :tipo)
+    @turnos_params = params.require(:turno).permit(:id_usuario, :cantidad_asientos, :hora_salida, :direccion_salida,
+                                                   :direccion_llegada, :dia_semana, :tipo)
     @turno = Turno.create(@turnos_params)
     if @turno.save
       redirect_to turnos_index_path, notice: 'Turno creado exitosamente'
@@ -31,7 +33,8 @@ class TurnosController < ApplicationController
 
   def update
     @turno = Turno.find(params[:id])
-    @turnos_params = params.require(:turno).permit(:id_usuario, :cantidad_asientos, :hora_salida, :direccion_salida, :direccion_llegada, :dia_semana, :tipo)
+    @turnos_params = params.require(:turno).permit(:id_usuario, :cantidad_asientos, :hora_salida, :direccion_salida,
+                                                   :direccion_llegada, :dia_semana, :tipo)
     if @turno.update(@turnos_params)
       redirect_to turnos_index_path, notice: 'Turno editado exitosamente'
     else
@@ -46,5 +49,4 @@ class TurnosController < ApplicationController
 
     redirect_to turnos_index_path, notice: 'Turno eliminado'
   end
-
 end
