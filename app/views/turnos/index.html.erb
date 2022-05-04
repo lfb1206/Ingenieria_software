@@ -1,19 +1,17 @@
-<h1>Publicaciones_Turnos</h1>
+<h2>Publicaciones</h2>
+<li><%= link_to 'Nuevo turno', turnos_new_path %></li>
 
-<%= notice %>
-
-<div style="display: flex, flex-flow: row wrap; ">
+<div style="display: flex; flex-flow: row wrap; ">
     <% @turnos.each do |turno|%>
-        <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-        <h3><%= turno.id%></h3>
-        <p><%= turno.cantidad_asientos%><p>
-        <p><%= turno.hora_salida%><p>
-        <p><%= turno.direccion_salida%><p>
-        <p><%= turno.direccion_llegada%><p>
-        <p><%= turno.dia_semana%><p>
-        <p><%= turno.tipo%><p>
-        <p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+        <div style="border: solid 1px; width: 200px; 
+        padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+        <b>Conductor </b><p><%= @users.find(turno.id_usuario).name%><p>
+        <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%><p>
+        <b>Hora salida </b><p><%= turno.hora_salida%><p>
+        <b>Dirección salida </b><p><%= turno.direccion_salida%><p>
+        <b>Dirección llegada </b><p><%= turno.direccion_llegada%><p>
+        <b>Día de la semana </b><p><%= turno.dia_semana%><p>
+        <b>Tipo </b><p><%= turno.tipo%><p>
+        <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
 </div>
 <% end %>
-
-<%= link_to 'Nuevo turno', turnos_new_path %>

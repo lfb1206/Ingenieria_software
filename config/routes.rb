@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   #### INICIO
   get '/articles', to: 'articles#index'
 
+  # TURNOS --------------------------------------
+
   #### CREATE
   get 'turnos/new'
   post 'turnos', to: 'turnos#create'
@@ -21,10 +23,17 @@ Rails.application.routes.draw do
   #### DELETE
   delete 'turnos/delete', to: 'turnos#delete', as: 'turnos_delete'
 
+  # USERS --------------------------------------
+
   #### DEVISE
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+
+  #### READ
+  devise_scope :user do
+    get 'users/show', to: 'users/registrations#show', as: 'users_show'
+  end
 
 end
 

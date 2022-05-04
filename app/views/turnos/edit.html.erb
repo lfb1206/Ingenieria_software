@@ -1,11 +1,7 @@
-<h1>Turnos#edit</h1>
+<h1>Editar Turno</h1>
 
 <%= form_with(model: @turno, method: :patch, url: turnos_update_path(:id => @turno.id)) do |form| %>
 
-    <div>
-        <%= form.label :Id_usuario %>
-        <%= form.text_field :id_usuario%>
-    </div>
     <div>
         <%= form.label :Cantidad_asientos %>
         <%= form.text_field :cantidad_asientos%>
@@ -35,3 +31,5 @@
     </div>
 
 <% end %>
+
+<%= link_to 'Volver', turnos_index_path%>

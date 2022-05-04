@@ -1,18 +1,14 @@
-<h1>Turnos#new</h1>
+<h1>Crear Turno</h1>
 
 <%= form_with(model: @turno, method: :post) do |form| %>
 
-    <div>
-        <%= form.label :Id_usuario %>
-        <%= form.text_field :id_usuario%>
-    </div>
     <div>
         <%= form.label :Cantidad_asientos %>
         <%= form.text_field :cantidad_asientos%>
     </div>
     <div>
         <%= form.label :Hora_salida %>
-        <%= form.text_field :hora_salida%>
+        <%= form.time_select :hora_salida%>
     </div>
     <div>
         <%= form.label :Direccion_salida %>
@@ -35,3 +31,5 @@
     </div>
 
 <% end %>
+
+<%= link_to 'Volver', turnos_index_path%>
