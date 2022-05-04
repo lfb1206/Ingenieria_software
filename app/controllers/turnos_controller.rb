@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This class is for the turnos controller
 class TurnosController < ApplicationController
   #### CREATE
   def new

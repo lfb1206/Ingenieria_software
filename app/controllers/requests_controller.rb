@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This class is for the requests controller
 class RequestsController < ApplicationController
   def new
     @request = Request.new
