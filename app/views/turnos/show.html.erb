@@ -34,5 +34,5 @@
     <%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
     <%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>
 <% else %>
-    <%= link_to 'Solicitar', turnos_index_path %>
+    <%= link_to 'Solicitar', requests_new_path %>
 <% end %>

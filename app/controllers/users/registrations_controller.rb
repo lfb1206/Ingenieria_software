@@ -6,6 +6,10 @@ module Users
     before_action :configure_sign_up_params, only: [:create]
     before_action :configure_account_update_params, only: [:update]
 
+    def show
+      @user = User.find(params[:id])
+    end
+
     # GET /resource/sign_up
     # def new
     #   super
@@ -56,7 +60,6 @@ module Users
     #   super(resource)
     # end
   end
-<<<<<<< HEAD
 
   # GET /resource/edit
   # def edit
@@ -104,11 +107,4 @@ module Users
   #   super(resource)
   # end
 
-  # -------------------------
-  def show
-    @user = User.find(params[:id])
-  end
-
-=======
->>>>>>> 854d0633931becd2826d9e7da9e0e2605c832ca8
 end
