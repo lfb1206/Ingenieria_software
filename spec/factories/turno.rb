@@ -1,5 +1,5 @@
 require 'faker'
-
+require 'rails_helper'
 FactoryBot.define do
     factory :turno do
       cantidad_asientos {Faker::Number.between(from: 1, to: 4)}
