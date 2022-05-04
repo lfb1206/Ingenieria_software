@@ -4,7 +4,6 @@
 class TurnosController < ApplicationController
   #### CREATE
   def new
-    puts "NEW -------------------------------------"
     @turno = Turno.new
   end
 

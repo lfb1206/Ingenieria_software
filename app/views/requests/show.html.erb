@@ -1,15 +1,19 @@
-<h1>Requests#show</h1>
+<h1>Solicitud</h1>
 
 <p>
-    <strong>Id_solicitud: </strong>
-    <%= @request.id_solicitud %>
+    <strong>Id Solicitud: </strong>
+    <%= @request.id %>
 </p>
 <p>
-    <strong>id_usuarios: </strong>
+    <strong>Id Usuario Turno: </strong>
     <%= @request.id_usuario %>
 </p>
 <p>
-    <strong>Id_publicacion: </strong>
+    <strong>Id Usuario Solicitud: </strong>
+    <%= @request.id_usuario_solicitud %>
+</p>
+<p>
+    <strong>Id Publicación: </strong>
     <%= @request.id_publicacion %>
 </p>
 <p>
@@ -17,11 +21,11 @@
     <%= @request.estado %>
 </p>
 <p>
-    <strong>Descripcion: </strong>
+    <strong>Descripción: </strong>
     <%= @request.descripcion %>
 </p>
 
 
-<%= link_to 'Volver', requests_index_path%>
+<%= link_to 'Volver', users_show_path(:id => current_user.id)%>
 <%= link_to 'Editar', requests_edit_path(:id => @request.id)%>
 <%= link_to 'Eliminar', requests_delete_path(:id => @request.id), method: :delete%>

@@ -7,7 +7,9 @@ module Users
     before_action :configure_account_update_params, only: [:update]
 
     def show
-      @user = User.find(params[:id])
+      @user = User.find(current_user.id)
+      @turnos = Turno.all
+      @requests = Request.all
     end
 
     # GET /resource/sign_up
