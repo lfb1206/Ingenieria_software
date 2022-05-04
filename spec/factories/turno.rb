@@ -1,11 +1,13 @@
-# frozen_string_literal: true
 require 'faker'
 
-# Una factory nos permitirá crear de manera sencilla instancias de una clase con diferentes valores
-# y sin la necesidad de que nosotros le asignemos los parámetros al momento de crearla.
 FactoryBot.define do
   factory :turno do
-    title { Faker::Lorem.words(number: rand(10..20)) }
-    content { Faker::Lorem.paragraph }
+    cantidad_asientos{Faker::Number.between(from: 1, to: 15)}
+    hora_salida{Faker::Time.between(from: 2.days.ago, to: Time.now, period: :day)}
+    direccion_salida{Faker::Adress.addres}
+    direccion_llegada{Faker::Adress.addres}
+    dia_semana{Faker::randomElement(['Lunes',"Martes", "Miércoles", "Jueves", "Viernes", "Sabado"])}
+    tipo{Faker::randomElement(['Ida',"Llegada"])}
+    association :id_usuario, factory:user
   end
 end

@@ -2,8 +2,10 @@ require 'faker'
 
 FactoryBot.define do
   factory :request do
-    attr1{ value_for_attr_1 }
-    attr2{ Faker::Name.name }
-    attr3{ value_for_attr_3 }
+    estado{Faker::randomElement(['PENDIENTE','ACEPTADO','RECHAZADO'])}
+    descripcion{ Faker::Lorem.sentence}
+    association :id_usuario_solicitud, factory:user
+    association :id_usuario, factory:user
+    association :id_publicacion, factory:turno
   end
 end

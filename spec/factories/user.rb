@@ -1,14 +1,13 @@
-# frozen_string_literal: true
 require 'faker'
 
-# Una factory nos permitirá crear de manera sencilla instancias de una clase con diferentes valores
-# y sin la necesidad de que nosotros le asignemos los parámetros al momento de crearla.
 FactoryBot.define do
-  factory :user do
-    name { Faker::Name.name }
-    description { Faker::Lorem.paragraph }
-    email { Faker::Internet.email }
-    work { Faker::Job.title }
-    age { 21 }
+  factory :request do
+    email{Faker::Internet.safe_email}
+    encrypted_password{Faker::Internet.password(min_length: 6)}
+    name{Faker::Name.first_name}
+    addres{Faker::Adress.addres}
+    description{Faker::Lorem.sentence}
+    gender{Faker::randomElement(['Femenino',"Masculino","Otro"])}
+    phone{Faker::PhoneNumber.phone_number}
   end
 end
