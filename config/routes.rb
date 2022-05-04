@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  ### Request
+  #### REQUEST --------------------------------------
 
   #### CREATE
   get 'requests/new'
@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   #### DELETE
   delete 'requests/delete', to: 'requests#delete', as: 'requests_delete'
 
-  ### Turnos
   #### INICIO
   get '/articles', to: 'articles#index'
+
+  # TURNOS --------------------------------------
 
   #### CREATE
   get 'turnos/new'
@@ -38,8 +39,16 @@ Rails.application.routes.draw do
   #### DELETE
   delete 'turnos/delete', to: 'turnos#delete', as: 'turnos_delete'
 
+  # USERS --------------------------------------
+
   #### DEVISE
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+
+  #### READ
+  devise_scope :user do
+    get 'users/show', to: 'users/registrations#show', as: 'users_show'
+  end
+
 end

@@ -1,4 +1,4 @@
-<h1>Turnos#show</h1>
+<h1>Turno</h1>
 
 <p>
     <strong>Id_usuario: </strong>
@@ -30,5 +30,9 @@
 </p>
 
 <%= link_to 'Volver', turnos_index_path%>
-<%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
-<%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>
+<% if @turno.id_usuario == current_user.id %>
+    <%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
+    <%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>
+<% else %>
+    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id) %>
+<% end %>
