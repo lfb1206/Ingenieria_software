@@ -1,0 +1,55 @@
+<h1>Turno</h1>
+
+<p>
+    <strong>ID Usuario: </strong>
+    <%= @turno.id_usuario %>
+</p>
+<p>
+    <strong>Cantidad Asientos: </strong>
+    <%= @turno.cantidad_asientos %>
+</p>
+<p>
+    <strong>Hora Salida: </strong>
+    <%= @turno.hora_salida %>
+</p>
+<p>
+    <strong>Dirección Salida: </strong>
+    <%= @turno.direccion_salida %>
+</p>
+<p>
+    <strong>Dirección Llegada: </strong>
+    <%= @turno.direccion_llegada %>
+</p>
+<p>
+    <strong>Día Semana: </strong>
+    <%= @turno.dia_semana %>
+</p>
+<p>
+    <strong>Tipo: </strong>
+    <%= @turno.tipo %>
+</p>
+
+<% if @turno.id_usuario == current_user.id%>
+    <br/><h3>Solicitudes Recibidas Procesadas</h3><br/>
+    <div style="display: flex; flex-flow: wrap;">
+        <% @requests.each do |request|%>
+            <%if request.estado == "ACEPTADO and @turno.id_usuario == current_user.id"%>
+                <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+                <p>Id Solicitud: <%= request.id%></p>
+                <p>Id Usuario Turno: <%= request.id_usuario%></p>
+                <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
+                <p>Id Publicación: <%= request.id_publicacion%></p>
+                <p>Estado: <%= request.estado%></p>
+                <p>Descripción: <%= request.descripcion%></p>
+            <% end %>
+    </div>
+    <% end %>
+<% end %>
+
+<%= link_to 'Volver', turnos_index_path%>
+<% if @turno.id_usuario == current_user.id %>
+    <%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
+    <%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>
+<% else %>
+    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id) %>
+<% end %>

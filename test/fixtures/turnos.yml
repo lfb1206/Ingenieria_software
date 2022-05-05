@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_usuario: 1
+  cantidad_asientos: 1
+  hora_salida: 2022-04-26 21:06:35
+  direccion_salida: MyString
+  direccion_llegada: MyString
+  dia_semana: MyString
+  tipo: MyString
+  id_viaje: 1
+
+two:
+  id_usuario: 1
+  cantidad_asientos: 1
+  hora_salida: 2022-04-26 21:06:35
+  direccion_salida: MyString
+  direccion_llegada: MyString
+  dia_semana: MyString
+  tipo: MyString
+  id_viaje: 1

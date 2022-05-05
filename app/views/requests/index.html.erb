@@ -1,0 +1,69 @@
+<h1>Resumen Solicitudes</h1>
+
+<br/><h3>Solicitudes Recibidas Pendientes</h3><br/>
+<div style="display: flex; flex-flow: wrap;">
+    <% @requests.each do |request|%>
+        <%if request.id_usuario == current_user.id and request.estado == "PENDIENTE"%>
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <p>Id Solicitud: <%= request.id%></p>
+            <p>Id Usuario Turno: <%= request.id_usuario%></p>
+            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
+            <p>Id Publicación: <%= request.id_publicacion%></p>
+            <p>Estado: <%= request.estado%></p>
+            <p>Descripción: <%= request.descripcion%></p>
+            <%= link_to 'Responder', requests_edit_path(:id => request.id)%>
+        <% end %>
+</div>
+<% end %>
+<br/>
+
+<br/><h3>Solicitudes Recibidas Procesadas</h3><br/>
+<div style="display: flex; flex-flow: wrap;">
+    <% @requests.each do |request|%>
+        <%if request.id_usuario == current_user.id and request.estado != "PENDIENTE"%>
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <p>Id Solicitud: <%= request.id%></p>
+            <p>Id Usuario Turno: <%= request.id_usuario%></p>
+            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
+            <p>Id Publicación: <%= request.id_publicacion%></p>
+            <p>Estado: <%= request.estado%></p>
+            <p>Descripción: <%= request.descripcion%></p>
+        <% end %>
+</div>
+<% end %>
+<br/>
+
+<br/><h3>Solicitudes Enviadas Pendientes</h3><br/>
+<div style="display: flex; flex-flow: wrap;">
+    <% @requests.each do |request|%>
+        <%if request.id_usuario_solicitud == current_user.id and request.estado == "PENDIENTE"%>
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <p>Id Solicitud: <%= request.id%></p>
+            <p>Id Usuario Turno: <%= request.id_usuario%></p>
+            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
+            <p>Id Publicación: <%= request.id_publicacion%></p>
+            <p>Estado: <%= request.estado%></p>
+            <p>Descripción: <%= request.descripcion%></p>
+            <%= link_to 'Editar', requests_edit_path(:id => request.id)%>
+        <% end %>
+</div>
+<% end %>
+<br/>
+
+<br/><h3>Solicitudes Enviadas Procesadas</h3><br/>
+<div style="display: flex; flex-flow: wrap;">
+    <% @requests.each do |request|%>
+        <%if request.id_usuario_solicitud != current_user.id and request.estado != "PENDIENTE"%>
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <p>Id Solicitud: <%= request.id%></p>
+            <p>Id Usuario Turno: <%= request.id_usuario%></p>
+            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
+            <p>Id Publicación: <%= request.id_publicacion%></p>
+            <p>Estado: <%= request.estado%></p>
+            <p>Descripción: <%= request.descripcion%></p>
+        <% end %>
+</div>
+<% end %>
+<br/>
+
+

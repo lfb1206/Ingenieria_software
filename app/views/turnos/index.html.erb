@@ -1,0 +1,73 @@
+<h2>Turnos</h2>
+
+<li><%= link_to 'Nuevo turno', turnos_new_path %></li>
+<br>
+
+<h3>Turnos Activos</h3>
+<div style="display: flex; flex-flow: wrap;">
+    <% @turnos.each do |turno|%>
+        <%if turno.id_usuario != current_user.id and turno.estado == "ACTIVO"%>
+            <div style="border: solid 1px; width: 200px; 
+            padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
+            <b>ID Conductor </b><p><%= @users.find(turno.id_usuario).id%></p>
+            <b>Conductor </b><p><%= @users.find(turno.id_usuario).name%></p>
+            <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%></p>
+            <b>Hora salida </b><p><%= turno.hora_salida%></p>
+            <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+            <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+            <b>Tipo </b><p><%= turno.tipo%><p>
+            <b>Estado </b><p><%= turno.estado%><p>
+            <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+        <% end %>
+</div>
+<% end %>
+
+<h3>Turnos Solicitados Confirmados</h3>
+<div style="display: flex; flex-flow: wrap; ">
+    <% @requests.each do |request|%>
+        <%if request.id_usuario_solicitud == current_user.id %>
+            <% @turno = Turno.find(request.id_publicacion)%> 
+            <%if @turno.estado == "CONFIRMADO"%>
+                <div style="border: solid 1px; width: 200px; 
+                padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+                <% @user = User.find(@turno.id_usuario)%>
+                <b>ID Conductor </b><p><%= @user.id%></p>
+                <b>Conductor </b><p><%= @user.name%></p>
+                <b>Cantidad asientos </b><p><%= @turno.cantidad_asientos%></p>
+                <b>Hora salida </b><p><%= @turno.hora_salida%></p>
+                <b>Dirección salida </b><p><%= @turno.direccion_salida%></p>
+                <b>Dirección llegada </b><p><%= @turno.direccion_llegada%></p>
+                <b>Día de la semana </b><p><%= @turno.dia_semana%></p>
+                <b>Tipo </b><p><%= @turno.tipo%></p>
+                <b>Estado </b><p><%= @turno.estado%></p>
+                <b></b><p><%= link_to 'Mensajes', turnos_index_path %></p>
+            <% end %>
+        <% end %>
+</div>
+<% end %>
+<br/>
+
+<h3>Turnos Solicitados Completados</h3>
+<div style="display: flex; flex-flow: wrap; ">
+    <% @requests.each do |request|%>
+        <%if request.id_usuario_solicitud == current_user.id %>
+            <% @turno = Turno.find(request.id_publicacion)%> 
+            <%if @turno.estado == "COMPLETADO"%>
+                <div style="border: solid 1px; width: 200px; 
+                padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+                <b>ID Conductor </b><p><%= @user.id%></p>
+                <b>Conductor </b><p><%= @user.name%></p>
+                <b>Cantidad asientos </b><p><%= @turno.cantidad_asientos%></p>
+                <b>Hora salida </b><p><%= @turno.hora_salida%></p>
+                <b>Dirección salida </b><p><%= @turno.direccion_salida%></p>
+                <b>Dirección llegada </b><p><%= @turno.direccion_llegada%></p>
+                <b>Día de la semana </b><p><%= @turno.dia_semana%></p>
+                <b>Tipo </b><p><%= @turno.tipo%></p>
+                <b>Estado </b><p><%= @turno.estado%></p>
+                <b></b><p><%= link_to 'Reseñas', turnos_index_path %></p>
+            <% end %>
+        <% end %>
+</div>
+<% end %>
+<br/>

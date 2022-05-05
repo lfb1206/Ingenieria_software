@@ -1,0 +1,91 @@
+<h1>Cuenta</h1>
+
+<h3>Datos Personales</h3>
+<p>
+    <strong>Id usuario:</strong>
+    <%= @user.id %>
+</p>
+<p>
+    <strong>Nombre:</strong>
+    <%= @user.name %>
+</p>
+<p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+</p>
+<p>
+    <strong>Dirección:</strong>
+    <%= @user.address %>
+</p>
+<p>
+    <strong>Género:</strong>
+    <%= @user.gender %>
+</p>
+<p>
+    <strong>Teléfono:</strong>
+    <%= @user.phone %>
+</p>
+
+<h3>Turnos Publicados Activos</h3>
+<div style="display: flex; flex-flow: wrap; ">
+    <% @turnos.each do |turno|%>
+        <%if turno.id_usuario == current_user.id and turno.estado == "ACTIVO"%>
+            <div style="border: solid 1px; width: 200px; 
+            padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+            <b>ID Conductor </b><p><%= @user.id%></p>
+            <b>Conductor </b><p><%= @user.name%></p>
+            <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%></p>
+            <b>Hora salida </b><p><%= turno.hora_salida%></p>
+            <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+            <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+            <b>Tipo </b><p><%= turno.tipo%></p>
+            <b>Estado </b><p><%= turno.estado%></p>
+            <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+        <% end %>
+</div>
+<% end %>
+<br/>
+
+<h3>Turnos Publicados Confirmados</h3>
+<div style="display: flex; flex-flow: wrap; ">
+    <% @turnos.each do |turno|%>
+        <%if turno.id_usuario == current_user.id and turno.estado == "CONFIRMADO"%>
+            <div style="border: solid 1px; width: 200px; 
+            padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+            <b>ID Conductor </b><p><%= @user.id%></p>
+            <b>Conductor </b><p><%= @user.name%></p>
+            <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%></p>
+            <b>Hora salida </b><p><%= turno.hora_salida%></p>
+            <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+            <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+            <b>Tipo </b><p><%= turno.tipo%></p>
+            <b>Estado </b><p><%= turno.estado%></p>
+            <b></b><p><%= link_to 'Mensajes', turnos_index_path %></p>
+            <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+        <% end %>
+</div>
+<% end %>
+<br/>
+
+<h3>Turnos Publicados Completados</h3>
+<div style="display: flex; flex-flow: wrap; ">
+    <% @turnos.each do |turno|%>
+        <%if turno.id_usuario == current_user.id and turno.estado == "COMPLETADO"%>
+            <div style="border: solid 1px; width: 200px; 
+            padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+            <b>ID Conductor </b><p><%= @user.id%></p>
+            <b>Conductor </b><p><%= @user.name%></p>
+            <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%></p>
+            <b>Hora salida </b><p><%= turno.hora_salida%></p>
+            <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+            <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+            <b>Tipo </b><p><%= turno.tipo%></p>
+            <b>Estado </b><p><%= turno.estado%></p>
+            <b></b><p><%= link_to 'Reseñas', turnos_index_path %></p>
+        <% end %>
+</div>
+<% end %>
+<br/>
