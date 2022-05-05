@@ -4,20 +4,19 @@ require 'rails_helper'
 require 'factories/turno'
 require 'faker'
 
-
 RSpec.describe Turno, type: :model do
   # Todo lo que está dentro de este bloque se ejecutará una vez antes de cada it
-  #let(:turno) { create(:turno) }
+  # let(:turno) { create(:turno) }
   before(:each) do
     @attr_user = {
-      id_usuario: Faker::Number.between(from: 1, to: 10000),
+      id_usuario: Faker::Number.between(from: 1, to: 10_000),
       cantidad_asientos: Faker::Number.between(from: 1, to: 4),
       hora_salida: '13:50',
       direccion_salida: Faker::Address.full_address,
       direccion_llegada: Faker::Address.full_address,
-      dia_semana: ['Lunes','Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'].sample,
-      tipo: ['Ida','Vuelta'].sample,
-      estado: ['ACTIVO','CONFIRMADO','COMPLETADO'].sample
+      dia_semana: %w[Lunes Martes Miércoles Jueves Viernes Sabado].sample,
+      tipo: %w[Ida Vuelta].sample,
+      estado: %w[ACTIVO CONFIRMADO COMPLETADO].sample
     }
     @turno = Turno.create!(@attr_user)
   end

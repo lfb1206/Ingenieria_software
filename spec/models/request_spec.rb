@@ -12,5 +12,4 @@ RSpec.describe Request, type: :model do
   it 'is valid with valid attributes' do
     expect(request).to be_valid
   end
-  
 end

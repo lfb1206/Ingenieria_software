@@ -50,5 +50,4 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users/show', to: 'users/registrations#show', as: 'users_show'
   end
-
 end
