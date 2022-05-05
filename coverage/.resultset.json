@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/user.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -18,7 +18,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/application_record.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -28,7 +28,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/application_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -37,7 +37,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/articles_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/articles_helper.rb": {
         "lines": [
           null,
           null,
@@ -46,7 +46,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/requests_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/requests_helper.rb": {
         "lines": [
           null,
           null,
@@ -55,7 +55,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/turnos_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/turnos_helper.rb": {
         "lines": [
           null,
           null,
@@ -64,7 +64,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/request.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/request.rb": {
         "lines": [
           null,
           null,
@@ -72,7 +72,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/turno.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/turno.rb": {
         "lines": [
           null,
           null,
@@ -85,7 +85,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/application_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -94,7 +94,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/users/registrations_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/users/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -210,7 +210,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/requests_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/requests_controller.rb": {
         "lines": [
           null,
           null,
@@ -286,7 +286,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/mailers/application_mailer.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -298,7 +298,7 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/jobs/application_job.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/jobs/application_job.rb": {
         "lines": [
           null,
           null,
@@ -313,7 +313,7 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/turnos_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/turnos_controller.rb": {
         "lines": [
           null,
           null,
@@ -373,7 +373,7 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/articles_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/articles_controller.rb": {
         "lines": [
           null,
           null,
@@ -385,7 +385,7 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/channels/application_cable/connection.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
@@ -397,7 +397,7 @@
         "branches": {
         }
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/channels/application_cable/channel.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -410,6 +410,6 @@
         }
       }
     },
-    "timestamp": 1651716499
+    "timestamp": 1651719194
   }
 }
