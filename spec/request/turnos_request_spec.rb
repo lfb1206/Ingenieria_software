@@ -19,7 +19,7 @@ class TurnosTest < ActiveSupport::TestCase
         describe 'get turnos/new' do
             # Comportamiento esperado
             it 'should return a successful request' do
-                get 'turnos/new'
+                get '/turnos/new'
                 # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
                 expect(response).to have_http_status(302)
             end
@@ -40,7 +40,7 @@ class TurnosTest < ActiveSupport::TestCase
             it 'should increase count of Request by 1' do
                 # Se espera que el bloque de código entregado cambie la cuenta de Publcation en 1 (al poner 1 es +1).
                 expect do
-                    post '/turnos/new', params: {turno: turno}
+                    post '/turnos', params: {turno: turno}
                 end.to change(Turno, :count).by(1)
             end
         end
