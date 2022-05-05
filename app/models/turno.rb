@@ -6,4 +6,5 @@ class Turno < ApplicationRecord
   validates :direccion_llegada, presence: true, length: { minimum: 1 }
   validates :dia_semana, presence: true, length: { minimum: 5, maximum: 9 }
   validates :tipo, presence: true, length: { minimum: 3, maximum: 6 }
+  validates :hora_salida, presence: true
 end

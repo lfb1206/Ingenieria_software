@@ -22,14 +22,14 @@ class RequestTest < ActiveSupport::TestCase
                 # Se le señala a Rails que se haga un GET a la ruta /requests
                 get '/requests/index'
                 # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
             end
         end
 
         describe 'get new' do
             it 'should return a successful request' do
                 get '/requests/new'
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
             end
         end
 
@@ -46,13 +46,13 @@ class RequestTest < ActiveSupport::TestCase
         describe 'get_show' do
             it 'should return a successful request' do
                 get "/requests/show/?id=#{request.id}"
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
             end
         end
         describe 'edit' do
             it 'should return a successful request' do
                 get "/requests/edit?id=#{request.id}"
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
         
             end
         end

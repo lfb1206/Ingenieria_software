@@ -12,13 +12,13 @@ RSpec.describe Turno, type: :model do
     @attr_user = {
       id_usuario: Faker::Number.between(from: 1, to: 10000),
       cantidad_asientos: Faker::Number.between(from: 1, to: 4),
-      hora_salida: Time.now,
+      hora_salida: '13:50',
       direccion_salida: Faker::Address.full_address,
       direccion_llegada: Faker::Address.full_address,
       dia_semana: ['Lunes','Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'].sample,
-      tipo: ['Ida','Vuelta'].sample
+      tipo: ['Ida','Vuelta'].sample,
+      estado: ['ACTIVO','CONFIRMADO','COMPLETADO'].sample
     }
-    puts Time.now.to_time
     @turno = Turno.create!(@attr_user)
   end
 

@@ -9,6 +9,7 @@ FactoryBot.define do
       direccion_llegada {Faker::Address.full_address}
       dia_semana {['Lunes','Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'].sample}
       tipo {['Ida','Vuelta'].sample}
+      estado {['ACTIVO','CONFIRMADO','COMPLETADO'].sample}
     end
 end
 

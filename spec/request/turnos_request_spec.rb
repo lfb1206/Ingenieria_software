@@ -16,12 +16,12 @@ class TurnosTest < ActiveSupport::TestCase
         let(:request) {create(:request)}
 
         # Se describe lo que se testea
-        describe 'get new' do
+        describe 'get turnos/new' do
             # Comportamiento esperado
             it 'should return a successful request' do
-                get '/turnos/new'
+                get 'turnos/new'
                 # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
             end
         end
 
@@ -31,7 +31,7 @@ class TurnosTest < ActiveSupport::TestCase
                 # Se le señala a Rails que se haga un GET a la ruta /request
                 get '/turnos/index'
                 # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
             end
         end
 
@@ -48,13 +48,13 @@ class TurnosTest < ActiveSupport::TestCase
         describe 'edit' do
             it 'should return a successful request' do
                 get "/turnos/edit?id=#{turno.id}"
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
             end
         end
         describe 'get_show' do
             it 'should return a successful request' do
                 get "/turnos/show?id=#{turno.id}"
-                expect(response).to have_http_status(:ok)
+                expect(response).to have_http_status(302)
         
             end
         end
