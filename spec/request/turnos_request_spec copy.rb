@@ -4,7 +4,7 @@ require 'factories/request'
 require 'factories/user'
 require 'factories/turno'
 
-class RequestTest < ActiveSupport::TestCase
+class TurnosTest < ActiveSupport::TestCase
 
     # Se agrupan todos los tests relacionados al controlador de Profiles, con esta línea se le dice a Rails que será testeado
     RSpec.describe 'Turno', type: :turno do

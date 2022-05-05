@@ -2,11 +2,25 @@
 
 require 'rails_helper'
 require 'factories/turno'
+require 'faker'
 
 
 RSpec.describe Turno, type: :model do
   # Todo lo que está dentro de este bloque se ejecutará una vez antes de cada it
-  let(:turno) { create(:turno) }
+  #let(:turno) { create(:turno) }
+  before(:each) do
+    @attr_user = {
+      id_usuario: Faker::Number.between(from: 1, to: 10000),
+      cantidad_asientos: Faker::Number.between(from: 1, to: 4),
+      hora_salida: Time.now,
+      direccion_salida: Faker::Address.full_address,
+      direccion_llegada: Faker::Address.full_address,
+      dia_semana: ['Lunes','Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'].sample,
+      tipo: ['Ida','Vuelta'].sample
+    }
+    puts Time.now.to_time
+    @turno = Turno.create!(@attr_user)
+  end
 
   it 'is valid with valid attributes' do
     expect(@turno).to be_valid
@@ -18,7 +32,7 @@ RSpec.describe Turno, type: :model do
   end
 
   it 'is not valid with a string instead of a numbre' do
-    @turno.cantidad_asientos = aaa
+    @turno.cantidad_asientos = 'aaa'
     expect(@turno).not_to be_valid
   end
 
