@@ -12,5 +12,6 @@ FactoryBot.define do
     dia_semana { %w[Lunes Martes Miércoles Jueves Viernes Sabado].sample }
     tipo { %w[Ida Vuelta].sample }
     estado { %w[ACTIVO CONFIRMADO COMPLETADO].sample }
+    association :user, factory: :user
   end
 end
