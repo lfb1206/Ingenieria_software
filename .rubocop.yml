@@ -39,6 +39,13 @@ Layout/EmptyLinesAroundMethodBody:
   Enabled: true
 Layout/ArrayAlignment:
   Enabled: true
+Layout/EndOfLine:
+  Enabled: false
+
+# Metrics
+Metrics/BlockLength:
+  Max: 150
+  Enables: true
 
 # Naming
 Naming/ConstantName:
