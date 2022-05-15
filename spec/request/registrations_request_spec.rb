@@ -10,7 +10,8 @@ class RegistrationsTest < ActiveSupport::TestCase
   # Se agrupan todos los tests relacionados al controlador de Users, con esta línea se le dice a Rails que será testeado
   RSpec.describe 'User', type: :request do
     # Aquí se utiliza la factory de Request para la creación de una publicación
-    
+    let!(:user) { create(:user) }
+    let!(:user2) { create(:user) }
 
     describe 'get_in' do
       it 'should return a successful request' do

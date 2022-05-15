@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Turno < ApplicationRecord
+  has_many :requests
+  has_many :users, :through => :requests
   validates :cantidad_asientos, presence: true,
                                 numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 4 }
   validates :direccion_salida, presence: true, length: { minimum: 1 }
