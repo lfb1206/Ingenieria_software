@@ -1,0 +1,16 @@
+<h1>Reseñas</h1>
+
+<%= notice %>
+
+<div style="display: flex; flex-flow: row wrap; ">
+    <% @resenas.each do |resena|%>
+        <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+        <p>ID Reseña: <%= resena.id%><p>
+        <p>ID Viaje: <%= resena.id_viaje%><p>
+        <p>ID Usuario Evaluador: <%= resena.id_usuario_evaluador%><p>
+        <p>ID Usuario Evaluado: <%= resena.id_usuario_evaluado%><p>
+        <p>Contenido: <%= resena.contenido%><p>
+        <p>Calificación: <%= resena.calificacion%><p>
+        <p><%= link_to 'Ver detalles', turnos_index_path %></p>
+</div>
+<% end %>

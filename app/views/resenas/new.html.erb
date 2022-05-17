@@ -1,0 +1,31 @@
+<h1>Nueva reseña</h1>
+
+<%= form_with(model: @resena, method: :post) do |form| %>
+
+    <div>
+        <%= form.label :ID_Viaje %>
+        <%= form.text_field :id_viaje%>
+    </div>
+    <div>
+        <%= form.label :ID_Cliente_Evaluador %>
+        <%= form.text_field :id_cliente_evaluador%>
+    </div>
+    <div>
+        <%= form.label :ID_Cliente_Evaluado %>
+        <%= form.text_field :id_cliente_evaluado%>
+    </div>
+    <div>
+        <%= form.label :Contenido %>
+        <%= form.text_field :contenido%>
+    </div>
+    <div>
+        <%= form.label :Calificación %>
+        <%= form.text_field :calificacion%>
+    </div>
+    <div>
+        <%= form.submit 'Enviar solicitud' %>
+        <%= print("Se apreto el boton") %>
+    </div>
+
+<%= link_to 'Volver', turnos_index_path %>
+<% end %>

@@ -19,6 +19,7 @@
       <b>Opciones</b>
       <li><%= link_to "Turnos", turnos_index_path %></li>
       <li><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></li>
+      <li><%= link_to "Reseñas", resenas_index_path %></li>
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
     <% end %>
 

@@ -1,0 +1,2 @@
+class Resena < ApplicationRecord
+end
