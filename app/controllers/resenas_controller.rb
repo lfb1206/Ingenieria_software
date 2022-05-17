@@ -5,7 +5,7 @@ class ResenasController < ApplicationController
   end
 
   def create
-    @resenas_params = params.require(:request).permit(:id_viaje, :id_cliente_evaluador, :id_cliente_evaluado, :contenido, :calificacion)
+    @resenas_params = params.require(:resena).permit(:id_viaje, :id_cliente_evaluador, :id_cliente_evaluado, :contenido, :calificacion)
     @resena = Resena.create(@resenas_params)
 
     if @resena.update(@resenas_params)
@@ -22,11 +22,29 @@ class ResenasController < ApplicationController
   end
 
   def show
+    @resena = Resena.find(params[:id])
   end
 
   #### UPDATE
   def edit
+    @resena = Resena.find(params[:id])
+  end
+
+  def update
+    @resena = Resena.find(params[:id])
+    @resenas_params = params.require(:resena).permit(:id_viaje, :id_cliente_evaluador, :id_cliente_evaluado, :contenido, :calificacion)
+    if @resena.update(@resenas_params)
+      redirect_to resenas_index_path, notice: 'Reseña editada exitosamente'
+    else
+      redirect_to resenas_index_path, notice: 'Error al editar reseña'
+    end
   end
 
   #### DELETE
+  def delete
+    @resena = Resena.find(params[:id])
+    @resena.destroy
+
+    redirect_to resenas_index_path, notice: 'Reseña eliminado'
+  end
 end
