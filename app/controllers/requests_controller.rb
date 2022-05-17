@@ -9,10 +9,10 @@ class RequestsController < ApplicationController
 
   def create
     @requests_params = params.require(:request).permit(:id_turno, :id_usuario_turno, :descripcion)
-    @requests_params.merge!(:id_publicacion => params["id_turno"])
-    @requests_params.merge!(:id_usuario => params["id_usuario_turno"])
-    @requests_params.merge!(:estado => "PENDIENTE")
-    @requests_params.merge!(:id_usuario_solicitud => current_user.id)
+    @requests_params.merge!(id_publicacion: params['id_turno'])
+    @requests_params.merge!(id_usuario: params['id_usuario_turno'])
+    @requests_params.merge!(estado: 'PENDIENTE')
+    @requests_params.merge!(id_usuario_solicitud: current_user.id)
     puts @requests_params
     @request = Request.create(@requests_params)
     if @request.id_usuario == current_user.id

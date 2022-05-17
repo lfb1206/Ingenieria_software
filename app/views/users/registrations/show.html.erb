@@ -26,10 +26,10 @@
     <%= @user.phone %>
 </p>
 
-<h3>Turnos Publicados</h3>
+<h3>Turnos Publicados Activos</h3>
 <div style="display: flex; flex-flow: wrap; ">
     <% @turnos.each do |turno|%>
-        <%if turno.id_usuario == current_user.id%>
+        <%if turno.id_usuario == current_user.id and turno.estado == "ACTIVO"%>
             <div style="border: solid 1px; width: 200px; 
             padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
             <b>ID Conductor </b><p><%= @user.id%></p>
@@ -40,73 +40,51 @@
             <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
             <b>Día de la semana </b><p><%= turno.dia_semana%></p>
             <b>Tipo </b><p><%= turno.tipo%></p>
+            <b>Estado </b><p><%= turno.estado%></p>
             <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
         <% end %>
 </div>
 <% end %>
 <br/>
 
-<br/><h3>Solicitudes Recibidas Pendientes</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
-    <% @requests.each do |request|%>
-        <%if request.id_usuario == current_user.id and request.estado == "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-            <p>Id Solicitud: <%= request.id%></p>
-            <p>Id Usuario Turno: <%= request.id_usuario%></p>
-            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
-            <p>Id Publicación: <%= request.id_publicacion%></p>
-            <p>Estado: <%= request.estado%></p>
-            <p>Descripción: <%= request.descripcion%></p>
-            <%= link_to 'Responder', requests_edit_path(:id => request.id)%>
+<h3>Turnos Publicados Confirmados</h3>
+<div style="display: flex; flex-flow: wrap; ">
+    <% @turnos.each do |turno|%>
+        <%if turno.id_usuario == current_user.id and turno.estado == "CONFIRMADO"%>
+            <div style="border: solid 1px; width: 200px; 
+            padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+            <b>ID Conductor </b><p><%= @user.id%></p>
+            <b>Conductor </b><p><%= @user.name%></p>
+            <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%></p>
+            <b>Hora salida </b><p><%= turno.hora_salida%></p>
+            <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+            <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+            <b>Tipo </b><p><%= turno.tipo%></p>
+            <b>Estado </b><p><%= turno.estado%></p>
+            <b></b><p><%= link_to 'Mensajes', turnos_index_path %></p>
+            <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
         <% end %>
 </div>
 <% end %>
 <br/>
 
-<br/><h3>Solicitudes Recibidas Procesadas</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
-    <% @requests.each do |request|%>
-        <%if request.id_usuario == current_user.id and request.estado != "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-            <p>Id Solicitud: <%= request.id%></p>
-            <p>Id Usuario Turno: <%= request.id_usuario%></p>
-            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
-            <p>Id Publicación: <%= request.id_publicacion%></p>
-            <p>Estado: <%= request.estado%></p>
-            <p>Descripción: <%= request.descripcion%></p>
-        <% end %>
-</div>
-<% end %>
-<br/>
-
-<br/><h3>Solicitudes Enviadas Pendientes</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
-    <% @requests.each do |request|%>
-        <%if request.id_usuario_solicitud == current_user.id%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-            <p>Id Solicitud: <%= request.id%></p>
-            <p>Id Usuario Turno: <%= request.id_usuario%></p>
-            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
-            <p>Id Publicación: <%= request.id_publicacion%></p>
-            <p>Estado: <%= request.estado%></p>
-            <p>Descripción: <%= request.descripcion%></p>
-            <%= link_to 'Editar', requests_edit_path(:id => request.id)%>
-        <% end %>
-</div>
-<% end %>
-<br/>
-
-<br/><h3>Solicitudes Enviadas Procesadas</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
-    <% @requests.each do |request|%>
-        <%if request.id_usuario_solicitud != current_user.id%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-            <p>Id Solicitud: <%= request.id%></p>
-            <p>Id Usuario Turno: <%= request.id_usuario%></p>
-            <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
-            <p>Id Publicación: <%= request.id_publicacion%></p>
-            <p>Estado: <%= request.estado%></p>
-            <p>Descripción: <%= request.descripcion%></p>
+<h3>Turnos Publicados Completados</h3>
+<div style="display: flex; flex-flow: wrap; ">
+    <% @turnos.each do |turno|%>
+        <%if turno.id_usuario == current_user.id and turno.estado == "COMPLETADO"%>
+            <div style="border: solid 1px; width: 200px; 
+            padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
+            <b>ID Conductor </b><p><%= @user.id%></p>
+            <b>Conductor </b><p><%= @user.name%></p>
+            <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%></p>
+            <b>Hora salida </b><p><%= turno.hora_salida%></p>
+            <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+            <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+            <b>Tipo </b><p><%= turno.tipo%></p>
+            <b>Estado </b><p><%= turno.estado%></p>
+            <b></b><p><%= link_to 'Reseñas', turnos_index_path %></p>
         <% end %>
 </div>
 <% end %>
