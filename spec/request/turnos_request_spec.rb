@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'faker'
-require 'factories/request'
-require 'factories/user'
-require 'factories/turno'
 
 class TurnosTest < ActiveSupport::TestCase
   # Se agrupan todos los tests relacionados al controlador de Profiles, con esta línea se le dice a Rails que será testeado
   RSpec.describe 'Turno', type: :request do
     # Aquí se utiliza la factory de Request para la creación de una publicación
-    let!(:user) { create(:user) }
-    let!(:user2) { create(:user) }
+    before do
+      @user = FactoryBot.create(:user)
+      sign_in @user
+    end
     let!(:turno) { create(:turno) }
     let!(:request) { create(:request) }
 
@@ -21,7 +19,7 @@ class TurnosTest < ActiveSupport::TestCase
       it 'should return a successful request' do
         get '/turnos/new'
         # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -31,7 +29,7 @@ class TurnosTest < ActiveSupport::TestCase
         # Se le señala a Rails que se haga un GET a la ruta /request
         get '/turnos/index'
         # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -48,13 +46,13 @@ class TurnosTest < ActiveSupport::TestCase
     describe 'edit' do
       it 'should return a successful request' do
         get "/turnos/edit?id=#{turno.id}"
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:ok)
       end
     end
     describe 'get_show' do
       it 'should return a successful request' do
         get "/turnos/show?id=#{turno.id}"
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:ok)
       end
     end
   end

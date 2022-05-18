@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_161323) do
   create_table "turnos", force: :cascade do |t|
     t.integer "id_usuario"
     t.integer "cantidad_asientos"
-    t.time "hora_salida"
+    t.string "hora_salida"
     t.string "direccion_salida"
     t.string "direccion_llegada"
     t.string "dia_semana"

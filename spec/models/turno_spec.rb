@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'factories/turno'
-require 'faker'
 
 RSpec.describe Turno, type: :model do
   # Todo lo que está dentro de este bloque se ejecutará una vez antes de cada it

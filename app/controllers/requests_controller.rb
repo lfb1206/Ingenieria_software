@@ -2,6 +2,8 @@
 
 # This class is for the requests controller
 class RequestsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @request = Request.new
     @turno = Turno.find(params[:id])
