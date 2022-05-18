@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 class RegistrationsTest < ActiveSupport::TestCase
-  # Se agrupan todos los tests relacionados al controlador de Users, con esta línea se le dice a Rails que será testeado
+  # Se agrupan todos los tests relacionados al controlador de Users, se le dice a Rails que será testeado
   RSpec.describe 'User', type: :request do
     # Aquí se utiliza la factory de Request para la creación de una publicación
 

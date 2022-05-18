@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-18T08:20:51-04:00">2022-05-18T08:20:51-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-18T09:02:31-04:00">2022-05-18T09:02:31-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -238,7 +238,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#0e7a7eaed40601a772dd8515a0d35cfa754e2ecd" class="src_link" title="app/models/turno.rb">app/models/turno.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">11</td>
+            <td class="cell--number">12</td>
             <td class="cell--number">7</td>
             <td class="cell--number">7</td>
             <td class="cell--number">0</td>
@@ -534,7 +534,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#0e7a7eaed40601a772dd8515a0d35cfa754e2ecd" class="src_link" title="app/models/turno.rb">app/models/turno.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">11</td>
+            <td class="cell--number">12</td>
             <td class="cell--number">7</td>
             <td class="cell--number">7</td>
             <td class="cell--number">0</td>
@@ -4423,7 +4423,7 @@
 
             
 
-            <code class="ruby">  validates :cantidad_asientos, presence: true,</code>
+            <code class="ruby">  validates :cantidad_asientos,</code>
           </li>
         </div>
       
@@ -4434,18 +4434,18 @@
 
             
 
-            <code class="ruby">                                numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 4 }</code>
+            <code class="ruby">            presence: true,</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="6">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="6">
+            
             
 
             
 
-            <code class="ruby">  validates :direccion_salida, presence: true, length: { minimum: 1 }</code>
+            <code class="ruby">            numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 4 }</code>
           </li>
         </div>
       
@@ -4456,7 +4456,7 @@
 
             
 
-            <code class="ruby">  validates :direccion_llegada, presence: true, length: { minimum: 1 }</code>
+            <code class="ruby">  validates :direccion_salida, presence: true, length: { minimum: 1 }</code>
           </li>
         </div>
       
@@ -4467,7 +4467,7 @@
 
             
 
-            <code class="ruby">  validates :dia_semana, presence: true, length: { minimum: 5, maximum: 9 }</code>
+            <code class="ruby">  validates :direccion_llegada, presence: true, length: { minimum: 1 }</code>
           </li>
         </div>
       
@@ -4478,7 +4478,7 @@
 
             
 
-            <code class="ruby">  validates :tipo, presence: true, length: { minimum: 3, maximum: 6 }</code>
+            <code class="ruby">  validates :dia_semana, presence: true, length: { minimum: 5, maximum: 9 }</code>
           </li>
         </div>
       
@@ -4489,12 +4489,23 @@
 
             
 
+            <code class="ruby">  validates :tipo, presence: true, length: { minimum: 3, maximum: 6 }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">  validates :hora_salida, presence: true</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="11">
+          <li class="never" data-hits="" data-linenumber="12">
             
             
 

@@ -43,9 +43,8 @@ Layout/EndOfLine:
   Enabled: false
 
 # Metrics
-Metrics/BlockLength:
-  Max: 150
-  Enables: true
+Metrics:
+  Enabled: false
 
 # Naming
 Naming/ConstantName:
