@@ -11,7 +11,6 @@ class TurnosTest < ActiveSupport::TestCase
       sign_in @user
     end
     let!(:turno) { create(:turno) }
-    let!(:request) { create(:request) }
 
     # Se describe lo que se testea
     describe 'get turnos/new' do

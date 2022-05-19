@@ -49,13 +49,13 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
     @requests_params = params.require(:request).permit(:estado, :descripcion)
-    if @request.id_usuario == current_user.id
+    if @request.turno.user_id == current_user.id
       if @request.update(@requests_params)
         redirect_to users_show_path, notice: 'Solicitud editada exitosamente'
       else
         redirect_to users_show_path, notice: 'Error al editar solicitud'
       end
-    elsif @request.id_usuario_solicitud == current_user.id
+    elsif @request.user_id == current_user.id
       if @request.update(@requests_params)
         redirect_to turnos_index_path, notice: 'Solicitud editada exitosamente'
       else

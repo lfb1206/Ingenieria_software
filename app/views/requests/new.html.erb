@@ -1,16 +1,13 @@
 <h1>Nueva solicitud</h1>
 
-<%= form_with(model: @request, method: :post) do |form| %>
+<%= form_for @request do |form| %>
 
-    <%= hidden_field_tag :id_turno, @turno.id %>
-    <%= hidden_field_tag :id_usuario_turno, @turno.id_usuario %>
     <div>
         <%= form.label :Descripción %>
         <%= form.text_field :descripcion%>
     </div>
     <div>
         <%= form.submit 'Enviar solicitud' %>
-        <%= print("Se apreto el boton") %>
     </div>
 
 <%= link_to 'Volver', turnos_show_path(:id => @turno.id) %>

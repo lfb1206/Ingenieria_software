@@ -20,7 +20,7 @@ class TurnosController < ApplicationController
     @turnos_params.delete('hora_salida(3i)')
     @turnos_params.delete('hora_salida(4i)')
     @turnos_params.delete('hora_salida(5i)')
-    @turnos_params.merge!(id_usuario: current_user.id)
+    @turnos_params.merge!(user_id: current_user.id)
     @turnos_params.merge!(estado: 'ACTIVO')
     @turno = Turno.create(@turnos_params)
     if @turno.save
@@ -51,7 +51,7 @@ class TurnosController < ApplicationController
     @turno = Turno.find(params[:id])
     @turnos_params = params.require(:turno).permit(:cantidad_asientos, :hora_salida,
                                                    :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado)
-    @turnos_params.merge!(id_usuario: current_user.id)
+    @turnos_params.merge!(user_id: current_user.id)
     if @turno.update(@turnos_params)
       redirect_to turnos_index_path, notice: 'Turno editado exitosamente'
     else

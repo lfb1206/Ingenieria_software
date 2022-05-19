@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_161323) do
+ActiveRecord::Schema.define(version: 2022_05_19_024237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "requests", force: :cascade do |t|
-    t.integer "id_usuario"
-    t.integer "id_publicacion"
     t.string "estado"
     t.text "descripcion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "id_usuario_solicitud"
+    t.bigint "turno_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["turno_id"], name: "index_requests_on_turno_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "turnos", force: :cascade do |t|
-    t.integer "id_usuario"
     t.integer "cantidad_asientos"
     t.string "hora_salida"
     t.string "direccion_salida"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2022_05_04_161323) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "estado"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_turnos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,4 +57,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_161323) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "requests", "turnos"
+  add_foreign_key "requests", "users"
+  add_foreign_key "turnos", "users"
 end
