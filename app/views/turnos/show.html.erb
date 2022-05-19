@@ -47,6 +47,7 @@
 <% end %>
 
 <%= link_to 'Volver', turnos_index_path%>
+<%= link_to 'Reseñas', resenas_index_path(:id_viaje => @turno.id)%>
 <% if @turno.id_usuario == current_user.id %>
     <%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
     <%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>

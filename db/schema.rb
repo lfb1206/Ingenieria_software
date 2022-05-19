@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_17_003707) do
+ActiveRecord::Schema.define(version: 2022_05_17_031953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 2022_05_17_003707) do
     t.float "calificacion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "turnos_id"
+    t.bigint "users_id"
+    t.index ["turnos_id"], name: "index_resenas_on_turnos_id"
+    t.index ["users_id"], name: "index_resenas_on_users_id"
   end
 
   create_table "turnos", force: :cascade do |t|
@@ -65,4 +69,6 @@ ActiveRecord::Schema.define(version: 2022_05_17_003707) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "resenas", "turnos", column: "turnos_id"
+  add_foreign_key "resenas", "users", column: "users_id"
 end

@@ -8,4 +8,6 @@ class Turno < ApplicationRecord
   validates :dia_semana, presence: true, length: { minimum: 5, maximum: 9 }
   validates :tipo, presence: true, length: { minimum: 3, maximum: 6 }
   validates :hora_salida, presence: true
+  belongs_to :user
+  has_many :resenas
 end

@@ -3,18 +3,6 @@
 <%= form_with(model: @resena, method: :post) do |form| %>
 
     <div>
-        <%= form.label :ID_Viaje %>
-        <%= form.text_field :id_viaje%>
-    </div>
-    <div>
-        <%= form.label :ID_Cliente_Evaluador %>
-        <%= form.text_field :id_cliente_evaluador%>
-    </div>
-    <div>
-        <%= form.label :ID_Cliente_Evaluado %>
-        <%= form.text_field :id_cliente_evaluado%>
-    </div>
-    <div>
         <%= form.label :Contenido %>
         <%= form.text_field :contenido%>
     </div>
@@ -22,10 +10,13 @@
         <%= form.label :Calificación %>
         <%= form.text_field :calificacion%>
     </div>
+    <%= form.hidden_field :id_viaje, value: @id_viaje%>
+    <%= form.hidden_field :turnos, value: current_user.name%>
+    <%= form.hidden_field :users, value: '---------'%>
     <div>
-        <%= form.submit 'Enviar solicitud' %>
-        <%= print("Se apreto el boton") %>
+        <%= form.submit 'Subir reseña' %>
     </div>
 
-<%= link_to 'Volver', turnos_index_path %>
+<%= link_to 'Volver', resenas_index_path(@id_viaje) %>
 <% end %>
+

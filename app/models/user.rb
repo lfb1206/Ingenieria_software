@@ -10,4 +10,6 @@ class User < ApplicationRecord
   validates :description, presence: true
   validates :phone, presence: true, length: { minimum: 8 }, numericality: { only_integer: true }
   validates :gender, presence: true
+  has_many :turnos
+  has_many :resenas
 end

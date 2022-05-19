@@ -65,7 +65,7 @@
                 <b>Día de la semana </b><p><%= @turno.dia_semana%></p>
                 <b>Tipo </b><p><%= @turno.tipo%></p>
                 <b>Estado </b><p><%= @turno.estado%></p>
-                <b></b><p><%= link_to 'Reseñas', turnos_index_path %></p>
+                <b></b><p><%= link_to 'Reseñas', resenas_index_path(@turno.id) %></p>
             <% end %>
         <% end %>
 </div>
