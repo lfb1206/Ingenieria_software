@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 2022_05_19_024215) do
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
+  create_table "resenas", force: :cascade do |t|
+    t.integer "id_viaje"
+    t.integer "id_cliente_evaluador"
+    t.integer "id_cliente_evaluado"
+    t.text "contenido"
+    t.float "calificacion"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "turnos_id"
+    t.bigint "users_id"
+    t.index ["turnos_id"], name: "index_resenas_on_turnos_id"
+    t.index ["users_id"], name: "index_resenas_on_users_id"
+  end
+
   create_table "turnos", force: :cascade do |t|
     t.integer "cantidad_asientos"
     t.string "hora_salida"
@@ -60,5 +74,7 @@ ActiveRecord::Schema.define(version: 2022_05_19_024215) do
 
   add_foreign_key "requests", "turnos"
   add_foreign_key "requests", "users"
+  add_foreign_key "resenas", "turnos", column: "turnos_id"
+  add_foreign_key "resenas", "users", column: "users_id"
   add_foreign_key "turnos", "users"
 end

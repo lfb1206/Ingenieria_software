@@ -1,7 +1,27 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  #### REQUEST --------------------------------------
+
+  # INICIO --------------------------------------
+  get '/articles', to: 'articles#index'
+
+  # RESENAS --------------------------------------
+
+  #### CREATE
+  get 'resenas/new'
+  post 'resenas', to: 'resenas#create'
+
+  #### READ
+  get 'resenas/index'
+  get 'resenas/show'
+
+  #### UPDATE
+  get 'resenas/edit'
+  patch 'resenas/update', to: 'resenas#update'
+
+  #### DELETE
+  delete 'resenas/delete', to: 'resenas#delete'
+  # REQUEST --------------------------------------
 
   #### CREATE
   get 'requests/new'
@@ -17,9 +37,6 @@ Rails.application.routes.draw do
 
   #### DELETE
   delete 'requests/delete', to: 'requests#delete', as: 'requests_delete'
-
-  #### INICIO
-  get '/articles', to: 'articles#index'
 
   # TURNOS --------------------------------------
 

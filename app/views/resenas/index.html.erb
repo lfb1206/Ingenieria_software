@@ -1,0 +1,34 @@
+<h1>Reseñas Totales</h1>
+
+<div style="display: flex; flex-flow: row wrap; ">
+    <%= @resenas%>
+    <% @resenas.each do |resena|%>
+        <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+        <p>ID Viaje: <%= resena.turnos%><p>
+        <p>ID Cliente Evaluador: <%= resena.users%><p>
+        <p>ID Cliente Evaluado: <%= resena.id_cliente_evaluado%><p>
+        <p>Contenido: <%= resena.contenido%><p>
+        <p>Calificación: <%= resena.calificacion%><p>
+        <p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+</div>
+<% end %>
+
+<h1>Reseñas Viaje <%= @id_viaje%></h1>
+
+<li><%= link_to 'Nueva reseña', resenas_new_path(@id_viaje) %></li>
+<br>
+
+<div style="display: flex; flex-flow: row wrap; ">
+    <% @resenas.each do |resena|%>
+        <% if resena.id_viaje == @id_viaje%>
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <p>ID Viaje: <%= resena.turnos%><p>
+            <p>ID Cliente Evaluador: <%= resena.users%><p>
+            <p>ID Cliente Evaluado: <%= resena.id_cliente_evaluado%><p>
+            <p>Contenido: <%= resena.contenido%><p>
+            <p>Calificación: <%= resena.calificacion%><p>
+            <p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+        <% end %>
+</div>
+<% end %>
+

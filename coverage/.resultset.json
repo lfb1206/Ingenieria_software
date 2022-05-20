@@ -57,6 +57,12 @@
           null
         ]
       },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/resenas_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/turnos_helper.rb": {
         "lines": [
           null,
@@ -114,6 +120,13 @@
           null,
           null,
           1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/resena.rb": {
+        "lines": [
           1,
           1,
           1,
@@ -374,8 +387,70 @@
           null,
           null
         ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/resenas_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1653021059
+    "timestamp": 1653063635
   }
 }

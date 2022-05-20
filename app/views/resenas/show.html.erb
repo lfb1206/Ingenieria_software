@@ -1,0 +1,27 @@
+<h1>Reseña</h1>
+
+<p>
+    <strong>ID Reseña: </strong>
+    <%= @resena.id %>
+</p>
+<p>
+    <strong>ID Cliente Evaluador: </strong>
+    <%= @resena.id_cliente_evaluador %>
+</p>
+<p>
+    <strong>ID Cliente Evaluado: </strong>
+    <%= @resena.id_cliente_evaluado %>
+</p>
+<p>
+    <strong>Contenido: </strong>
+    <%= @resena.contenido %>
+</p>
+<p>
+    <strong>Calificación: </strong>
+    <%= @resena.calificacion %>
+</p>
+
+
+<%= link_to 'Volver', resenas_index_path%>
+<%= link_to 'Editar', resenas_edit_path(:id => @resena.id)%>
+<%= link_to 'Eliminar', resenas_delete_path(:id => @resena.id), method: :delete%>
