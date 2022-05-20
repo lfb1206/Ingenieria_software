@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_05_20_213706) do
-=======
-ActiveRecord::Schema.define(version: 2022_05_19_024215) do
->>>>>>> feature/graphics
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,10 +71,7 @@ ActiveRecord::Schema.define(version: 2022_05_19_024215) do
 
   add_foreign_key "requests", "turnos"
   add_foreign_key "requests", "users"
-<<<<<<< HEAD
   add_foreign_key "resenas", "turnos"
   add_foreign_key "resenas", "users"
-=======
->>>>>>> feature/graphics
   add_foreign_key "turnos", "users"
 end

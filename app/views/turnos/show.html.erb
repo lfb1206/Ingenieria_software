@@ -33,32 +33,6 @@
     <%= @turno.estado %>
 </p>
 
-<br/>
-<%= link_to 'Volver ', turnos_index_path%>
-<br/>
-<% if @turno.user_id == current_user.id %>
-    <%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
-    <%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>
-<% else %>
-    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id) %><br/>
-    <% if @turno.estado == 'COMPLETADO'%>
-        <%= link_to 'Agregar reseña ', resenas_new_path(:id_viaje => @turno.id)%>
-    <% end %>
-<% end %>
-<br/>
-
-<% if @turno.estado == 'COMPLETADO'%>
-    <h3>Reseñas Viaje</h3>
-    <% @resenas.each do |resena|%>
-        <% if resena.turno_id == @turno.id%>
-            <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%>                  <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></li>
-        <% end %>
-    <% end %>
-<% end %>
-
-#######################################################################################################
-
-
 <% if @turno.user_id == current_user.id%>
     <br/><h3>Solicitudes Recibidas Procesadas</h3><br/>
     <div style="display: flex; flex-flow: wrap;">

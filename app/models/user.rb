@@ -5,10 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :turnos, dependent: :destroy
   has_many :requests, dependent: :destroy
-<<<<<<< HEAD
   has_many :resenas
-=======
->>>>>>> feature/graphics
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: { minimum: 3 }
