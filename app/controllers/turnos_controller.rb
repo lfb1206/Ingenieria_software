@@ -9,11 +9,11 @@ class TurnosController < ApplicationController
   end
 
   def create
-    @turnos_params = turno_params
+    @turnos_params = turno_params_create
     hora = @turnos_params['hora_salida(4i)']
     minuto = @turnos_params['hora_salida(5i)']
     horario = "#{hora}:#{minuto}"
-    @turno = Turno.create(turno_params)
+    @turno = Turno.create(turno_params_create)
     @turno.estado = 'ACTIVO'
     @turno.hora_salida = horario
     @turno.user = current_user
@@ -44,7 +44,7 @@ class TurnosController < ApplicationController
 
   def update
     @turno = Turno.find(params[:id])
-    @turnos_params = turno_params
+    @turnos_params = turno_params_update
     @turnos_params.merge!(user_id: current_user.id)
     if @turno.update(@turnos_params)
       redirect_to turnos_index_path, notice: 'Turno editado exitosamente'
@@ -64,8 +64,13 @@ class TurnosController < ApplicationController
 
   private
 
-  def turno_params
+  def turno_params_create
     params.require(:turno).permit(:cantidad_asientos, :hora_salida, :direccion_salida,
       :direccion_llegada, :dia_semana, :tipo)
+  end
+
+  def turno_params_update
+    params.require(:turno).permit(:cantidad_asientos, :hora_salida,
+      :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado)
   end
 end
