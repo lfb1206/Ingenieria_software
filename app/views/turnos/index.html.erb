@@ -9,15 +9,11 @@
         <%if turno.id_usuario != current_user.id and turno.estado == "ACTIVO"%>
             <div style="border: solid 1px; width: 200px; 
             padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
-            <b>ID Conductor </b><p><%= @users.find(turno.id_usuario).id%></p>
             <b>Conductor </b><p><%= @users.find(turno.id_usuario).name%></p>
-            <b>Cantidad asientos </b><p><%= turno.cantidad_asientos%></p>
             <b>Hora salida </b><p><%= turno.hora_salida%></p>
+            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
             <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
             <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-            <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-            <b>Tipo </b><p><%= turno.tipo%><p>
-            <b>Estado </b><p><%= turno.estado%><p>
             <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
         <% end %>
 </div>

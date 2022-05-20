@@ -21,11 +21,14 @@ class TurnosController < ApplicationController
     @turnos_params.delete('hora_salida(5i)')
     @turnos_params.merge!(id_usuario: current_user.id)
     @turnos_params.merge!(estado: 'ACTIVO')
+    puts @turnos_params
     @turno = Turno.create(@turnos_params)
     if @turno.save
       redirect_to turnos_index_path, notice: 'Turno creado exitosamente'
+      puts "--------- TURNO SI"
     else
       redirect_to turnos_index_path, notice: 'Error al crear turno'
+      puts "--------- TURNO NO"
     end
   end
 
@@ -39,6 +42,7 @@ class TurnosController < ApplicationController
   def show
     @turno = Turno.find(params[:id])
     @requests = Request.all
+    @resenas = @turno.resenas.all
   end
 
   #### UPDATE

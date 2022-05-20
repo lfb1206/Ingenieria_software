@@ -3,20 +3,18 @@ class ResenasController < ApplicationController
   def new
     @resena = Resena.new
     @id_viaje = params[:id_viaje]
-    @users = User.all
-    @turnos = Turno.all
   end
 
   def create
-    @resenas_params = params.require(:resena).permit(:id_viaje, :id_cliente_evaluador, :id_cliente_evaluado, :contenido, :calificacion, :turnos, :users)
+    @resenas_params = params.require(:resena).permit(:contenido, :calificacion, :turno_id, :user_id)
     @resena = Resena.create(@resenas_params)
+    @resena.user = current_user
+    @resena.turno = Turno.find(@resenas_params["turno_id"])
 
-    if @resena.update(@resenas_params)
-      redirect_to resenas_index_path, notice: 'Solicitud enviada exitosamente'
-      puts '****************************************************** Éxito'
+    if @resena.save!
+      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Solicitud enviada exitosamente'
     else
-      redirect_to resenas_index_path, notice: 'Error al enviar solicitud'
-      puts '****************************************************** Fracaso'
+      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Error al enviar solicitud'
     end
 
   end
@@ -29,6 +27,7 @@ class ResenasController < ApplicationController
 
   def show
     @resena = Resena.find(params[:id])
+    @user_conductor = User.find(@resena.turno.id_usuario)
   end
 
   #### UPDATE
@@ -38,11 +37,11 @@ class ResenasController < ApplicationController
 
   def update
     @resena = Resena.find(params[:id])
-    @resenas_params = params.require(:resena).permit(:id_viaje, :id_cliente_evaluador, :id_cliente_evaluado, :contenido, :calificacion, :turnos, :users)
+    @resenas_params = params.require(:resena).permit(:contenido, :calificacion, :turno_id, :user_id)
     if @resena.update(@resenas_params)
-      redirect_to resenas_index_path, notice: 'Reseña editada exitosamente'
+      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Reseña editada exitosamente'
     else
-      redirect_to resenas_index_path, notice: 'Error al editar reseña'
+      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Error al editar reseña'
     end
   end
 
@@ -51,6 +50,6 @@ class ResenasController < ApplicationController
     @resena = Resena.find(params[:id])
     @resena.destroy
 
-    redirect_to resenas_index_path, notice: 'Reseña eliminado'
+    redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Reseña eliminado'
   end
 end

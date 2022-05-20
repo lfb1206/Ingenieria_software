@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_17_031953) do
+ActiveRecord::Schema.define(version: 2022_05_20_172537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,17 +26,14 @@ ActiveRecord::Schema.define(version: 2022_05_17_031953) do
   end
 
   create_table "resenas", force: :cascade do |t|
-    t.integer "id_viaje"
-    t.integer "id_cliente_evaluador"
-    t.integer "id_cliente_evaluado"
     t.text "contenido"
     t.float "calificacion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "turnos_id"
-    t.bigint "users_id"
-    t.index ["turnos_id"], name: "index_resenas_on_turnos_id"
-    t.index ["users_id"], name: "index_resenas_on_users_id"
+    t.bigint "turno_id"
+    t.bigint "user_id"
+    t.index ["turno_id"], name: "index_resenas_on_turno_id"
+    t.index ["user_id"], name: "index_resenas_on_user_id"
   end
 
   create_table "turnos", force: :cascade do |t|
@@ -69,6 +66,6 @@ ActiveRecord::Schema.define(version: 2022_05_17_031953) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "resenas", "turnos", column: "turnos_id"
-  add_foreign_key "resenas", "users", column: "users_id"
+  add_foreign_key "resenas", "turnos"
+  add_foreign_key "resenas", "users"
 end
