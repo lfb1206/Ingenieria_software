@@ -27,7 +27,7 @@
     <%= @user.phone %>
 </p>
 
-<h3 align='center'>Turnos Publicados Activos</h3>
+<h3 class = "title is-4 has-text-dark" >Turnos Publicados Activos</h3>
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @turnos.each do |turno|%>
         <%if turno.user_id == current_user.id and turno.estado == "ACTIVO"%>
@@ -48,7 +48,8 @@
 <% end %>
 <br/>
 
-<h3 align='center'>Turnos Publicados Confirmados</h3>
+<h3 class = "title is-4 has-text-dark" >Turnos Publicados Confirmados</h3>
+
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @turnos.each do |turno|%>
         <%if turno.user_id == current_user.id and turno.estado == "CONFIRMADO"%>
@@ -70,7 +71,7 @@
 <% end %>
 <br/>
 
-<h3 align='center'>Turnos Publicados Completados</h3>
+<h3 class = "title is-4 has-text-dark" >Turnos Publicados Completados</h3>
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @turnos.each do |turno|%>
         <%if turno.user_id == current_user.id and turno.estado == "COMPLETADO"%>
