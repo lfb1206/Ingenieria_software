@@ -27,5 +27,6 @@
 
 
 <%= link_to 'Volver', users_show_path(:id => current_user.id)%>
+
 <%= link_to 'Editar', requests_edit_path(:id => @request.id)%>
 <%= link_to 'Eliminar', requests_delete_path(:id => @request.id), method: :delete%>

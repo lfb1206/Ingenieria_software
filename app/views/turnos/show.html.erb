@@ -46,10 +46,12 @@
     <% end %>
 <% end %>
 
-<%= link_to 'Volver', turnos_index_path%>
+<%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
 <% if @turno.id_usuario == current_user.id %>
+    <%= button_to "Editar", turnos_edit_path(:id => @turno.id),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :post%>
     <%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
-    <%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>
+    <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
 <% else %>
-    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id) %>
+    <%= button_to "Solicitar", requests_new_path(:id => @turno.id),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :new%>
+    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id)%>
 <% end %>

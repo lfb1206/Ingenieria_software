@@ -1,10 +1,10 @@
-<h1>Resumen Solicitudes</h1>
+<h1 align='center' class = "title is-2 has-text-primary" >Resumen Solicitudes</h1>
 
 <br/><h3>Solicitudes Recibidas Pendientes</h3><br/>
 <div style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.id_usuario == current_user.id and request.estado == "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
             <p>Id Solicitud: <%= request.id%></p>
             <p>Id Usuario Turno: <%= request.id_usuario%></p>
             <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
@@ -21,7 +21,7 @@
 <div style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.id_usuario == current_user.id and request.estado != "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
             <p>Id Solicitud: <%= request.id%></p>
             <p>Id Usuario Turno: <%= request.id_usuario%></p>
             <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
@@ -37,7 +37,7 @@
 <div style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.id_usuario_solicitud == current_user.id and request.estado == "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
             <p>Id Solicitud: <%= request.id%></p>
             <p>Id Usuario Turno: <%= request.id_usuario%></p>
             <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>
@@ -54,7 +54,7 @@
 <div style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.id_usuario_solicitud != current_user.id and request.estado != "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
             <p>Id Solicitud: <%= request.id%></p>
             <p>Id Usuario Turno: <%= request.id_usuario%></p>
             <p>Id Usuario Solicitud: <%= request.id_usuario_solicitud%></p>

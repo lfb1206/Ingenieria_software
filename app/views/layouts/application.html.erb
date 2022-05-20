@@ -9,22 +9,22 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body align='center'>
+  <body class="bg-img">
     <nav class="navbar has-background-warning" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img id="logo" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F84%2FEscudo_de_la_Pontificia_Universidad_Cat%25C3%25B3lica_de_Chile.svg%2F1200px-Escudo_de_la_Pontificia_Universidad_Cat%25C3%25B3lica_de_Chile.svg.png&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FPontificia_Universidad_Cat%25C3%25B3lica_de_Chile&tbnid=Run53_9jdFQ1AM&vet=12ahUKEwjsnP-u5eL3AhXiNbkGHUG6AfYQMygAegUIARDOAQ..i&docid=Cw-vn2LOR-SAuM&w=1200&h=1616&q=pontificia%20universidad%20cat%C3%B3lica%20de%20chile&hl=es&ved=2ahUKEwjsnP-u5eL3AhXiNbkGHUG6AfYQMygAegUIARDOAQ" width="112" height="28">
+        <a class="navbar-item">
+          <img id="logo" src="https://toppng.com/public/uploads/thumbnail/icono-de-auto-covoiturage-logo-11563318871cussi74k8u.png" width="50" height="100">
         </a>
-
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div style="border: 5px outset #198BB9; width: 300px; padding: 10px; 
-        align-text: center; margin: 5px; background-color: #216599; text-align: center;">
-        <h1 class="title is-3 has-text-warning">DCCARPOOLING</h1>
+
+      <div style="border: 5px; width: 300px; padding: 10px; 
+        align-text: center; margin: 5px; text-align: center; color: #198BB9";>
+        <h1 class="title is-3 has-text-primary">DCCARPOOLING</h1>
       </div>
 
       <div id="navbarBasicExample" class="navbar-menu">
@@ -32,9 +32,9 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-light has-background-warning"><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-              </a>
-              <a class="button is-light has-background-warning">
+              <a>
+                <%= button_to "Sign out", destroy_user_session_path,:id => "boton_sign_out", :class => "button is-primary is-inverted has-background-warning", :method => :delete %>
+              <a class="button is-primary is-inverted has-background-warning">
                 Help
               </a>
             </div>
@@ -43,14 +43,20 @@
       </div>
     </nav>
 
-    <p class="alert has-text-primary"><%= alert %></p>
-    <% if current_user %>
-      <b>Opciones</b>
-      <li class="title is-5 has-text-primary"><%= link_to "Turnos", turnos_index_path %></li>
-      <li class="title is-5 has-text-primary"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></li>
-      <li class="title is-5 has-text-primary"><%= link_to "Solicitudes", requests_index_path %></li>
-    <% end %>
+    <div class="bg-img">
+    </div>
 
+    <div align='right'>
+      <p class="alert has-text-primary"><%= alert %></p>
+      <% if current_user %>
+        <p class="menu-label"></p>
+          <ul id = "menu_list" class="menu-list">
+            <li class="title is-5 has-text-primary is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></li>
+            <li class="title is-5 has-text-primary is-active"><%= link_to "Turnos", turnos_index_path %></li>
+            <li class="title is-5 has-text-primary is-active"><%= link_to "Solicitudes", requests_index_path %></li>
+          </ul>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
