@@ -39,7 +39,16 @@
     <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
 <% else %>
     <%= link_to 'Solicitar', requests_new_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
-    <% if @turno.estado == 'COMPLETADO' %>
-    
+    <% if @turno.estado == 'COMPLETADO'%>
+        <%= link_to 'Agregar reseña ', resenas_new_path(:id_viaje => @turno.id)%>
+    <% end %>
+<% end %>
+
+<% if @turno.estado == 'COMPLETADO'%>
+    <h3>Reseñas Viaje</h3>
+    <% @resenas.each do |resena|%>
+        <% if resena.turno_id == @turno.id%>
+            <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%>                  <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></li>
+        <% end %>
     <% end %>
 <% end %>
