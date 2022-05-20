@@ -1,48 +1,48 @@
-<h2>Sign up</h2>
+<h1 align='center' class = "title is-2 has-text-primary" >Sign up</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
+  <div align='center'>
   <div class="field">
-    <%= f.label :email %><br />
+    <label class="label">Email</label>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <label class="label">Password (<%= @minimum_password_length %> characters minimum)</label>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <label class="label">Password Confirmation</label>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <label class="label">Name</label>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :address %><br />
+    <label class="label">Adress</label>
     <%= f.text_field :address %>
   </div>
 
   <div class="field">
-    <%= f.label :description %><br />
+    <label class="label">Description</label>
     <%= f.text_field :description %>
   </div>
 
   <div class="field">
-    <%= f.label :gender %><br />
+    <label class="label">Gender</label>
     <%= f.text_field :gender %>
   </div>
 
   <div class="field">
-    <%= f.label :phone %><br />
+    <label class="label">Phone</label>
     <%= f.text_field :phone %>
   </div>
   
@@ -50,5 +50,6 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+</div>
 
 <%= render "users/shared/links" %>

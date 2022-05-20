@@ -1,10 +1,10 @@
-<h1>Editar solicitud</h1>
+<h1 align='center' class = "title is-2 has-text-primary" >Editar solicitud</h1>
 
 <%= form_with(model: @request, method: :patch, url: requests_update_path(:id => @request.id)) do |form| %>
 
     <%if @request.user_id == current_user.id%>
         <div>
-            <%= form.label :Descripción %>
+            <label class="label">Descripcion</label>
             <%= form.text_field :descripcion%>
         </div>
     <% end %>
@@ -17,7 +17,7 @@
             ]
         end %>
         <div>
-            <%= form.label :Respuesta_Solicitud %>
+            <label class="label">Respuesta Solicitud</label>
             <%= form.select :estado, options_for_status, {}, prompt: 'Select One' %>
         </div>
     <% end %>

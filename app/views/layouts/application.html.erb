@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,3 +27,68 @@
     <%= yield %>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grupo48</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="bg-img">
+    <div class="bg-img">
+    </div>
+
+    <nav class="navbar has-background-warning" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img id="logo" src="https://toppng.com/public/uploads/thumbnail/icono-de-auto-covoiturage-logo-11563318871cussi74k8u.png" width="50" height="100">
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div style="border: 5px; width: 300px; padding: 10px; 
+        align-text: center; margin: 5px; text-align: center; color: #198BB9";>
+        <h1 class="title is-3 has-text-primary">DCCARPOOLING</h1>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a>
+                <%= button_to "Sign out", destroy_user_session_path,:id => "boton_sign_out", :class => "button is-primary is-inverted has-background-warning", :method => :delete %>
+              <a class="button is-primary is-inverted has-background-warning">
+                Help
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div align='right'>
+      <p class="alert has-text-primary"><%= alert %></p>
+      <% if current_user %>
+        <p class="menu-label"></p>
+          <ul id = "menu_list" class="menu-list">
+            <li class="title is-5 has-text-primary is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></li>
+            <li class="title is-5 has-text-primary is-active"><%= link_to "Turnos", turnos_index_path %></li>
+            <li class="title is-5 has-text-primary is-active"><%= link_to "Solicitudes", requests_index_path %></li>
+          </ul>
+      <% end %>
+    </div>
+    
+    <%= yield %>
+  </body>
+</html>
+>>>>>>> feature/graphics

@@ -1,4 +1,4 @@
-<h1>Solicitud</h1>
+<h1 class="title is-3 has-text-primary">Solicitud</h1>
 
 <p>
     <strong>Id Solicitud: </strong>
@@ -26,6 +26,6 @@
 </p>
 
 
-<%= link_to 'Volver', users_show_path(:id => current_user.id)%>
-<%= link_to 'Editar', requests_edit_path(:id => @request.id)%>
-<%= link_to 'Eliminar', requests_delete_path(:id => @request.id), method: :delete%>
+<%= link_to 'Volver', users_show_path(:id => current_user.id, class: "button is-primary is-inverted is-rounded is-outlined")%>
+<%= link_to 'Editar', requests_edit_path(:id => @request.id, class: "button is-primary is-inverted is-rounded is-outlined")%>
+<%= link_to 'Eliminar', requests_delete_path(:id => @request.id, class: "button is-primary is-inverted is-rounded is-outlined"), method: :delete%>

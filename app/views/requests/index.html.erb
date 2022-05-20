@@ -1,7 +1,7 @@
-<h1>Resumen Solicitudes</h1>
+<h1 align='center' class = "title is-2 has-text-primary" >Resumen Solicitudes</h1>
 
 <br/><h3>Solicitudes Recibidas Pendientes</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
+<div align='center'style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.turno.user_id == current_user.id and request.estado == "PENDIENTE"%>
             <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
@@ -18,32 +18,32 @@
 <br/>
 
 <br/><h3>Solicitudes Recibidas Procesadas</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
+<div align='center' style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.turno.user_id == current_user.id and request.estado != "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-            <p>Id Solicitud: <%= request.id%></p>
-            <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-            <p>Id Usuario Solicitud: <%= request.user_id%></p>
-            <p>Id Publicación: <%= request.turno.id%></p>
-            <p>Estado: <%= request.estado%></p>
-            <p>Descripción: <%= request.descripcion%></p>
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
+            <b>Id Solicitud: </b><p><%= request.id%></p>
+            <b>Id Usuario Turno: </b><p><%= request.turno.user_id%></p>
+            <b>Id Usuario Solicitud: </b><p><%= request.user_id%></p>
+            <b>Id Publicación: </b><p><%= request.turno.id%></p>
+            <b>Estado: </b><p><%= request.estado%></p>
+            <b>Descripción: </b><p><%= request.descripcion%></p>
         <% end %>
 </div>
 <% end %>
 <br/>
 
 <br/><h3>Solicitudes Enviadas Pendientes</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
+<div align='center' style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.user_id == current_user.id and request.estado == "PENDIENTE"%>
-            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-            <p>Id Solicitud: <%= request.id%></p>
-            <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-            <p>Id Usuario Solicitud: <%= request.user_id%></p>
-            <p>Id Publicación: <%= request.turno.id%></p>
-            <p>Estado: <%= request.estado%></p>
-            <p>Descripción: <%= request.descripcion%></p>
+            <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px; background-color: lightblue;">
+            <b>Id Solicitud: </b><p><%= request.id%></p>
+            <b>Id Usuario Turno: </b><p><%= request.turno.user_id%></p>
+            <b>Id Usuario Solicitud: </b><p><%= request.user_id%></p>
+            <b>Id Publicación: </b><p><%= request.turno.id%></p>
+            <b>Estado: </b><p><%= request.estado%></p>
+            <b>Descripción: </b><p><%= request.descripcion%></p>
             <%= link_to 'Editar', requests_edit_path(:id => request.id)%>
         <% end %>
 </div>
@@ -51,7 +51,7 @@
 <br/>
 
 <br/><h3>Solicitudes Enviadas Procesadas</h3><br/>
-<div style="display: flex; flex-flow: wrap;">
+<div align='center' style="display: flex; flex-flow: wrap;">
     <% @requests.each do |request|%>
         <%if request.user_id == current_user.id and request.estado != "PENDIENTE"%>
             <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">

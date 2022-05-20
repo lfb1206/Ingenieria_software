@@ -1,29 +1,30 @@
-<h1>Editar Turno</h1>
+<h1 align='center' class = "title is-2 has-text-primary" >Editar Turno</h1>
 
+<div  align='center'>
 <%= form_with(model: @turno, method: :patch, url: turnos_update_path(:id => @turno.id)) do |form| %>
 
     <div>
-        <%= form.label :Cantidad_Asientos %>
+        <label class="label">Cantidad asientos</label>
         <%= form.text_field :cantidad_asientos%>
     </div>
     <div>
-        <%= form.label :Hora_Salida %>
+        <label class="label">Hora de salida</label>
         <%= form.text_field :hora_salida%>
     </div>
     <div>
-        <%= form.label :Dirección_Salida %>
+        <label class="label">Direccion de salida</label>
         <%= form.text_field :direccion_salida%>
     </div>
     <div>
-        <%= form.label :Dirección_Llegada %>
+        <label class="label">Direccion de llegada</label>
         <%= form.text_field :direccion_llegada%>
     </div>
     <div>
-        <%= form.label :Dia_Semana %>
+        <label class="label">Dia de la semana</label>
         <%= form.text_field :dia_semana%>
     </div>
     <div>
-        <%= form.label :Tipo %>
+        <label class="label">Tipo</label>
         <%= form.text_field :tipo%>
     </div>
     <%if @turno.user_id == current_user.id%>
@@ -35,7 +36,7 @@
             ]
         end %>
         <div>
-            <%= form.label :Respuesta_Solicitud %>
+            <label class="label">Respuesta solicitud</label>
             <%= form.select :estado, options_for_status, {}, prompt: 'Select One' %>
         </div>
     <% end %>
@@ -45,5 +46,8 @@
     
 
 <% end %>
+</div>
 
-<%= link_to 'Volver', turnos_index_path%>
+<a align='center'>
+<%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-rounded is-outlined", method: :get%>
+</a>

@@ -1,29 +1,30 @@
-<h1>Crear Turno</h1>
+<h1 align='center' class = "title is-2 has-text-primary" >Crear Turno</h1>
 
+<div  align='center'>
 <%= form_for @turno, as: :turno do |form| %>
 
     <div>
-        <%= form.label :Cantidad_asientos %>
+        <label class="label">Cantidad asientos</label>
         <%= form.text_field :cantidad_asientos%>
     </div>
     <div>
-        <%= form.label :Hora_salida %>
+        <label class="label">Hora de salida</label>
         <%= form.time_select :hora_salida%>
     </div>
     <div>
-        <%= form.label :Direccion_salida %>
+        <label class="label">Dirección de salida</label>
         <%= form.text_field :direccion_salida%>
     </div>
     <div>
-        <%= form.label :Direccion_llegada %>
+        <label class="label">Dirección de llegada</label>
         <%= form.text_field :direccion_llegada%>
     </div>
     <div>
-        <%= form.label :Dia_semana %>
+        <label class="label">Dia de la semana</label>
         <%= form.text_field :dia_semana%>
     </div>
     <div>
-        <%= form.label :Tipo %>
+        <label class="label">Tipo</label>
         <%= form.text_field :tipo%>
     </div>
     <div>
@@ -31,5 +32,8 @@
     </div>
 
 <% end %>
+</div>
 
-<%= link_to 'Volver', turnos_index_path%>
+<a align='center'>
+<%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
+</a>
