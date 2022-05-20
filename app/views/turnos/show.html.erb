@@ -2,7 +2,7 @@
 
 <p>
     <strong>ID Usuario: </strong>
-    <%= @turno.id_usuario %>
+    <%= @turno.user_id %>
 </p>
 <p>
     <strong>Cantidad Asientos: </strong>
@@ -36,7 +36,7 @@
 <br/>
 <%= link_to 'Volver ', turnos_index_path%>
 <br/>
-<% if @turno.id_usuario == current_user.id %>
+<% if @turno.user_id == current_user.id %>
     <%= link_to 'Editar', turnos_edit_path(:id => @turno.id)%>
     <%= link_to 'Eliminar', turnos_delete_path(:id => @turno.id), method: :delete%>
 <% else %>

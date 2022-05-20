@@ -39,6 +39,12 @@ Layout/EmptyLinesAroundMethodBody:
   Enabled: true
 Layout/ArrayAlignment:
   Enabled: true
+Layout/EndOfLine:
+  Enabled: false
+
+# Metrics
+Metrics:
+  Enabled: false
 
 # Naming
 Naming/ConstantName:
