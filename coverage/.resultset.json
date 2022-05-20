@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/user.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -20,7 +20,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/application_record.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -30,7 +30,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/application_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -39,7 +39,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/articles_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/articles_helper.rb": {
         "lines": [
           null,
           null,
@@ -48,7 +48,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/requests_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/requests_helper.rb": {
         "lines": [
           null,
           null,
@@ -57,6 +57,7 @@
           null
         ]
       },
+<<<<<<< HEAD
       "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/resenas_helper.rb": {
         "lines": [
           1,
@@ -64,6 +65,9 @@
         ]
       },
       "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/turnos_helper.rb": {
+=======
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/turnos_helper.rb": {
+>>>>>>> 67923c75017d9d0df0b8cb26aafa72fabce825a8
         "lines": [
           null,
           null,
@@ -72,17 +76,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/channels/application_cable/channel.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/channels/application_cable/connection.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -92,7 +86,17 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/jobs/application_job.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/channels/application_cable/connection.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/jobs/application_job.rb": {
         "lines": [
           null,
           null,
@@ -105,7 +109,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/mailers/application_mailer.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -115,13 +119,14 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/request.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/request.rb": {
         "lines": [
           null,
           null,
           1,
           1,
           1,
+<<<<<<< HEAD
           null
         ]
       },
@@ -130,10 +135,12 @@
           1,
           1,
           1,
+=======
+>>>>>>> 67923c75017d9d0df0b8cb26aafa72fabce825a8
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/turno.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/turno.rb": {
         "lines": [
           null,
           null,
@@ -151,7 +158,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/application_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -159,7 +166,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/articles_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/articles_controller.rb": {
         "lines": [
           null,
           null,
@@ -169,7 +176,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/users/registrations_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/users/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -238,7 +245,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/requests_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/requests_controller.rb": {
         "lines": [
           null,
           null,
@@ -314,7 +321,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/turnos_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/turnos_controller.rb": {
         "lines": [
           null,
           null,
@@ -451,6 +458,10 @@
         }
       }
     },
+<<<<<<< HEAD
     "timestamp": 1653063635
+=======
+    "timestamp": 1653062297
+>>>>>>> 67923c75017d9d0df0b8cb26aafa72fabce825a8
   }
 }
