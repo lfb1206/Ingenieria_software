@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_20_172537) do
+ActiveRecord::Schema.define(version: 2022_05_20_213706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 2022_05_20_172537) do
 
   create_table "resenas", force: :cascade do |t|
     t.text "contenido"
-    t.float "calificacion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "turno_id"
     t.bigint "user_id"
+    t.integer "calificacion"
     t.index ["turno_id"], name: "index_resenas_on_turno_id"
     t.index ["user_id"], name: "index_resenas_on_user_id"
   end

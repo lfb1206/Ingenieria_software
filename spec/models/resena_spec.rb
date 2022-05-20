@@ -9,6 +9,7 @@ RSpec.describe Resena, type: :model do
     @user = FactoryBot.create(:user)
     @turno = FactoryBot.create(:turno)
     @resena = FactoryBot.create(:resena)
+    @resena.calificacion = @resena.calificacion.to_i
   end
 
   it 'is valid with valid attributes' do
@@ -26,7 +27,7 @@ RSpec.describe Resena, type: :model do
   end
 
   it 'is not valid with not time of start' do
-    @resena.calificacion = 11
+    @resena.calificacion = 6
     expect(@resena).not_to be_valid
   end
 

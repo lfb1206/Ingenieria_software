@@ -19,10 +19,8 @@ class TurnosController < ApplicationController
     @turno.user = current_user
     if @turno.save
       redirect_to turnos_index_path, notice: 'Turno creado exitosamente'
-      puts "--------- TURNO SI"
     else
       redirect_to turnos_index_path, notice: 'Error al crear turno'
-      puts "--------- TURNO NO"
     end
   end
 

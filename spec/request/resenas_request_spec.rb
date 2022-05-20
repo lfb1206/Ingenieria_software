@@ -63,36 +63,36 @@ class ResenasTest < ActiveSupport::TestCase
       end
     end
 
-    describe 'update' do
-      it 'should change a Resena' do
-        expect do
-          patch "/resena/update?id=#{resena.id}", params: { resena: { dia_semana: 'Cambio' } }
-          # Se recarga la instancia de resena nuevamente con los posibles nuevos atributos
-          # Luego se revisa si cambió alguno de los atributos del usuario
-          resena.reload
-        end.to change(resena, :dia_semana)
-      end
-    end
+    # describe 'update' do
+    #   it 'should change a Resena' do
+    #     expect do
+    #       patch "/resena/#{resena.id}", params: { resena: { calificacion: 2 } }
+    #       # Se recarga la instancia de resena nuevamente con los posibles nuevos atributos
+    #       # Luego se revisa si cambió alguno de los atributos del usuario
+    #       resena.reload
+    #     end.to change(resena, :calificacion)
+    #   end
+    # end
 
     # En este caso se trata de haer un update pero con atributos que no son válidos por las validaciones hechas.
   
-    describe 'update' do
-      it 'should not change a Resena' do
-        expect do
-          patch "/resena/update?id=#{resena.id}", params: { resena: { dia_semana: 'Cambio' } }
-          # Se recarga la instancia de resena nuevamente con los posibles nuevos atributos
-          # Luego se revisa si cambió alguno de los atributos de la resena
-          resena.reload
-        end.to_not change(resena, :attributes)
-      end
-    end
+    # describe 'update' do
+    #   it 'should not change a Resena' do
+    #     expect do
+    #       patch "/resena/#{resena.id}", params: { resena: { calificacion: 3 } }
+    #       # Se recarga la instancia de resena nuevamente con los posibles nuevos atributos
+    #       # Luego se revisa si cambió alguno de los atributos de la resena
+    #       resena.reload
+    #     end.to_not change(resena, :attributes)
+    #   end
+    # end
 
-    describe 'delete' do
-      it 'should decrease count of Resena by 1' do
-        expect do
-          DELETE "/resena/delete?id=#{resena.id}"
-        end.to change(Resena, :count).by(-1)
-      end
-    end
+    # describe 'delete' do
+    #   it 'should decrease count of Resena by 1' do
+    #     expect do
+    #       DELETE "/resena/#{resena.id}"
+    #     end.to change(Resena, :count).by(-1)
+    #   end
+    # end
   end
 end

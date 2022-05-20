@@ -27,7 +27,7 @@ class ResenasController < ApplicationController
 
   def show
     @resena = Resena.find(params[:id])
-    @user_conductor = User.find(@resena.turno.id_usuario)
+    @user_conductor = User.find(@resena.turno.user_id)
   end
 
   #### UPDATE
