@@ -7,7 +7,7 @@
         <%= @user.id %>
     </p>
     <p>
-        <strong>Nombre:</strong>
+        <strong>Nombre:</strong>∫
         <%= @user.name %>
     </p>
     <p>
@@ -31,7 +31,7 @@
 <h3 align='center'>Turnos Publicados Activos</h3>
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @turnos.each do |turno|%>
-        <%if turno.id_usuario == current_user.id and turno.estado == "ACTIVO"%>
+        <%if turno.user_id == current_user.id and turno.estado == "ACTIVO"%>
             <div style="border: solid 1px; width: 200px; 
             padding: 10px; align-text: center; margin: 5px; background-color: #FFDD57">
             <b>ID Conductor </b><p><%= @user.id%></p>
@@ -53,7 +53,7 @@
 
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @turnos.each do |turno|%>
-        <%if turno.id_usuario == current_user.id and turno.estado == "CONFIRMADO"%>
+        <%if turno.user_id == current_user.id and turno.estado == "CONFIRMADO"%>
             <div style="border: solid 1px; width: 200px; 
             padding: 10px; align-text: center; margin: 5px; background-color: #FFDD57">
             <b>ID Conductor </b><p><%= @user.id%></p>
@@ -75,7 +75,7 @@
 <h3 align='center'>Turnos Publicados Completados</h3>
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @turnos.each do |turno|%>
-        <%if turno.id_usuario == current_user.id and turno.estado == "COMPLETADO"%>
+        <%if turno.user_id == current_user.id and turno.estado == "COMPLETADO"%>
             <div style="border: solid 1px; width: 200px; 
             padding: 10px; align-text: center; margin: 5px; background-color: #FFDD57">
             <b>ID Conductor </b><p><%= @user.id%></p>

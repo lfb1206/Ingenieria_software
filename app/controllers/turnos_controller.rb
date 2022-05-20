@@ -19,7 +19,7 @@ class TurnosController < ApplicationController
     @turnos_params.delete('hora_salida(3i)')
     @turnos_params.delete('hora_salida(4i)')
     @turnos_params.delete('hora_salida(5i)')
-    @turnos_params.merge!(id_usuario: current_user.id)
+    @turnos_params.merge!(user_id: current_user.id)
     @turnos_params.merge!(estado: 'ACTIVO')
     @turno = Turno.create(@turnos_params)
     if @turno.save

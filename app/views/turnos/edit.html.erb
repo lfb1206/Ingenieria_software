@@ -28,7 +28,7 @@
         <label class="label">Tipo</label>
         <%= form.text_field :tipo%>
     </div>
-    <%if @turno.id_usuario == current_user.id%>
+    <%if @turno.user_id == current_user.id%>
         <% def options_for_status
             [
             ['Turno completado','COMPLETADO'],
