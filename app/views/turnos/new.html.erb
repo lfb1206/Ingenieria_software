@@ -1,6 +1,6 @@
 <h1>Crear Turno</h1>
 
-<%= form_with(model: @turno, method: :post) do |form| %>
+<%= form_for @turno, as: :turno do |form| %>
 
     <div>
         <%= form.label :Cantidad_asientos %>

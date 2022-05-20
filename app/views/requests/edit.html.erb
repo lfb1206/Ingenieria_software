@@ -2,13 +2,13 @@
 
 <%= form_with(model: @request, method: :patch, url: requests_update_path(:id => @request.id)) do |form| %>
 
-    <%if @request.id_usuario_solicitud == current_user.id%>
+    <%if @request.user_id == current_user.id%>
         <div>
             <%= form.label :Descripción %>
             <%= form.text_field :descripcion%>
         </div>
     <% end %>
-    <%if @request.id_usuario == current_user.id%>
+    <%if @request.turno.user_id == current_user.id%>
         <% def options_for_status
             [
             ['Aceptar Solicitud','ACEPTADO'],

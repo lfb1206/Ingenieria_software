@@ -1,13 +1,15 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/user.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/user.rb": {
         "lines": [
           null,
           null,
           1,
           null,
           null,
+          1,
+          1,
           1,
           null,
           1,
@@ -18,7 +20,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/application_record.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -28,7 +30,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/application_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -37,7 +39,7 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/articles_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/articles_helper.rb": {
         "lines": [
           null,
           null,
@@ -46,16 +48,26 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/requests_helper.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/requests_helper.rb": {
         "lines": [
           null,
           null,
           null,
+          1,
+          null
+        ]
+      },
+<<<<<<< HEAD
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/resenas_helper.rb": {
+        "lines": [
           1,
           null
         ]
       },
       "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/turnos_helper.rb": {
+=======
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/helpers/turnos_helper.rb": {
+>>>>>>> 67923c75017d9d0df0b8cb26aafa72fabce825a8
         "lines": [
           null,
           null,
@@ -64,145 +76,31 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/request.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
           1,
+          1,
+          null,
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/turno.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          null,
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/application_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/jobs/application_job.rb": {
         "lines": [
           null,
           null,
           1,
-          1,
-          null
-        ]
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/users/registrations_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           null,
@@ -211,68 +109,115 @@
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/requests_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/mailers/application_mailer.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/request.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+<<<<<<< HEAD
+          null
+        ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/resena.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+=======
+>>>>>>> 67923c75017d9d0df0b8cb26aafa72fabce825a8
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/models/turno.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/application_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/articles_controller.rb": {
         "lines": [
           null,
           null,
           null,
           1,
           1,
-          0,
-          0,
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/users/registrations_controller.rb": {
+        "lines": [
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
           null,
           1,
-          0,
-          null,
+          1,
+          1,
           null,
           1,
-          0,
-          null,
-          null,
-          null,
           1,
-          0,
-          null,
-          null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
           null,
-          0,
           null,
-          0,
-          0,
-          0,
           null,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -280,66 +225,150 @@
           null,
           1,
           0,
+          null,
+          null,
+          null,
+          1,
           0,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/requests_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
           0,
           null,
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/turnos_controller.rb": {
+      "/Users/antoniablanco/Desktop/Ing de software/grupo-48/app/controllers/turnos_controller.rb": {
         "lines": [
           null,
           null,
           null,
           1,
+          1,
           null,
           1,
-          0,
+          1,
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
           null,
-          0,
+          1,
           null,
           null,
           null,
           null,
           1,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
           null,
           null,
           1,
           0,
           0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -352,68 +381,75 @@
           1,
           0,
           0,
+          0,
           null,
           0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
           null,
           null
         ]
       },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/mailers/application_mailer.rb": {
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/resenas_controller.rb": {
         "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
           null,
           null,
           0,
           0,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/jobs/application_job.rb": {
-        "lines": [
-          null,
-          null,
           0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/articles_controller.rb": {
-        "lines": [
-          null,
-          null,
           null,
           0,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/channels/application_cable/connection.rb": {
-        "lines": [
+          0,
           null,
           null,
           0,
           0,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/channels/application_cable/channel.rb": {
-        "lines": [
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           null,
           0,
+          0,
+          0,
+          null,
           0,
           0,
           0
@@ -422,6 +458,10 @@
         }
       }
     },
-    "timestamp": 1651722041
+<<<<<<< HEAD
+    "timestamp": 1653063635
+=======
+    "timestamp": 1653062297
+>>>>>>> 67923c75017d9d0df0b8cb26aafa72fabce825a8
   }
 }

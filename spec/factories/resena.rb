@@ -3,8 +3,9 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :request do
-    descripcion { Faker::Lorem.sentence }
+  factory :resena do
+    contenido { Faker::Lorem.sentence }
+    calificacion { Faker::Number.between(from: 0, to: 10) }
     association :user, factory: :user
     association :turno, factory: :turno
   end

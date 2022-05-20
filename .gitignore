@@ -35,5 +35,5 @@
 yarn-debug.log*
 .yarn-integrity
 *.env
-*.DS_Store  coverage
+*DS_Store  coverage
 echo coverage >> .gitignore
