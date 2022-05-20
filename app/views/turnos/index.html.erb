@@ -52,11 +52,11 @@
                 <div style="border: solid 1px; width: 200px; 
                 padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
                 <b>Conductor </b><p><%= @users.find(@turno.user_id).name%></p>
-                <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+                <b>Hora salida </b><p><%= @turno.hora_salida%></p>
+                <b>Día de la semana </b><p><%= @turno.dia_semana%></p>
+                <b>Dirección salida </b><p><%= @turno.direccion_salida%></p>
+                <b>Dirección llegada </b><p><%= @turno.direccion_llegada%></p>
+                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => @turno.id) %></p>
             <% end %>
         <% end %>
 </div>

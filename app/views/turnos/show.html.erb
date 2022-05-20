@@ -33,27 +33,13 @@
     <%= @turno.estado %>
 </p>
 
-<% if @turno.user_id == current_user.id%>
-    <br/><h3>Solicitudes Recibidas Procesadas</h3><br/>
-    <div style="display: flex; flex-flow: wrap;">
-        <% @requests.each do |request|%>
-            <%if request.estado == "ACEPTADO and @turno.user_id == current_user.id"%>
-                <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
-                <p>Id Solicitud: <%= request.id%></p>
-                <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                <p>Id Usuario Solicitud: <%= request.user_id%></p>
-                <p>Id Publicación: <%= request.turno.id%></p>
-                <p>Estado: <%= request.estado%></p>
-                <p>Descripción: <%= request.descripcion%></p>
-            <% end %>
-    </div>
-    <% end %>
-<% end %>
-
 <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
 <% if @turno.user_id == current_user.id %>
     <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
     <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
 <% else %>
     <%= link_to 'Solicitar', requests_new_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
+    <% if @turno.estado == 'COMPLETADO' %>
+    
+    <% end %>
 <% end %>

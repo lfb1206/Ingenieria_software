@@ -10,6 +10,7 @@ module Users
       @user = User.find(current_user.id)
       @turnos = Turno.all
       @requests = Request.all
+      @users = User.all
     end
 
     # GET /resource/sign_up
