@@ -46,10 +46,9 @@
 <% end %>
 
 <% if @turno.estado == 'COMPLETADO'%>
-    <%= link_to 'Reseñas Viajes', resenas_index_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
     <% @resenas.each do |resena|%>
         <% if resena.turno_id == @turno.id%>
-            <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%>                  <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></li>
+            <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%>                  <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined %></li>
         <% end %>
     <% end %>
 <% end %>
