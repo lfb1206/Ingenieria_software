@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   # INICIO --------------------------------------
   get '/articles', to: 'articles#index'
 

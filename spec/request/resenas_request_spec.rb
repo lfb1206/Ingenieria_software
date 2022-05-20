@@ -75,7 +75,7 @@ class ResenasTest < ActiveSupport::TestCase
     # end
 
     # En este caso se trata de haer un update pero con atributos que no son válidos por las validaciones hechas.
-  
+
     # describe 'update' do
     #   it 'should not change a Resena' do
     #     expect do

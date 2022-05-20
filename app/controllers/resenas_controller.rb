@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# This class is for the resenas controller
 class ResenasController < ApplicationController
-  #### CREATE 
+  #### CREATE
   def new
     @resena = Resena.new
     @id_viaje = params[:id_viaje]
@@ -9,14 +12,13 @@ class ResenasController < ApplicationController
     @resenas_params = params.require(:resena).permit(:contenido, :calificacion, :turno_id, :user_id)
     @resena = Resena.create(@resenas_params)
     @resena.user = current_user
-    @resena.turno = Turno.find(@resenas_params["turno_id"])
+    @resena.turno = Turno.find(@resenas_params['turno_id'])
 
     if @resena.save!
-      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Solicitud enviada exitosamente'
+      redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Solicitud enviada exitosamente'
     else
-      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Error al enviar solicitud'
+      redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Error al enviar solicitud'
     end
-
   end
 
   #### READ
@@ -39,9 +41,9 @@ class ResenasController < ApplicationController
     @resena = Resena.find(params[:id])
     @resenas_params = params.require(:resena).permit(:contenido, :calificacion, :turno_id, :user_id)
     if @resena.update(@resenas_params)
-      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Reseña editada exitosamente'
+      redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Reseña editada exitosamente'
     else
-      redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Error al editar reseña'
+      redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Error al editar reseña'
     end
   end
 
@@ -50,6 +52,6 @@ class ResenasController < ApplicationController
     @resena = Resena.find(params[:id])
     @resena.destroy
 
-    redirect_to turnos_show_path(:id => @resena.turno.id), notice: 'Reseña eliminado'
+    redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Reseña eliminado'
   end
 end

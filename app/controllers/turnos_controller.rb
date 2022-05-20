@@ -56,7 +56,7 @@ class TurnosController < ApplicationController
   #### DELETE
   def delete
     @turno = Turno.find(params[:id])
-    puts "Entro"
+    puts 'Entro'
     @turno.destroy
 
     redirect_to turnos_index_path, notice: 'Turno eliminado'
@@ -66,11 +66,11 @@ class TurnosController < ApplicationController
 
   def turno_params_create
     params.require(:turno).permit(:cantidad_asientos, :hora_salida, :direccion_salida,
-      :direccion_llegada, :dia_semana, :tipo)
+                                  :direccion_llegada, :dia_semana, :tipo)
   end
 
   def turno_params_update
     params.require(:turno).permit(:cantidad_asientos, :hora_salida,
-      :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado)
+                                  :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado)
   end
 end

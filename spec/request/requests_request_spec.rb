@@ -12,7 +12,7 @@ class RequestTest < ActiveSupport::TestCase
     end
     let!(:turno) { create(:turno) }
     let!(:request) { create(:request) }
-    let!(:invalid_attr_request) { { descripcion: Faker::Lorem.characters(number: 150)  } }
+    let!(:invalid_attr_request) { { descripcion: Faker::Lorem.characters(number: 150) } }
 
     # Se describe lo que se testea
     describe 'get index' do
@@ -74,7 +74,7 @@ class RequestTest < ActiveSupport::TestCase
     # end
 
     # En este caso se trata de haer un update pero con atributos que no son válidos por las validaciones hechas.
-  
+
     # describe 'update' do
     #   it 'should not change a Request' do
     #     expect do

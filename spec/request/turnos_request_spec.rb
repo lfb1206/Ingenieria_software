@@ -44,7 +44,7 @@ class TurnosTest < ActiveSupport::TestCase
       # Se pasan atributos invalidos y se ve que la cuenta de Publicaciones no cambie
       it 'should not increase count of Turno' do
         expect do
-          post '/turnos', params: { turno: invalid_attr_turno}
+          post '/turnos', params: { turno: invalid_attr_turno }
         end.to change(Turno, :count).by(0)
       end
     end
@@ -75,7 +75,7 @@ class TurnosTest < ActiveSupport::TestCase
     # end
 
     # En este caso se trata de haer un update pero con atributos que no son válidos por las validaciones hechas.
-  
+
     # describe 'update' do
     #   it 'should not change a Turno' do
     #     expect do
