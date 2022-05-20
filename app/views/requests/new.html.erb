@@ -1,7 +1,8 @@
 <h1>Nueva solicitud</h1>
 
-<%= form_for @request do |form| %>
+<%= form_for @request, as: :request do |form| %>
 
+     <%= form.hidden_field :turno_id, value: @turno_id %>
     <div>
         <%= form.label :Descripción %>
         <%= form.text_field :descripcion%>
@@ -10,5 +11,5 @@
         <%= form.submit 'Enviar solicitud' %>
     </div>
 
-<%= link_to 'Volver', turnos_show_path(:id => @turno.id) %>
+<%= link_to 'Volver', turnos_show_path(:id => @turno_id) %>
 <% end %>
