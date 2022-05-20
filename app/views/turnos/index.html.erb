@@ -51,7 +51,7 @@
             <%if @turno.estado == "COMPLETADO"%>
                 <div style="border: solid 1px; width: 200px; 
                 padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
-                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
+                <b>Conductor </b><p><%= @users.find(@turno.user_id).name%></p>
                 <b>Hora salida </b><p><%= turno.hora_salida%></p>
                 <b>Día de la semana </b><p><%= turno.dia_semana%></p>
                 <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
