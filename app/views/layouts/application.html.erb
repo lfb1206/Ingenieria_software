@@ -10,6 +10,9 @@
   </head>
 
   <body class="bg-img">
+    <div class="bg-img">
+    </div>
+
     <nav class="navbar has-background-warning" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item">
@@ -43,9 +46,6 @@
       </div>
     </nav>
 
-    <div class="bg-img">
-    </div>
-
     <div align='right'>
       <p class="alert has-text-primary"><%= alert %></p>
       <% if current_user %>
@@ -57,6 +57,7 @@
           </ul>
       <% end %>
     </div>
+    
     <%= yield %>
   </body>
 </html>

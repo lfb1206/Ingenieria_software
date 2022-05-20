@@ -1,8 +1,7 @@
-
 <h1 align='center' class = "title is-2 has-text-primary" >Crear Turno</h1>
 
 <div  align='center'>
-<%= form_with(model: @turno, method: :post) do |form| %>
+<%= form_for @turno, as: :turno do |form| %>
 
     <div>
         <label class="label">Cantidad asientos</label>

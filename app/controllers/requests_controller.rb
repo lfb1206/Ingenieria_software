@@ -2,31 +2,22 @@
 
 # This class is for the requests controller
 class RequestsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
+    @turno_id = params[:id]
     @request = Request.new
-    @turno = Turno.find(params[:id])
   end
 
   def create
-    @requests_params = params.require(:request).permit(:id_turno, :id_usuario_turno, :descripcion)
-    @requests_params.merge!(id_publicacion: params['id_turno'])
-    @requests_params.merge!(id_usuario: params['id_usuario_turno'])
-    @requests_params.merge!(estado: 'PENDIENTE')
-    @requests_params.merge!(id_usuario_solicitud: current_user.id)
-    puts @requests_params
-    @request = Request.create(@requests_params)
-    if @request.id_usuario == current_user.id
-      if @request.update(@requests_params)
-        redirect_to users_show_path, notice: 'Solicitud enviada exitosamente'
-      else
-        redirect_to users_show_path, notice: 'Error al enviar solicitud'
-      end
-    elsif @request.id_usuario_solicitud == current_user.id
-      if @request.update(@requests_params)
-        redirect_to turnos_index_path, notice: 'Solicitud enviada exitosamente'
-      else
-        redirect_to turnos_index_path, notice: 'Error al enviar solicitud'
-      end
+    request_params_create[:turno] = Turno.find(params[:request][:turno_id].to_i)
+    @request = Request.new(request_params_create)
+    @request.estado = 'PENDIENTE'
+    @request.user = current_user
+    if @request.save!
+      redirect_to turnos_index_path, notice: 'Solicitud enviada exitosamente'
+    else
+      redirect_to turnos_index_path, notice: 'Error al enviar solicitud'
     end
   end
 
@@ -46,15 +37,14 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-    @requests_params = params.require(:request).permit(:estado, :descripcion)
-    if @request.id_usuario == current_user.id
-      if @request.update(@requests_params)
+    if @request.turno.user_id == current_user.id
+      if @request.update(request_params_update)
         redirect_to users_show_path, notice: 'Solicitud editada exitosamente'
       else
         redirect_to users_show_path, notice: 'Error al editar solicitud'
       end
-    elsif @request.id_usuario_solicitud == current_user.id
-      if @request.update(@requests_params)
+    elsif @request.user_id == current_user.id
+      if @request.update(request_params_update)
         redirect_to turnos_index_path, notice: 'Solicitud editada exitosamente'
       else
         redirect_to turnos_index_path, notice: 'Error al editar solicitud'
@@ -68,5 +58,15 @@ class RequestsController < ApplicationController
     @request.destroy
 
     redirect_to requests_index_path, notice: 'Request eliminado'
+  end
+
+  private
+
+  def request_params_create
+    params.require(:request).permit(:descripcion, :turno_id)
+  end
+
+  def request_params_update
+    params.require(:request).permit(:estado, :descripcion)
   end
 end

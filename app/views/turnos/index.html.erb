@@ -1,15 +1,13 @@
-
 <h1 align='center' class = "title is-2 has-text-primary" >Turnos</h1>
 
 <a>
 <%= button_to "Nuevo turno", turnos_new_path,:id => "boton_turnos", :class => "button is-primary is-rounded is-outlined is-right", :method => :get %>
 </a>
 
+<br>
 
-
-<br> </br>
 <h3 class = "title is-4 has-text-dark" >Turnos Activos</h3>
-<div align='center'style="display: flex; flex-flow: wrap; background-color:">
+<div align='center' style="display: flex; flex-flow: wrap;">
     <% @turnos.each do |turno|%>
         <%if turno.user_id != current_user.id and turno.estado == "ACTIVO"%>
             <div style="border: solid 1px; width: 200px; 
@@ -31,8 +29,8 @@
 <h3 class = "title is-4 has-text-dark" >Turnos Solicitados Confirmados</h3>
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @requests.each do |request|%>
-        <%if request.user_id_solicitud == current_user.id %>
-            <% @turno = Turno.find(request.id_publicacion)%> 
+        <%if request.user_id == current_user.id %>
+            <% @turno = Turno.find(request.turno.id)%> 
             <%if @turno.estado == "CONFIRMADO"%>
                 <div style="border: solid 1px; width: 200px; 
                 padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
@@ -51,13 +49,13 @@
         <% end %>
 </div>
 <% end %>
+<br/>
 
-</br>
 <h3 class = "title is-4 has-text-dark" >Turnos Solicitados Completados</h3>
 <div align='center' style="display: flex; flex-flow: wrap; ">
     <% @requests.each do |request|%>
-        <%if request.user_id_solicitud == current_user.id %>
-            <% @turno = Turno.find(request.id_publicacion)%> 
+        <%if request.user_id == current_user.id %>
+            <% @turno = Turno.find(request.turno.id)%> 
             <%if @turno.estado == "COMPLETADO"%>
                 <div style="border: solid 1px; width: 200px; 
                 padding: 10px; align-text: center; margin: 5px; background-color: lightblue">
@@ -75,3 +73,4 @@
         <% end %>
 </div>
 <% end %>
+<br/>

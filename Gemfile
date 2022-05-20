@@ -25,10 +25,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 
-# Factory bot
-gem 'factory_bot'
-gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
-
 # SimpleCov
 gem 'simplecov', require: false, group: :test
 
@@ -42,6 +38,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # RSpec for testing
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 5.0.0'
 end
 

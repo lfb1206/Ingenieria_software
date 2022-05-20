@@ -1,4 +1,4 @@
-<h1 class="title is-3">Turno</h1>
+<h1 class="title is-2 has-text-primary">Turno</h1>
 
 <p>
     <strong>ID Usuario: </strong>
@@ -36,9 +36,9 @@
             <%if request.estado == "ACEPTADO and @turno.user_id == current_user.id"%>
                 <div style="border: solid 1px; width: 200px; padding: 10px; align-text: center; margin: 5px;">
                 <p>Id Solicitud: <%= request.id%></p>
-                <p>Id Usuario Turno: <%= request.user_id%></p>
-                <p>Id Usuario Solicitud: <%= request.user_id_solicitud%></p>
-                <p>Id Publicación: <%= request.id_publicacion%></p>
+                <p>Id Usuario Turno: <%= request.turno.user_id%></p>
+                <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                <p>Id Publicación: <%= request.turno.id%></p>
                 <p>Estado: <%= request.estado%></p>
                 <p>Descripción: <%= request.descripcion%></p>
             <% end %>
@@ -51,5 +51,5 @@
     <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
     <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
 <% else %>
-    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
+    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
 <% end %>

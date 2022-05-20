@@ -1,19 +1,16 @@
-
 <div align='center'>
 <h1 class="title is-3 has-text-primary">Nueva Solicitud</h1>
-<%= form_with(model: @request, method: :post) do |form| %>
+<%= form_for @request, as: :request do |form| %>
 
-    <%= hidden_field_tag :id_turno, @turno.id %>
-    <%= hidden_field_tag :id_usuario_turno, @turno.id_usuario %>
+     <%= form.hidden_field :turno_id, value: @turno_id %>
     <div>
         <label class="label">Descripcion</label>
         <%= form.text_field :descripcion%>
     </div>
     <div>
         <%= form.submit 'Enviar solicitud' %>
-        <%= print("Se apreto el boton") %>
     </div>
 
-<%= button_to "Volver", turnos_show_path(:id => @turno.id) ,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
+<%= link_to 'Volver', turnos_show_path(:id => @turno_id), class: "button is-primary is-inverted is-rounded is-outlined" %>
 </div>
 <% end %>
