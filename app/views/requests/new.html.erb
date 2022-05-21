@@ -1,16 +1,17 @@
 <div align='center'>
-<h1 class="title is-3 has-text-primary">Nueva Solicitud</h1>
-<%= form_for @request, as: :request do |form| %>
+    <h1 class="title is-3 has-text-primary">Nueva Solicitud</h1>
+    <div class="column is-4 is-offset-4">
+        <%= form_for @request, as: :request do |form| %>
 
-     <%= form.hidden_field :turno_id, value: @turno_id %>
-    <div>
-        <label class="label">Descripcion</label>
-        <%= form.text_field :descripcion%>
+            <%= form.hidden_field :turno_id, value: @turno_id %>
+            <%= form.text_field :descripcion, {class: "input is-primary is-rounded is-outlined", placeholder:"Descripcion"}%>
+            <br/>
+            <br/>
+            <div>
+                <%= form.submit 'Enviar solicitud', {class: "button is-primary is-inverted is-rounded is-outlined"} %>
+            </div>
+            <br/>
+        <%= link_to 'Volver', turnos_show_path(:id => @turno_id), {class: "button is-primary is-inverted is-rounded is-outlined"} %>
     </div>
-    <div>
-        <%= form.submit 'Enviar solicitud' %>
-    </div>
-
-<%= link_to 'Volver', turnos_show_path(:id => @turno_id), class: "button is-primary is-inverted is-rounded is-outlined" %>
 </div>
 <% end %>

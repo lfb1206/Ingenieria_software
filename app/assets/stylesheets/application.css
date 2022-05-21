@@ -16,14 +16,15 @@
 
  @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
- .bg-img { 
-    background-image: url(https://images7.alphacoders.com/617/617537.jpg) ;
+.bg-img {
+    background-image: linear-gradient(rgba(238, 88, 88, 0.5), rgba(238, 88, 88, 0.5)), url(https://images7.alphacoders.com/617/617537.jpg);
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-color: #999;
 }
+
 
 #menu_list {
     height: 150px;
@@ -65,7 +66,21 @@ body {
     width: 100%;
     padding: 10px;
 }
-  
+
+.column-turno {
+    float: left;
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(238, 88, 88, 0.5);
+    border: solid 1px; 
+    margin: 5px;
+}
+
+.column-cuenta {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
   
 .row:after {
   content: "";
@@ -81,5 +96,23 @@ h1,
 h2,
 h3,
 h4 {
+    text-align: center;
+}
+
+a {
+    color: hsl(171, 100%, 41%);
+  }
+
+.navbar-dropdown{
+    background-color: hsl(0, 0%, 4%);
+}
+.dropdown-content{
+    background-color: hsl(0, 0%, 4%);
+}
+.dropdown-divider{
+    background-color: hsl(0, 0%, 4%);
+}
+
+input {
     text-align: center;
 }
