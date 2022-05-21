@@ -17,7 +17,7 @@
  @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
  .bg-img { 
-    background-image: url(https://www.chamanexperience.com/wp-content/uploads/2020/01/Tipos-de-fotografi%CC%81a-de-paisaje-Te%CC%81cnicas-composicio%CC%81n-y-trucos-1200x385.jpg) ;
+    background-image: url(https://images7.alphacoders.com/617/617537.jpg) ;
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
@@ -47,3 +47,15 @@
     background-color: transparent;
     margin: 10px;
 }
+
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+ 
+ body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+ }
