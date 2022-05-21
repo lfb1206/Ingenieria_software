@@ -52,10 +52,23 @@ html {
     margin: 0px;
     height: 100%;
     width: 100%;
- }
+}
  
- body {
+body {
     margin: 0px;
     min-height: 100%;
     width: 100%;
- }
+}
+
+.column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+  
+  
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -13,7 +13,7 @@
     <div class="bg-img">
     </div>
 
-    <nav class="navbar has-background-warning" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-black" role="navigation" aria-label="dropdown navigation">
       <div class="navbar-brand">
         <a class="navbar-item">
           <img id="logo" src="https://toppng.com/public/uploads/thumbnail/icono-de-auto-covoiturage-logo-11563318871cussi74k8u.png" width="50" height="100">
@@ -30,16 +30,29 @@
         <h1 class="title is-3 has-text-primary">DCCARPOOLING</h1>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-item has-dropdown is-hoverable is-black">
+            <a class="navbar-link is-arrowless">
+              Menu
+            </a>
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a>
-                <%= button_to "Sign out", destroy_user_session_path,:id => "boton_sign_out", :class => "button is-primary is-inverted has-background-warning", :method => :delete %>
-              <a class="button is-primary is-inverted has-background-warning">
-                Help
+            <div class="navbar-dropdown is-right is-boxed">
+              <% if current_user %>
+              <a class="navbar-item">
+                <li class="title is-5 has-text-primary is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></li>
               </a>
+              <a class="navbar-item">
+                <li class="title is-5 has-text-primary is-active"><%= link_to "Turnos", turnos_index_path %></li>
+              </a>
+              <a class="navbar-item">
+                <li class="title is-5 has-text-primary is-active"><%= link_to "Solicitudes", requests_index_path %></li>
+              </a>
+              <a>
+                <%= button_to "Cerrar sesion", destroy_user_session_path,:id => "boton_sign_out", :class => "button is-primary is-inverted has-background-warning", :method => :delete %>
+              </a>
+              <% end %>
+              <hr class="navbar-divider">
             </div>
           </div>
         </div>
