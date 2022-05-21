@@ -37,7 +37,7 @@
 <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
 <% if @turno.user_id == current_user.id %>
     <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), :id => "boton_volver",class: "button is-primary is-inverted is-rounded is-outlined"%>
-    <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
+    <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
 <% else %>
     <%= link_to 'Solicitar', requests_new_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
     <% if @turno.estado == 'COMPLETADO'%>
@@ -46,9 +46,10 @@
 <% end %>
 
 <% if @turno.estado == 'COMPLETADO'%>
+    <h3>Reseñas viaje</h3>
     <% @resenas.each do |resena|%>
         <% if resena.turno_id == @turno.id%>
-            <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%>                  <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined %></li>
+            <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%> <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %> </li>
         <% end %>
     <% end %>
 <% end %>
