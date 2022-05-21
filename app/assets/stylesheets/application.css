@@ -72,3 +72,14 @@ body {
   display: table;
   clear: both;
 }
+
+h4 {
+    color: rgb(29, 33, 29);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-align: center;
+}
