@@ -52,6 +52,7 @@ html {
     margin: 0px;
     height: 100%;
     width: 100%;
+    background-color: transparent;
 }
 
 .column {
@@ -109,3 +110,10 @@ a {
 input {
     text-align: center;
 }
+
+.field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+  

@@ -1,61 +1,61 @@
 <div align='center'>
-<h1 class="title is-2 has-text-primary">Turno</h1>
+    <h1 class="title is-2 has-text-primary">Turno</h1>
 
-<p>
-    <strong>Número Turno: </strong>
-    <%= @turno.id %>
-</p>
-<p>
-    <strong>Nombre conductor: </strong>
-    <%= User.find(@turno.user_id).name %>
-</p>
-<p>
-    <strong>Cantidad Asientos: </strong>
-    <%= @turno.cantidad_asientos %>
-</p>
-<p>
-    <strong>Hora Salida: </strong>
-    <%= @turno.hora_salida %>
-</p>
-<p>
-    <strong>Dirección Salida: </strong>
-    <%= @turno.direccion_salida %>
-</p>
-<p>
-    <strong>Dirección Llegada: </strong>
-    <%= @turno.direccion_llegada %>
-</p>
-<p>
-    <strong>Día Semana: </strong>
-    <%= @turno.dia_semana %>
-</p>
-<p>
-    <strong>Tipo: </strong>
-    <%= @turno.tipo %>
-</p>
-<p>
-    <strong>Estado: </strong>
-    <%= @turno.estado %>
-</p>
+    <p>
+        <strong>Número Turno: </strong>
+        <%= @turno.id %>
+    </p>
+    <p>
+        <strong>Nombre conductor: </strong>
+        <%= User.find(@turno.user_id).name %>
+    </p>
+    <p>
+        <strong>Cantidad Asientos: </strong>
+        <%= @turno.cantidad_asientos %>
+    </p>
+    <p>
+        <strong>Hora Salida: </strong>
+        <%= @turno.hora_salida %>
+    </p>
+    <p>
+        <strong>Dirección Salida: </strong>
+        <%= @turno.direccion_salida %>
+    </p>
+    <p>
+        <strong>Dirección Llegada: </strong>
+        <%= @turno.direccion_llegada %>
+    </p>
+    <p>
+        <strong>Día Semana: </strong>
+        <%= @turno.dia_semana %>
+    </p>
+    <p>
+        <strong>Tipo: </strong>
+        <%= @turno.tipo %>
+    </p>
+    <p>
+        <strong>Estado: </strong>
+        <%= @turno.estado %>
+    </p>
 
-<% if @turno.user_id == current_user.id %>
-    <%= button_to "Volver",  users_show_path(id: current_user.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
-    <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), :id => "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
-    <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
-<% else %>
-    <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
-    <%= link_to 'Solicitar', requests_new_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
-    <% if @turno.estado == 'COMPLETADO'%>
-        <%= link_to 'Agregar reseña ', resenas_new_path(:id_viaje => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
-    <% end %>
-<% end %>
-
-<% if @turno.estado == 'COMPLETADO'%>
-    <h3>Reseñas viaje</h3>
-    <% @resenas.each do |resena|%>
-        <% if resena.turno_id == @turno.id%>
-            <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%> <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %> </li>
+    <% if @turno.user_id == current_user.id %>
+        <%= button_to "Volver",  users_show_path(id: current_user.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
+        <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), :id => "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
+        <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
+    <% else %>
+        <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
+        <%= link_to 'Solicitar', requests_new_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
+        <% if @turno.estado == 'COMPLETADO'%>
+            <%= link_to 'Agregar reseña ', resenas_new_path(:id_viaje => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
         <% end %>
     <% end %>
-<% end %>
+
+    <% if @turno.estado == 'COMPLETADO'%>
+        <h3>Reseñas viaje</h3>
+        <% @resenas.each do |resena|%>
+            <% if resena.turno_id == @turno.id%>
+                <li>Nombre Pasajero: <%= resena.user.name%>. Calificación: <%= resena.calificacion%> <%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %> </li>
+            <% end %>
+        <% end %>
+    <% end %>
 </div>
