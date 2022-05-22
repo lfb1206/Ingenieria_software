@@ -18,9 +18,9 @@ class TurnosController < ApplicationController
     @turno.hora_salida = horario
     @turno.user = current_user
     if @turno.save
-      redirect_to turnos_index_path, notice: 'Turno creado exitosamente'
+      redirect_to users_show_path(:id => current_user.id), notice: 'Turno creado exitosamente'
     else
-      redirect_to turnos_index_path, notice: 'Error al crear turno'
+      redirect_to users_show_path(:id => current_user.id), notice: 'Error al crear turno'
     end
   end
 

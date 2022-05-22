@@ -35,8 +35,17 @@
     </div>
 
     <br/>
-    <div class="field">
-      <%= f.text_field :gender, class: "input is-primary is-rounded is-outlined", placeholder:"Género" %>
+    <% def options_for_status
+      [
+      ['Masculino','Masculino'],
+      ['Femenino','Femenino'],
+      ['No binario','No binario'],
+      ['Prefiero no decir','Prefiero no decir']
+      ]
+    end %>
+    <div>
+      <label class="label">Género</label>
+      <%= f.select :gender, options_for_status, {}, prompt: 'Select One' %>
     </div>
 
     <br/>

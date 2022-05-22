@@ -2,6 +2,10 @@
 <h1 class="title is-2 has-text-primary">Turno</h1>
 
 <p>
+    <strong>Nombre conductor: </strong>
+    <%= User.find(@turno.user_id).name %>
+</p>
+<p>
     <strong>Cantidad Asientos: </strong>
     <%= @turno.cantidad_asientos %>
 </p>
