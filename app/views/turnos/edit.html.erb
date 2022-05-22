@@ -11,6 +11,31 @@
         <label class="label">Hora de salida</label>
         <%= form.text_field :hora_salida%>
     </div>
+    <% def options_for_status
+      [
+      ['Lunes','Lunes'],
+      ['Martes','Martes'],
+      ['Miércoles','Miércoles'],
+      ['Jueves','Jueves'],
+      ['Viernes','Viernes'],
+      ['Sábado','Sábado'],
+      ['Domingo','Domingo']
+      ]
+    end %>
+    <div>
+      <label class="label">Día de la semana</label>
+      <%= form.select :dia_semana, options_for_status, {}, prompt: 'Select One' %>
+    </div>
+    <% def options_for_status
+      [
+      ['Ida','Ida'],
+      ['Vuelta','Vuelta']
+      ]
+    end %>
+    <div>
+      <label class="label">Tipo</label>
+      <%= form.select :tipo, options_for_status, {}, prompt: 'Select One' %>
+    </div>
     <div>
         <label class="label">Direccion de salida</label>
         <%= form.text_field :direccion_salida%>
@@ -18,14 +43,6 @@
     <div>
         <label class="label">Direccion de llegada</label>
         <%= form.text_field :direccion_llegada%>
-    </div>
-    <div>
-        <label class="label">Dia de la semana</label>
-        <%= form.text_field :dia_semana%>
-    </div>
-    <div>
-        <label class="label">Tipo</label>
-        <%= form.text_field :tipo%>
     </div>
     <%if @turno.user_id == current_user.id%>
         <% def options_for_status

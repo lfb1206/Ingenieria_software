@@ -17,20 +17,39 @@
         </div>
     </div>
     <br/>
+    <% def options_for_status
+      [
+      ['Lunes','Lunes'],
+      ['Martes','Martes'],
+      ['Miércoles','Miércoles'],
+      ['Jueves','Jueves'],
+      ['Viernes','Viernes'],
+      ['Sábado','Sábado'],
+      ['Domingo','Domingo']
+      ]
+    end %>
+    <div>
+      <label class="label">Día de la semana</label>
+      <%= form.select :dia_semana, options_for_status, {}, prompt: 'Select One' %>
+    </div>
+    <br/>
+    <% def options_for_status
+      [
+      ['Ida','Ida'],
+      ['Vuelta','Vuelta']
+      ]
+    end %>
+    <div>
+      <label class="label">Tipo</label>
+      <%= form.select :tipo, options_for_status, {}, prompt: 'Select One' %>
+    </div>
+    <br/>
     <div>
         <%= form.text_field :direccion_salida, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de salida"%>
     </div>
     <br/>
     <div>
         <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de llegada"%>
-    </div>
-    <br/>
-    <div>
-        <%= form.text_field :dia_semana, class: "input is-primary is-rounded is-outlined", placeholder:"Dia de la semana"%>
-    </div>
-    <br/>
-    <div>
-        <%= form.text_field :tipo, class: "input is-primary is-rounded is-outlined", placeholder:"Tipo"%>
     </div>
     <br/>
     <div>
@@ -45,3 +64,4 @@
 <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
 </a>
 </div>
+
