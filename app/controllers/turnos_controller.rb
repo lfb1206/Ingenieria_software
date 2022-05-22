@@ -10,7 +10,6 @@ class TurnosController < ApplicationController
 
   def create
     @turnos_params = turno_params_create
-    print @turno_params
     hora = @turnos_params['hora_salida(4i)']
     minuto = @turnos_params['hora_salida(5i)']
     horario = "#{hora}:#{minuto}"
@@ -19,9 +18,9 @@ class TurnosController < ApplicationController
     @turno.hora_salida = horario
     @turno.user = current_user
     if @turno.save
-      redirect_to users_show_path(:id => current_user.id), notice: 'Turno creado exitosamente'
+      redirect_to users_show_path(id: current_user.id), notice: 'Turno creado exitosamente'
     else
-      redirect_to users_show_path(:id => current_user.id), notice: 'Error al crear turno'
+      redirect_to users_show_path(id: current_user.id), notice: 'Error al crear turno'
     end
   end
 
@@ -46,15 +45,20 @@ class TurnosController < ApplicationController
 
   def update
     @turno = Turno.find(params[:id])
-    @turnos_params = turno_params_update
-    hora = @turnos_params['hora_salida(4i)']
-    minuto = @turnos_params['hora_salida(5i)']
-    horario = "#{hora}:#{minuto}"
-    @turno_params.hora_salida = horario
-    if @turno.update(@turnos_params)
-      redirect_to turnos_index_path, notice: 'Turno editado exitosamente'
+    @parametros = turno_params_update
+    hora = @parametros['hora_salida(4i)']
+    minuto = @parametros['hora_salida(5i)']
+    horario = { 'hora_salida' => "#{hora}:#{minuto}" }
+    @parametros.merge!(horario)
+    @parametros.delete('hora_salida(1i)')
+    @parametros.delete('hora_salida(2i)')
+    @parametros.delete('hora_salida(3i)')
+    @parametros.delete('hora_salida(4i)')
+    @parametros.delete('hora_salida(5i)')
+    if @turno.update(@parametros)
+      redirect_to users_show_path(id: current_user.id), notice: 'Turno editado exitosamente'
     else
-      redirect_to turnos_index_path, notice: 'Error al editar turno'
+      redirect_to users_show_path(id: current_user.id), notice: 'Error al editar turno'
     end
   end
 
