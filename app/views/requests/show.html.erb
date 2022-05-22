@@ -1,8 +1,8 @@
 <h1 class="title is-3 has-text-primary">Solicitud</h1>
 
 <p>
-    <strong>Id Solicitud: </strong>
-    <%= @request.id %>
+    <strong>Número Turno: </strong>
+    <%= @request.turno.id %>
 </p>
 <p>
     <strong>Id Usuario Turno: </strong>
@@ -11,10 +11,6 @@
 <p>
     <strong>Id Usuario Solicitud: </strong>
     <%= @request.user_id %>
-</p>
-<p>
-    <strong>Id Publicación: </strong>
-    <%= @request.turno.id %>
 </p>
 <p>
     <strong>Estado: </strong>
@@ -27,5 +23,9 @@
 
 
 <%= link_to 'Volver', users_show_path(:id => current_user.id, class: "button is-primary is-inverted is-rounded is-outlined")%>
-<%= link_to 'Editar', requests_edit_path(:id => @request.id, class: "button is-primary is-inverted is-rounded is-outlined")%>
-<%= link_to 'Eliminar', requests_delete_path(:id => @request.id, class: "button is-primary is-inverted is-rounded is-outlined"), method: :delete%>
+<% if @request.user_id == current_user.id or @request.turno.user_id == current_user.id %>
+    <%= link_to 'Editar', requests_edit_path(:id => @request.id, class: "button is-primary is-inverted is-rounded is-outlined")%>
+<% end %>    
+<% if @request.user_id == current_user.id%>
+    <%= link_to 'Eliminar', requests_delete_path(:id => @request.id, class: "button is-primary is-inverted is-rounded is-outlined"), method: :delete%>
+<% end %>
