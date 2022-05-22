@@ -10,6 +10,7 @@ class TurnosController < ApplicationController
 
   def create
     @turnos_params = turno_params_create
+    print @turno_params
     hora = @turnos_params['hora_salida(4i)']
     minuto = @turnos_params['hora_salida(5i)']
     horario = "#{hora}:#{minuto}"
@@ -40,12 +41,16 @@ class TurnosController < ApplicationController
   #### UPDATE
   def edit
     @turno = Turno.find(params[:id])
+    @turno.hora_salida = nil
   end
 
   def update
     @turno = Turno.find(params[:id])
     @turnos_params = turno_params_update
-    @turnos_params.merge!(user_id: current_user.id)
+    hora = @turnos_params['hora_salida(4i)']
+    minuto = @turnos_params['hora_salida(5i)']
+    horario = "#{hora}:#{minuto}"
+    @turno_params.hora_salida = horario
     if @turno.update(@turnos_params)
       redirect_to turnos_index_path, notice: 'Turno editado exitosamente'
     else
