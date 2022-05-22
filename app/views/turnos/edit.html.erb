@@ -1,53 +1,59 @@
-<h1 align='center' class = "title is-2 has-text-primary" >Editar Turno</h1>
+<h1 align='center' class = "title is-3 has-text-primary" >Editar Turno</h1>
 
 <div  align='center'>
 <%= form_with(model: @turno, method: :patch, url: turnos_update_path(:id => @turno.id)) do |form| %>
-
-    <div>
-        <label class="label">Cantidad asientos</label>
-        <%= form.text_field :cantidad_asientos%>
-    </div>
-    <div>
-        <label class="label">Hora de salida</label>
-        <%= form.text_field :hora_salida%>
-    </div>
-    <div>
-        <label class="label">Direccion de salida</label>
-        <%= form.text_field :direccion_salida%>
-    </div>
-    <div>
-        <label class="label">Direccion de llegada</label>
-        <%= form.text_field :direccion_llegada%>
-    </div>
-    <div>
-        <label class="label">Dia de la semana</label>
-        <%= form.text_field :dia_semana%>
-    </div>
-    <div>
-        <label class="label">Tipo</label>
-        <%= form.text_field :tipo%>
-    </div>
-    <%if @turno.user_id == current_user.id%>
-        <% def options_for_status
-            [
-            ['Turno completado','COMPLETADO'],
-            ['Turno confirmado','CONFIRMADO'],
-            ['Turno pendiente','ACTIVO'],
-            ]
-        end %>
+    <div class="column is-4 is-offset-4">
         <div>
-            <label class="label">Respuesta solicitud</label>
-            <%= form.select :estado, options_for_status, {}, prompt: 'Select One' %>
+            <h4 class = "title is-6 has-text-dark">Cantidad asientos</h4>
+            <%= form.text_field :cantidad_asientos, class: "input is-primary is-rounded is-outlined", placeholder:"Cantidad asientos"%>
         </div>
+        <div class="field-group">
+            <h1 align='center' class = "title is-6 has-text-black" >Hora de salida</h1>
+            <div class="field is-inline-block-desktop">
+                <div class="select">
+                    <%= form.time_select :hora_salida, time_separator: '<div class="select"></div>' %>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4 class = "title is-6 has-text-dark">Dirección de salida</h4>
+            <%= form.text_field :direccion_salida, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de salida"%>
+        </div>
+        <div>
+            <h4 class = "title is-6 has-text-dark">Dirección de llegada</h4>
+            <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de llegada"%>
+        </div>
+        <div>
+            <h4 class = "title is-6 has-text-dark">Dia de la semana</h4>
+            <%= form.text_field :dia_semana, class: "input is-primary is-rounded is-outlined", placeholder:"Día de la semana"%>
+        </div>
+        <div>
+            <h4 class = "title is-6 has-text-dark">Tipo</h4>
+            <%= form.text_field :tipo, class: "input is-primary is-rounded is-outlined", placeholder:"Tipo"%>
+        </div>
+        <%if @turno.user_id == current_user.id%>
+            <% def options_for_status
+                [
+                ['Turno completado','COMPLETADO'],
+                ['Turno confirmado','CONFIRMADO'],
+                ['Turno pendiente','ACTIVO'],
+                ]
+            end %>
+            <div>
+                <h4 class = "title is-6 has-text-dark">Respuesta solicitud</h4>
+                <%= form.select :estado, options_for_status, {}, prompt: 'Select One', class: "select" %>
+            </div>
+        <% end %>
+        <br/>
+        <div>
+            <%= form.submit 'Guardar', :class => "button is-primary is-rounded is-outlined" %>
+        </div>
+        
+
     <% end %>
-    <div>
-        <%= form.submit 'Editar turno', :class => "button is-primary is-rounded is-outlined" %>
+
+    <a align='center'>
+    <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-rounded is-outlined", method: :get%>
+    </a>
     </div>
-    
-
-<% end %>
 </div>
-
-<a align='center'>
-<%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-rounded is-outlined", method: :get%>
-</a>

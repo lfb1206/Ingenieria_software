@@ -12,7 +12,7 @@ class RequestTest < ActiveSupport::TestCase
     end
     let!(:turno) { create(:turno) }
     let!(:request) { create(:request) }
-    let!(:invalid_attr_request) { { descripcion: Faker::Lorem.characters(number: 150) } }
+    let!(:invalid_attr_request) { { descripcion: nil } }
 
     # Se describe lo que se testea
     describe 'get index' do
