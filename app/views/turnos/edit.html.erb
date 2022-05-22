@@ -2,7 +2,7 @@
 
 <div  align='center'>
 <%= form_with(model: @turno, method: :patch, url: turnos_update_path(:id => @turno.id)) do |form| %>
-    <div class="column is-4 is-offset-4">
+        <div class="column is-4 is-offset-4">
         <div>
             <h4 class = "title is-6 has-text-dark">Cantidad asientos</h4>
             <%= form.text_field :cantidad_asientos, class: "input is-primary is-rounded is-outlined", placeholder:"Cantidad asientos"%>
@@ -15,6 +15,31 @@
                 </div>
             </div>
         </div>
+        <% def options_for_status
+        [
+        ['Lunes','Lunes'],
+        ['Martes','Martes'],
+        ['Miércoles','Miércoles'],
+        ['Jueves','Jueves'],
+        ['Viernes','Viernes'],
+        ['Sábado','Sábado'],
+        ['Domingo','Domingo']
+        ]
+        end %>
+        <div>
+        <label class="label">Día de la semana</label>
+        <%= form.select :dia_semana, options_for_status, {}, prompt: 'Select One' %>
+        </div>
+        <% def options_for_status
+        [
+        ['Ida','Ida'],
+        ['Vuelta','Vuelta']
+        ]
+        end %>
+        <div>
+        <label class="label">Tipo</label>
+        <%= form.select :tipo, options_for_status, {}, prompt: 'Select One' %>
+        </div>
         <div>
             <h4 class = "title is-6 has-text-dark">Dirección de salida</h4>
             <%= form.text_field :direccion_salida, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de salida"%>
@@ -22,14 +47,6 @@
         <div>
             <h4 class = "title is-6 has-text-dark">Dirección de llegada</h4>
             <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de llegada"%>
-        </div>
-        <div>
-            <h4 class = "title is-6 has-text-dark">Dia de la semana</h4>
-            <%= form.text_field :dia_semana, class: "input is-primary is-rounded is-outlined", placeholder:"Día de la semana"%>
-        </div>
-        <div>
-            <h4 class = "title is-6 has-text-dark">Tipo</h4>
-            <%= form.text_field :tipo, class: "input is-primary is-rounded is-outlined", placeholder:"Tipo"%>
         </div>
         <%if @turno.user_id == current_user.id%>
             <% def options_for_status

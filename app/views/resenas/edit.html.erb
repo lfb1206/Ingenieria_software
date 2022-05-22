@@ -9,13 +9,22 @@
         <%= form.label :Contenido %>
         <%= form.text_field :contenido%>
     </div>
+    <% def options_for_status
+      [
+      ['0','0'],
+      ['1','1'],
+      ['2','2'],
+      ['3','3'],
+      ['4','4'],
+      ['5','5']
+      ]
+    end %>
     <div>
-        <%= form.label :Calificación %>
-        <%= form.text_field :calificacion%>
+      <label class="label">Calificación</label>
+      <%= form.select :calificacion, options_for_status, {}, prompt: 'Select One' %>
     </div>
     <div>
         <%= form.submit 'Editar' %>
-        <%= print("Se apreto el boton") %>
     </div>
 
 <%= link_to 'Volver', turnos_show_path(:id => @resena.turno.id) %>
