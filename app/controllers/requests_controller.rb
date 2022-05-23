@@ -17,7 +17,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to requests_index_path, notice: 'Solicitud enviada exitosamente'
     else
-      render "new", notice: 'Error al crear solicitud'
+      render 'new', notice: 'Error al crear solicitud'
     end
   end
 
@@ -47,7 +47,7 @@ class RequestsController < ApplicationController
       if @request.update(request_params_update)
         redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else
-        render "edit", notice: 'Error al editar solicitud'
+        render 'edit', notice: 'Error al editar solicitud'
       end
     end
   end
