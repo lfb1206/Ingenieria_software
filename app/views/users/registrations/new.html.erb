@@ -34,9 +34,9 @@
       <%= f.text_field :description, class: "input is-primary is-rounded is-outlined", placeholder:"Cuentanos un poco sobre tí" %>
     </div>
 
-    <br/>
     <% def options_for_status
       [
+      ['Género', nil],
       ['Masculino','Masculino'],
       ['Femenino','Femenino'],
       ['No binario','No binario'],
@@ -44,7 +44,6 @@
       ]
     end %>
     <div>
-      <label class="label">Género</label>
       <%= f.select :gender, options_for_status, {}, prompt: 'Select One' %>
     </div>
 

@@ -13,11 +13,11 @@ class ResenasController < ApplicationController
     @resena = Resena.create(@resenas_params)
     @resena.user = current_user
     @resena.turno = Turno.find(@resenas_params['turno_id'])
-
-    if @resena.save!
+    if @resena.save
       redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Solicitud enviada exitosamente'
     else
-      redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Error al enviar solicitud'
+      @id_viaje = @resenas_params['turno_id']
+      render "new", notice: 'Error al crear reseña'
     end
   end
 
@@ -43,7 +43,7 @@ class ResenasController < ApplicationController
     if @resena.update(@resenas_params)
       redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Reseña editada exitosamente'
     else
-      redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Error al editar reseña'
+      render "edit", notice: 'Error al editar reseña'
     end
   end
 

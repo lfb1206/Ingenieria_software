@@ -1,12 +1,22 @@
 <h1 align='center' class = "title is-3 has-text-primary" >Editar Turno</h1>
 
-<div  align='center'>
+<div align='center'>
 <%= form_with(model: @turno, method: :patch, url: turnos_update_path(:id => @turno.id)) do |form| %>
+        <% if @turno.errors.any? %>
+          <div>
+            <h1 align='center' class = "title is-4 has-text-black" >Se produjeron los siguientes errores:</h1>
+            <% @turno.errors.full_messages.each do |message| %>
+              <h1 align='center' class = "title is-6 has-text-black" ><%= message %></h1>
+            <% end %>
+            <br/>
+          </div>
+        <% end %>
         <div class="column is-4 is-offset-4">
         <div>
-            <h4 class = "title is-6 has-text-dark">Cantidad asientos</h4>
+            <h1 class = "title is-6 has-text-dark">Cantidad asientos</h1>
             <%= form.text_field :cantidad_asientos, class: "input is-primary is-rounded is-outlined", placeholder:"Cantidad asientos"%>
         </div>
+        <br/>
         <div class="field-group">
             <h1 align='center' class = "title is-6 has-text-black" >Hora de salida</h1>
             <div class="field is-inline-block-desktop">
@@ -15,6 +25,8 @@
                 </div>
             </div>
         </div>
+        <br/>
+        <br/>
         <% def options_for_status
         [
         ['Lunes','Lunes'],
@@ -27,9 +39,10 @@
         ]
         end %>
         <div>
-        <label class="label">Día de la semana</label>
-        <%= form.select :dia_semana, options_for_status, {}, prompt: 'Select One' %>
+            <h4 align='center' class = "title is-6 has-text-black" >Día de la semana</h4>
+            <%= form.select :dia_semana, options_for_status, {}, prompt: 'Select One' %>
         </div>
+        <br/>
         <% def options_for_status
         [
         ['Ida','Ida'],
@@ -40,14 +53,17 @@
         <label class="label">Tipo</label>
         <%= form.select :tipo, options_for_status, {}, prompt: 'Select One' %>
         </div>
+        <br/>
         <div>
             <h4 class = "title is-6 has-text-dark">Dirección de salida</h4>
             <%= form.text_field :direccion_salida, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de salida"%>
         </div>
+        <br/>
         <div>
             <h4 class = "title is-6 has-text-dark">Dirección de llegada</h4>
             <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de llegada"%>
         </div>
+        <br/>
         <%if @turno.user_id == current_user.id%>
             <% def options_for_status
                 [
@@ -57,7 +73,7 @@
                 ]
             end %>
             <div>
-                <h4 class = "title is-6 has-text-dark">Respuesta solicitud</h4>
+                <h4 class = "title is-6 has-text-dark">Estado turno</h4>
                 <%= form.select :estado, options_for_status, {}, prompt: 'Select One', class: "select" %>
             </div>
         <% end %>

@@ -14,10 +14,10 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params_create)
     @request.estado = 'PENDIENTE'
     @request.user = current_user
-    if @request.save!
-      redirect_to turnos_index_path, notice: 'Solicitud enviada exitosamente'
+    if @request.save
+      redirect_to requests_index_path, notice: 'Solicitud enviada exitosamente'
     else
-      redirect_to turnos_index_path, notice: 'Error al enviar solicitud'
+      render "new", notice: 'Error al crear solicitud'
     end
   end
 
@@ -39,15 +39,15 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     if @request.turno.user_id == current_user.id
       if @request.update(request_params_update)
-        redirect_to users_show_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else
-        redirect_to users_show_path, notice: 'Error al editar solicitud'
+        redirect_to requests_index_path, notice: 'Error al editar solicitud'
       end
     elsif @request.user_id == current_user.id
       if @request.update(request_params_update)
-        redirect_to turnos_index_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else
-        redirect_to turnos_index_path, notice: 'Error al editar solicitud'
+        render "edit", notice: 'Error al editar solicitud'
       end
     end
   end

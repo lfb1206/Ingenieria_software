@@ -20,7 +20,8 @@ class TurnosController < ApplicationController
     if @turno.save
       redirect_to users_show_path(id: current_user.id), notice: 'Turno creado exitosamente'
     else
-      redirect_to users_show_path(id: current_user.id), notice: 'Error al crear turno'
+      @turno.hora_salida = nil
+      render "new", notice: 'Error al crear turno'
     end
   end
 
@@ -58,7 +59,8 @@ class TurnosController < ApplicationController
     if @turno.update(@parametros)
       redirect_to users_show_path(id: current_user.id), notice: 'Turno editado exitosamente'
     else
-      redirect_to users_show_path(id: current_user.id), notice: 'Error al editar turno'
+      @turno.hora_salida = nil
+      render "edit", notice: 'Error al crear turno'
     end
   end
 

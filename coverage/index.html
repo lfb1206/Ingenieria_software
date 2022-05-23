@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-21T20:46:53-04:00">2022-05-21T20:46:53-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-05-22T20:46:18-04:00">2022-05-22T20:46:18-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  78.7%
+  75.28%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.87
+         0.83
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>169</b> relevant lines,
-    <span class="green"><b>133</b> lines covered</span> and
-    <span class="red"><b>36</b> lines missed. </span>
+    <b>178</b> relevant lines,
+    <span class="green"><b>134</b> lines covered</span> and
+    <span class="red"><b>44</b> lines missed. </span>
     (<span class="red">
-  78.7%
+  75.28%
 </span>
 )
   </div>
@@ -138,12 +138,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#74bf73b4ad29e4486a0627f0901499ee0f75ddc7" class="src_link" title="app/controllers/turnos_controller.rb">app/controllers/turnos_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">75.00 %</td>
-            <td class="cell--number">77</td>
-            <td class="cell--number">44</td>
-            <td class="cell--number">33</td>
-            <td class="cell--number">11</td>
-            <td class="cell--number">1.05</td>
+            <td class="red strong cell--number t-file__coverage">64.15 %</td>
+            <td class="cell--number">86</td>
+            <td class="cell--number">53</td>
+            <td class="cell--number">34</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">0.87</td>
             
           </tr>
         
@@ -302,14 +302,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  71.88%
+  67.88%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.83
+         0.77
        </span>
     </span> hits/line
     )
@@ -322,11 +322,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>128</b> relevant lines,
-    <span class="green"><b>92</b> lines covered</span> and
-    <span class="red"><b>36</b> lines missed. </span>
+    <b>137</b> relevant lines,
+    <span class="green"><b>93</b> lines covered</span> and
+    <span class="red"><b>44</b> lines missed. </span>
     (<span class="red">
-  71.88%
+  67.88%
 </span>
 )
   </div>
@@ -395,12 +395,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#74bf73b4ad29e4486a0627f0901499ee0f75ddc7" class="src_link" title="app/controllers/turnos_controller.rb">app/controllers/turnos_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">75.00 %</td>
-            <td class="cell--number">77</td>
-            <td class="cell--number">44</td>
-            <td class="cell--number">33</td>
-            <td class="cell--number">11</td>
-            <td class="cell--number">1.05</td>
+            <td class="red strong cell--number t-file__coverage">64.15 %</td>
+            <td class="cell--number">86</td>
+            <td class="cell--number">53</td>
+            <td class="cell--number">34</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">0.87</td>
             
           </tr>
         
@@ -2785,7 +2785,7 @@
     <h3>app/controllers/turnos_controller.rb</h3>
     <h4>
       <span class="red">
-  75.0%
+  64.15%
 </span>
 
       lines covered
@@ -2794,9 +2794,9 @@
     
 
     <div class="t-line-summary">
-      <b>44</b> relevant lines.
-      <span class="green"><b>33</b> lines covered</span> and
-      <span class="red"><b>11</b> lines missed.</span>
+      <b>53</b> relevant lines.
+      <span class="green"><b>34</b> lines covered</span> and
+      <span class="red"><b>19</b> lines missed.</span>
     </div>
 
     
@@ -2945,7 +2945,7 @@
 
             
 
-            <code class="ruby">    print @turno_params</code>
+            <code class="ruby">    hora = @turnos_params[&#39;hora_salida(4i)&#39;]</code>
           </li>
         </div>
       
@@ -2956,7 +2956,7 @@
 
             
 
-            <code class="ruby">    hora = @turnos_params[&#39;hora_salida(4i)&#39;]</code>
+            <code class="ruby">    minuto = @turnos_params[&#39;hora_salida(5i)&#39;]</code>
           </li>
         </div>
       
@@ -2967,7 +2967,7 @@
 
             
 
-            <code class="ruby">    minuto = @turnos_params[&#39;hora_salida(5i)&#39;]</code>
+            <code class="ruby">    horario = &quot;#{hora}:#{minuto}&quot;</code>
           </li>
         </div>
       
@@ -2978,7 +2978,7 @@
 
             
 
-            <code class="ruby">    horario = &quot;#{hora}:#{minuto}&quot;</code>
+            <code class="ruby">    @turno = Turno.create(turno_params_create)</code>
           </li>
         </div>
       
@@ -2989,7 +2989,7 @@
 
             
 
-            <code class="ruby">    @turno = Turno.create(turno_params_create)</code>
+            <code class="ruby">    @turno.estado = &#39;ACTIVO&#39;</code>
           </li>
         </div>
       
@@ -3000,7 +3000,7 @@
 
             
 
-            <code class="ruby">    @turno.estado = &#39;ACTIVO&#39;</code>
+            <code class="ruby">    @turno.hora_salida = horario</code>
           </li>
         </div>
       
@@ -3011,7 +3011,7 @@
 
             
 
-            <code class="ruby">    @turno.hora_salida = horario</code>
+            <code class="ruby">    @turno.user = current_user</code>
           </li>
         </div>
       
@@ -3022,34 +3022,23 @@
 
             
 
-            <code class="ruby">    @turno.user = current_user</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="21">
-            <span class="hits">2</span>
-            
-
-            
-
             <code class="ruby">    if @turno.save</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
+          <li class="covered" data-hits="1" data-linenumber="21">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      redirect_to users_show_path(:id =&gt; current_user.id), notice: &#39;Turno creado exitosamente&#39;</code>
+            <code class="ruby">      redirect_to users_show_path(id: current_user.id), notice: &#39;Turno creado exitosamente&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
@@ -3060,13 +3049,24 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="23">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      @turno.hora_salida = nil</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="24">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      redirect_to users_show_path(:id =&gt; current_user.id), notice: &#39;Error al crear turno&#39;</code>
+            <code class="ruby">      render &quot;new&quot;, notice: &#39;Error al crear turno&#39;</code>
           </li>
         </div>
       
@@ -3280,13 +3280,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="44">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    @turno.hora_salida = nil</code>
           </li>
         </div>
       
@@ -3297,12 +3297,23 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
+          <li class="covered" data-hits="1" data-linenumber="47">
             <span class="hits">1</span>
             
 
@@ -3313,24 +3324,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="47">
-            
-            
-
-            
-
-            <code class="ruby">    @turno = Turno.find(params[:id])</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="missed" data-hits="0" data-linenumber="48">
             
             
 
             
 
-            <code class="ruby">    @turnos_params = turno_params_update</code>
+            <code class="ruby">    @turno = Turno.find(params[:id])</code>
           </li>
         </div>
       
@@ -3341,7 +3341,7 @@
 
             
 
-            <code class="ruby">    @turnos_params.merge!(user_id: current_user.id)</code>
+            <code class="ruby">    @parametros = turno_params_update</code>
           </li>
         </div>
       
@@ -3352,7 +3352,7 @@
 
             
 
-            <code class="ruby">    if @turno.update(@turnos_params)</code>
+            <code class="ruby">    hora = @parametros[&#39;hora_salida(4i)&#39;]</code>
           </li>
         </div>
       
@@ -3363,18 +3363,18 @@
 
             
 
-            <code class="ruby">      redirect_to turnos_index_path, notice: &#39;Turno editado exitosamente&#39;</code>
+            <code class="ruby">    minuto = @parametros[&#39;hora_salida(5i)&#39;]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="52">
+          <li class="missed" data-hits="0" data-linenumber="52">
             
             
 
             
 
-            <code class="ruby">    else</code>
+            <code class="ruby">    horario = { &#39;hora_salida&#39; =&gt; &quot;#{hora}:#{minuto}&quot; }</code>
           </li>
         </div>
       
@@ -3385,62 +3385,62 @@
 
             
 
-            <code class="ruby">      redirect_to turnos_index_path, notice: &#39;Error al editar turno&#39;</code>
+            <code class="ruby">    @parametros.merge!(horario)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="54">
+          <li class="missed" data-hits="0" data-linenumber="54">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">    @parametros.delete(&#39;hora_salida(1i)&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="missed" data-hits="0" data-linenumber="55">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    @parametros.delete(&#39;hora_salida(2i)&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="missed" data-hits="0" data-linenumber="56">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    @parametros.delete(&#39;hora_salida(3i)&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="missed" data-hits="0" data-linenumber="57">
             
             
 
             
 
-            <code class="ruby">  #### DELETE</code>
+            <code class="ruby">    @parametros.delete(&#39;hora_salida(4i)&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="58">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="58">
+            
             
 
             
 
-            <code class="ruby">  def delete</code>
+            <code class="ruby">    @parametros.delete(&#39;hora_salida(5i)&#39;)</code>
           </li>
         </div>
       
@@ -3451,7 +3451,7 @@
 
             
 
-            <code class="ruby">    @turno = Turno.find(params[:id])</code>
+            <code class="ruby">    if @turno.update(@parametros)</code>
           </li>
         </div>
       
@@ -3462,40 +3462,40 @@
 
             
 
-            <code class="ruby">    puts &#39;Entro&#39;</code>
+            <code class="ruby">      redirect_to users_show_path(id: current_user.id), notice: &#39;Turno editado exitosamente&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="61">
+          <li class="never" data-hits="" data-linenumber="61">
             
             
 
             
 
-            <code class="ruby">    @turno.destroy</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
+          <li class="missed" data-hits="0" data-linenumber="62">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      redirect_to users_show_path(id: current_user.id), notice: &#39;Error al editar turno&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="63">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
             
 
-            <code class="ruby">    redirect_to turnos_index_path, notice: &#39;Turno eliminado&#39;</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -3522,57 +3522,57 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
+          <li class="never" data-hits="" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby">  #### DELETE</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">  def delete</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="missed" data-hits="0" data-linenumber="68">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    @turno = Turno.find(params[:id])</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="68">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="69">
+            
             
 
             
 
-            <code class="ruby">  def turno_params_create</code>
+            <code class="ruby">    puts &#39;Entro&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="69">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">    params.require(:turno).permit(:cantidad_asientos, :hora_salida, :direccion_salida,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="missed" data-hits="0" data-linenumber="70">
             
             
 
             
 
-            <code class="ruby">                                  :direccion_llegada, :dia_semana, :tipo)</code>
+            <code class="ruby">    @turno.destroy</code>
           </li>
         </div>
       
@@ -3583,12 +3583,34 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="72">
+            
+            
+
+            
+
+            <code class="ruby">    redirect_to turnos_index_path, notice: &#39;Turno eliminado&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="73">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="74">
             
             
 
@@ -3599,35 +3621,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="73">
+          <li class="covered" data-hits="1" data-linenumber="75">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def turno_params_update</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="74">
-            
-            
-
-            
-
-            <code class="ruby">    params.require(:turno).permit(:cantidad_asientos, :hora_salida,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="75">
-            
-            
-
-            
-
-            <code class="ruby">                                  :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado)</code>
+            <code class="ruby">  private</code>
           </li>
         </div>
       
@@ -3638,12 +3638,111 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="77">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def turno_params_create</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="78">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    params.require(:turno).permit(:cantidad_asientos, :hora_salida, :direccion_salida,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="79">
+            
+            
+
+            
+
+            <code class="ruby">                                  :direccion_llegada, :dia_semana, :tipo)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="80">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="77">
+          <li class="never" data-hits="" data-linenumber="81">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def turno_params_update</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="83">
+            
+            
+
+            
+
+            <code class="ruby">    params.require(:turno).permit(:cantidad_asientos, :hora_salida,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby">                                  :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="86">
             
             
 
@@ -5257,7 +5356,7 @@
 
             
 
-            <code class="ruby">  validates :descripcion, presence: true</code>
+            <code class="ruby">  validates :descripcion, presence: { message: &quot;Agrega una dirección o descripción&quot; }</code>
           </li>
         </div>
       
@@ -5387,7 +5486,7 @@
 
             
 
-            <code class="ruby">            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }</code>
+            <code class="ruby">            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5, message: &quot;Escoge una calificación&quot; }</code>
           </li>
         </div>
       
@@ -5517,7 +5616,7 @@
 
             
 
-            <code class="ruby">            presence: true,</code>
+            <code class="ruby">            presence: { message: &quot;agrega una dirección de salida&quot; },</code>
           </li>
         </div>
       
@@ -5528,7 +5627,7 @@
 
             
 
-            <code class="ruby">            numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 4 }</code>
+            <code class="ruby">            numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 4, message: &quot;agrega una cantidad de asientos disponibles entre 1 y 4&quot; }</code>
           </li>
         </div>
       
@@ -5539,7 +5638,7 @@
 
             
 
-            <code class="ruby">  validates :direccion_salida, presence: true, length: { minimum: 1 }</code>
+            <code class="ruby">  validates :direccion_salida, presence: { message: &quot;agrega una dirección de salida&quot; }, length: { minimum: 1, message: &quot;agrega una dirección de salida&quot; }</code>
           </li>
         </div>
       
@@ -5550,7 +5649,7 @@
 
             
 
-            <code class="ruby">  validates :direccion_llegada, presence: true, length: { minimum: 1 }</code>
+            <code class="ruby">  validates :direccion_llegada, presence: { message: &quot;agrega una dirección de llegada&quot; }, length: { minimum: 1, message: &quot;agrega una dirección de llegada&quot; }</code>
           </li>
         </div>
       
@@ -5561,7 +5660,7 @@
 
             
 
-            <code class="ruby">  validates :dia_semana, presence: true, length: { minimum: 5, maximum: 9 }</code>
+            <code class="ruby">  validates :dia_semana, presence: { message: &quot;agrega un día de la semana&quot; }</code>
           </li>
         </div>
       
@@ -5572,7 +5671,7 @@
 
             
 
-            <code class="ruby">  validates :tipo, presence: true, length: { minimum: 3, maximum: 6 }</code>
+            <code class="ruby">  validates :tipo, presence: { message: &quot;agrega un tipo de turno&quot; }</code>
           </li>
         </div>
       

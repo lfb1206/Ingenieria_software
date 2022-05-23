@@ -70,6 +70,21 @@ html {
     margin: 5px;
 }
 
+.contenedor-resena{
+    display: inline-block;
+    vertical-align: middle;  
+}
+
+.column-resena {
+    float: left;
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(238, 88, 88, 0.5);
+    border: solid 1px; 
+    margin: 5px;
+    flex-grow: 10;
+}
+
 .column-cuenta {
     float: left;
     width: 100%;
@@ -111,9 +126,11 @@ input {
     text-align: center;
 }
 
-.field_with_errors {
-    padding: 2px;
-    background-color: red;
-    display: table;
+select {
+    width: 100%;
+    height: 33.33px;
+    margin-top: 20px;
+    border-color: hsl(171, 100%, 41%);
+    border-radius: 20px;
+    text-align: center;
 }
-  

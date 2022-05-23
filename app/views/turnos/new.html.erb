@@ -3,7 +3,15 @@
 <div class="column is-4 is-offset-4">
   <div  align='center'>
     <%= form_for @turno, as: :turno do |form| %>
-
+        <% if @turno.errors.any? %>
+          <div>
+            <h1 align='center' class = "title is-4 has-text-black" >Se produjeron los siguientes errores:</h1>
+            <% @turno.errors.full_messages.each do |message| %>
+              <h1 align='center' class = "title is-6 has-text-black" ><%= message %></h1>
+            <% end %>
+            <br/>
+          </div>
+        <% end %>
         <div>
             <%= form.text_field :cantidad_asientos, class: "input is-primary is-rounded is-outlined", placeholder:"Cantidad asientos"%>
         </div>
@@ -19,6 +27,7 @@
         <br/>
         <% def options_for_status
           [
+          ['Día de la semana',nil],
           ['Lunes','Lunes'],
           ['Martes','Martes'],
           ['Miércoles','Miércoles'],
@@ -29,18 +38,16 @@
           ]
         end %>
         <div>
-          <label class="label">Día de la semana</label>
-          <%= form.select :dia_semana, options_for_status, {}, prompt: 'Select One' %>
+          <%= form.select :dia_semana, options_for_status, {}, prompt: 'Día' %>
         </div>
-        <br/>
         <% def options_for_status
           [
+          ['Tipo',nil],
           ['Ida','Ida'],
           ['Vuelta','Vuelta']
           ]
         end %>
         <div>
-          <label class="label">Tipo</label>
           <%= form.select :tipo, options_for_status, {}, prompt: 'Select One' %>
         </div>
         <br/>
