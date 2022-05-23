@@ -1,17 +1,26 @@
-<h1>Nueva solicitud</h1>
+<div align='center'>
+    <h1 class="title is-3 has-text-primary">Nueva Solicitud</h1>
+    <div class="column is-4 is-offset-4">
+        <%= form_with(model: @request, method: :post) do |form| %>
+            <% if @request.errors.any? %>
+            <div>
+                <h1 align='center' class = "title is-4 has-text-black" >Se produjeron los siguientes errores:</h1>
+                <% @request.errors.full_messages.each do |message| %>
+                <h1 align='center' class = "title is-6 has-text-black" ><%= message %></h1>
+                <% end %>
+                <br/>
+            </div>
+            <% end %>
 
-<%= form_with(model: @request, method: :post) do |form| %>
-
-    <%= hidden_field_tag :id_turno, @turno.id %>
-    <%= hidden_field_tag :id_usuario_turno, @turno.id_usuario %>
-    <div>
-        <%= form.label :Descripción %>
-        <%= form.text_field :descripcion%>
+            <%= form.hidden_field :turno_id, value: @turno_id %>
+            <%= form.text_field :descripcion, {class: "input is-primary is-rounded is-outlined", placeholder:"Agrega aquí la dirección de encuentro"}%>
+            <br/>
+            <br/>
+            <div>
+                <%= form.submit 'Enviar solicitud', {class: "button is-primary is-inverted is-rounded is-outlined"} %>
+            </div>
+            <br/>
+        <%= link_to 'Volver', turnos_show_path(:id => @turno_id), {class: "button is-primary is-inverted is-rounded is-outlined"} %>
     </div>
-    <div>
-        <%= form.submit 'Enviar solicitud' %>
-        <%= print("Se apreto el boton") %>
-    </div>
-
-<%= link_to 'Volver', turnos_show_path(:id => @turno.id) %>
+</div>
 <% end %>

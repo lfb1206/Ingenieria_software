@@ -3,6 +3,5 @@
 
 La dirección a la aplicación es https://dccarpooling.herokuapp.com/
 
+El filtrado quedo en desarrollo y en solicitudes se pretenden cambiar los Ids por nombre
 
-En los tests unitarios de require pide llegar a una respuesta de html 302, 
-dado que siempre se tiene que pasar primero por authenticate_user.

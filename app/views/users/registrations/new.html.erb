@@ -1,54 +1,64 @@
-<h2>Sign up</h2>
+<h1 align='center' class = "title is-2 has-text-primary" >Registrarse</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
+  <div class="column is-4 is-offset-4">
+    <div align='center'>
+    <div class="field">
+      <%= f.email_field :email, class: "input is-primary is-rounded is-outlined", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <% if @minimum_password_length %>
+      <% end %><br/>
+      <%= f.password_field :password, class: "input is-primary is-rounded is-outlined", placeholder:"Contraseña", autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <br/>
+    <div class="field">
+      <%= f.password_field :password_confirmation, class: "input is-primary is-rounded is-outlined", placeholder:"Repita su contraseña", autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <br/>
+    <div class="field">
+      <%= f.text_field :name, class: "input is-primary is-rounded is-outlined", placeholder:"Nombre" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+    <br/>
+    <div class="field">
+      <%= f.text_field :address, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
+    <br/>
+    <div class="field">
+      <%= f.text_field :description, class: "input is-primary is-rounded is-outlined", placeholder:"Cuentanos un poco sobre tí" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
+    <% def options_for_status
+      [
+      ['Género', nil],
+      ['Masculino','Masculino'],
+      ['Femenino','Femenino'],
+      ['No binario','No binario'],
+      ['Prefiero no decir','Prefiero no decir']
+      ]
+    end %>
+    <div>
+      <%= f.select :gender, options_for_status, {}, prompt: 'Select One' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <br/>
+    <div class="field">
+      <%= f.text_field :phone, class: "input is-primary is-rounded is-outlined", placeholder:"Teléfono" %>
+    </div>
+    
+    <br/>
+    <div class="actions">
+      <%= f.submit "Registrarse", class: "button is-primary is-inverted is-rounded is-outlined" %>
+    </div>
+    <% end %>
+    <div align='center'>
+    <%= render "users/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

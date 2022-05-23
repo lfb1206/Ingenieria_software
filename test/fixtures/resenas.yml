@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_viaje: 1
+  id_cliente_evaluador: 1
+  id_cliente_evaluado: 1
+  contenido: MyText
+  calificacion: 1.5
+
+two:
+  id_viaje: 1
+  id_cliente_evaluador: 1
+  id_cliente_evaluado: 1
+  contenido: MyText
+  calificacion: 1.5

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'factories/user'
 
 RSpec.describe User, type: :model do
   # Similar al before each, pero ahora usando los métodos let y create de FactoryBot
