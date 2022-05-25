@@ -13,11 +13,11 @@ class RequestTest < ActiveSupport::TestCase
     let!(:turno) { create(:turno) }
     let!(:request) { create(:request) }
     let!(:invalid_attr_request) { { descripcion: nil } }
-    
+
     # Se describe lo que se testea
     describe 'get new' do
       it 'should return a successful request' do
-        get requests_path(id: request.id,  id_viaje: turno.id)
+        get requests_path(id: request.id, id_viaje: turno.id)
         expect(response).to have_http_status(:ok)
       end
     end

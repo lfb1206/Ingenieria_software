@@ -69,12 +69,12 @@ class ResenasTest < ActiveSupport::TestCase
       it 'should change a Resena' do
         expect do
           numero = resena.calificacion
-          if numero != 0 
-            numero -= 1
-          else
+          if numero == 0
             numero += 1
-          end            
-          patch resenas_update_path(id: resena.id), params: { resena: { calificacion: numero  } }
+          else
+            numero -= 1
+          end
+          patch resenas_update_path(id: resena.id), params: { resena: { calificacion: numero } }
           # Se recarga la instancia de resena nuevamente con los posibles nuevos atributos
           # Luego se revisa si cambió alguno de los atributos del usuario
           resena.reload
