@@ -7,53 +7,53 @@ Rails.application.routes.draw do
   # RESENAS --------------------------------------
 
   #### CREATE
-  get 'resenas/new'
-  post 'resenas', to: 'resenas#create'
+  get 'resenas', to: 'resenas#new', as: 'resenas'
+  post 'resenas/:id', to: 'resenas#create', as: 'resenas_create'
 
   #### READ
-  get 'resenas/index'
-  get 'resenas/show'
+  get 'resenas/index', to: 'resenas#index', as: 'resenas_index'
+  get 'resenas/:id', to: 'resenas#show', as: 'resenas_show'
 
   #### UPDATE
-  get 'resenas/edit'
-  patch 'resenas/update', to: 'resenas#update'
+  get 'resenas/edit/:id', to: 'resenas#edit', as: 'resenas_edit'
+  patch 'resenas/:id', to: 'resenas#update', as: 'resenas_update'
 
   #### DELETE
-  delete 'resenas/delete', to: 'resenas#delete'
+  delete 'resenas/:id', to: 'resenas#delete', as: 'resenas_delete'
   # REQUEST --------------------------------------
 
   #### CREATE
-  get 'requests/new'
-  post 'requests', to: 'requests#create'
+  get 'requests', to: 'requests#new', as: 'requests'
+  post 'requests/:id', to: 'requests#create', as: 'requests_create'
 
   #### READ
-  get 'requests/index', to: 'requests#index'
-  get 'requests/show'
+  get 'requests/index', to: 'requests#index', as: 'requests_index'
+  get 'requests/:id', to: 'requests#show', as: 'requests_show'
 
   #### UPDATE
-  get 'requests/edit'
-  patch 'requests/update', to: 'requests#update', as: 'requests_update'
+  get 'requests/edit/:id', to: 'requests#edit', as: 'requests_edit'
+  patch 'requests/:id', to: 'requests#update', as: 'requests_update'
 
   #### DELETE
-  delete 'requests/delete', to: 'requests#delete', as: 'requests_delete'
+  delete 'requests/:id', to: 'requests#delete', as: 'requests_delete'
 
   # TURNOS --------------------------------------
 
   #### CREATE
-  get 'turnos/new'
-  post 'turnos', to: 'turnos#create'
+  get 'turnos', to: 'turnos#new', as: 'turnos'
+  post 'turnos/:id', to: 'turnos#create', as: 'turnos_create'
 
   #### READ
   root 'turnos#index'
-  get 'turnos/index', to: 'turnos#index'
-  get 'turnos/show'
+  get 'turnos/index', to: 'turnos#index', as: 'turnos_index'
+  get 'turnos/:id', to: 'turnos#show', as: 'turnos_show'
 
   #### UPDATE
-  get 'turnos/edit'
-  patch 'turnos/update', to: 'turnos#update', as: 'turnos_update'
+  get 'turnos/edit/:id', to: 'turnos#edit', as: 'turnos_edit'
+  patch 'turnos/:id', to: 'turnos#update', as: 'turnos_update'
 
   #### DELETE
-  delete 'turnos/delete', to: 'turnos#delete', as: 'turnos_delete'
+  delete 'turnos/:id', to: 'turnos#delete', as: 'turnos_delete'
 
   # USERS --------------------------------------
 

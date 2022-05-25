@@ -67,7 +67,6 @@ class TurnosController < ApplicationController
   #### DELETE
   def delete
     @turno = Turno.find(params[:id])
-    puts 'Entro'
     @turno.destroy
 
     redirect_to turnos_index_path, notice: 'Turno eliminado'

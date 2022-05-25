@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @turno_id = params[:id]
+    @turno_id = params[:id_viaje]
     @request = Request.new
   end
 
@@ -17,6 +17,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to requests_index_path, notice: 'Solicitud enviada exitosamente'
     else
+      @turno_id = Turno.find(params[:request][:turno_id].to_i)
       render 'new', notice: 'Error al crear solicitud'
     end
   end
@@ -37,13 +38,13 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-    if @request.turno.user_id == current_user.id
+    if request_params_update.key?('descripcion')
       if @request.update(request_params_update)
         redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else
         redirect_to requests_index_path, notice: 'Error al editar solicitud'
       end
-    elsif @request.user_id == current_user.id
+    elsif request_params_update.key?('estado')
       if @request.update(request_params_update)
         redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else

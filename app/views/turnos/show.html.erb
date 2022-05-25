@@ -47,9 +47,9 @@
     <% else %>
         <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
         <% if @turno.estado != 'COMPLETADO'%>   
-            <%= link_to 'Solicitar', requests_new_path(:id => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
+            <%= link_to 'Solicitar', requests_path(:id_viaje => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
         <% elsif @turno.estado == 'COMPLETADO'%>
-            <%= link_to 'Agregar reseña ', resenas_new_path(:id_viaje => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
+            <%= link_to 'Agregar reseña ', resenas_path(:id_viaje => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
         <% end %>
     <% end %>
 
