@@ -1,0 +1,18 @@
+
+<div  align='center'>
+  <%= form_with(model: @mensaje, method: :post) do |form| %>
+      <%= form.hidden_field :turno_id, value: @id_viaje%>
+      <%= form.hidden_field :user_id, value: current_user.id%>
+      <div class="column is-10">
+        <div>
+            <%= form.text_field :contenido, class: "input is-primary is-rounded is-outlined", placeholder:"Mensaje"%>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div>
+            <%= form.submit 'Enviar', class: "button is-primary is-inverted is-rounded is-outlined" %>
+        </div>
+      </div>
+  <% end %>
+</div>
+

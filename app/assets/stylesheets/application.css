@@ -17,7 +17,7 @@
  @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
 .bg-img {
-    background-image: linear-gradient(rgba(242, 162, 162, 0.5), rgba(242, 162, 162, 0.5)), url(https://images7.alphacoders.com/617/617537.jpg);
+    background-image: linear-gradient(rgba(246, 168, 120, 0.5), rgba(246, 168, 120, 0.5)), url(https://images7.alphacoders.com/617/617537.jpg);
     background-position: center center;
     background-repeat:  no-repeat;
     background-size: cover;

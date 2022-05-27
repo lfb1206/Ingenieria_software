@@ -1,29 +1,39 @@
 <div align='center'>
-<h1 class="title is-2 has-text-primary">Cuenta</h1>
-<h1 align='center' class = "title is-4 has-text-black" >Aquí se encuentra toda la información de los turnos propios</h1>
+    <h1 class="title is-2 has-text-primary">Cuenta</h1>
+    <h1 align='center' class = "title is-4 has-text-black" >Aquí se encuentra toda la información de los turnos propios</h1>
 
-<h1 align='center' class = "title is-5 has-text-black">Datos Personales</h1>
-<p>
-    <strong>Nombre:</strong>
-    <%= @user.name %>
-</p>
-<p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-</p>
-<p>
-    <strong>Dirección:</strong>
-    <%= @user.address %>
-</p>
-<p>
-    <strong>Género:</strong>
-    <%= @user.gender %>
-</p>
-<p>
-    <strong>Teléfono:</strong>
-    <%= @user.phone %>
-</p>
+    <h1 align='center' class = "title is-5 has-text-black">Datos Personales</h1>
+    <p>
+        <strong align='center' class = "title is-5 has-text-black">Nombre:</strong>
+        <%= @user.name %>
+    </p>
+    <br/>
+    <p>
+        <strong align='center' class = "title is-5 has-text-black">Email:</strong>
+        <%= @user.email %>
+    </p>
+    <br/>
+    <p>
+        <strong align='center' class = "title is-5 has-text-black">Dirección:</strong>
+        <%= @user.address %>
+    </p>
+    <br/>
+    <p>
+        <strong align='center' class = "title is-5 has-text-black">Género:</strong>
+        <%= @user.gender %>
+    </p>
+    <br/>
+    <p>
+        <strong align='center' class = "title is-5 has-text-black">Teléfono:</strong>
+        <%= @user.phone %>
+    </p>
+    <br/>
+    <a>
+        <%= button_to "Editar cuenta", users_edit_path(:id => current_user.id), :class => "button is-primary is-rounded is-outlined is-right" %>
+    </a>
 </div>
+
+    
 
 <div class="row">
     
@@ -35,32 +45,30 @@
 
     
     <div class="row">
-        <div align='center' style="display: flex; flex-flow: wrap;">
-            <% @no_vacio = false %>
-            <% @turnos.each do |turno|%>
-                <%if turno.user_id == current_user.id and turno.estado == "ACTIVO"%>
-                    <% @no_vacio = true %>
-                    <div class="column-turno">
-                        <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                        <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                        <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                        <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                        <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                        <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
-                    </div>
-                <% end %>
+        <% @no_vacio = false %>
+        <% @turnos.each do |turno|%>
+            <%if turno.user_id == current_user.id and turno.estado == "ACTIVO"%>
+                <% @no_vacio = true %>
+                <div class="column-turno">
+                    <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
+                    <b>Hora salida </b><p><%= turno.hora_salida%></p>
+                    <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+                    <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+                    <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+                    <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+                </div>
             <% end %>
-            <% if not @no_vacio %>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-            <% end %>
-        </div>
+        <% end %>
+        <% if not @no_vacio %>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        <% end %>
     </div>
 
     <div class="column-cuenta">

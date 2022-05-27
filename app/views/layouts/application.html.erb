@@ -42,9 +42,27 @@
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos", turnos_index_path %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Solicitudes", requests_index_path %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Mensajes", mensajes_index_path %></div>
                 <hr class="dropdown-divider">
                   <div align="center"  class="title is-5 has-text-black is-active has-text-center"><%= link_to "Cerrar sesion", destroy_user_session_path,  :method => :delete %></div>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable is-black">
+            <a class="navbar-link is-arrowless">
+              <div style="border: 5px; width: 150px; padding: 10px;";>
+                <h4 class="title is-3 has-text-primary">Menu</h4>
+              </div>
+            </a>
+
+            <div class="navbar-dropdown is-center is-boxed">
+              <div class="dropdown-content">
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Iniciar Sesion", '/users/sign_in' %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Registrarse", '/users/sign_up' %></div>
               </div>
             </div>
           </div>

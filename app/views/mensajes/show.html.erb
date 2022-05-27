@@ -1,0 +1,26 @@
+
+<div class="row">
+
+    <% @no_vacio = false %>
+    <% @mensaje.each do |mensaje|%>
+        <% if mensaje.user_id == current_user.id %>
+            <% @no_vacio = true %>
+            <div class="column is-6"> 
+                <p><%= current_user.name%></p>
+                <p><%= @mensaje.contenido%></p>
+            </div>
+        <% else %>
+            <% @no_vacio = true %>
+            <div class="column is-6 is-offset-6"> 
+                <p><%= @mensaje.user.name%></p>
+                <p><%= @mensaje.contenido%></p>
+            </div>
+        <% end %>
+    <% end %>
+    <% if not @no_vacio %>
+        <p class="title is-5">No hay mensajes</p>
+    <% end %>
+    </div>
+    <%= render "mensajes/new.html.erb", resource: resource %>
+</div>
+

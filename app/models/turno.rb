@@ -4,6 +4,7 @@ class Turno < ApplicationRecord
   belongs_to :user
   has_many :requests, dependent: :destroy
   has_many :resenas
+  has_many :mensajes
   validates :cantidad_asientos,
             presence: { message: 'agrega una dirección de salida' },
             numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 4,
