@@ -55,6 +55,9 @@ Rails.application.routes.draw do
   #### DELETE
   delete 'turnos/delete', to: 'turnos#delete', as: 'turnos_delete'
 
+  #### FILTRO
+  get 'turnos/search', to: 'turnos#search'
+
   # USERS --------------------------------------
 
   #### DEVISE

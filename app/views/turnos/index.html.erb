@@ -8,7 +8,31 @@
 
 <br>
 
-<div class="row">
+<div class="filtro-turnos">
+    <div class="row">
+        <div class="col-12">
+            <%= form_tag(search_path, method: "get", remote: true) do %>
+            <div class="input-group mb-5">
+                <div class="col-8">
+                    <%= text_field_tag :search, '', class:'form-control', placeholder:'Search...' onkeydown:'clickSubmit();' %>
+                </div>
+                <div class="col-3">
+                    <%= select_tag "filter", options_for_select(['Seleccione', 'Ida', 'Vuelta']), class:'custom-select' %>
+                </div>
+                <div class="col-1">
+                    <%= submit_tag "Search", class:'btn btn-dark', id:'search_submit' %>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<script>
+    function clickSubmit() {
+        $("search_submit").trigger("click");
+    }
+</script>
 
     <div class="column">
     <div align='left' style="display: flex; flex-flow: wrap; ">
