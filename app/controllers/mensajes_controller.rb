@@ -21,8 +21,12 @@ class MensajesController < ApplicationController
   #### READ
   def index
     @mensajes = Mensaje.all
+    puts 0
+    puts Mensaje.all
+    puts 0
+    @mensaje = Mensaje.new
     @chat_turno = @mensajes[0]
-    @id_viaje = @mensajes[0].turno_id
+    # @id_viaje = @mensajes[0].turno_id
   end
 
   def show

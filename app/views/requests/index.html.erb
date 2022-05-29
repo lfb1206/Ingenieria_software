@@ -2,38 +2,29 @@
 <h1 align='center' class = "title is-4 has-text-black" >Aquí se encuentra toda la información de las solicitudes</h1>
 
 <div class="row">
-
     <div class="column">
         <div align='left' style="display: flex; flex-flow: wrap; ">
             <h3 class = "title is-4 has-text-dark" >Solicitudes Recibidas Pendientes</h3>
         </div>
         <br/>
-        <div align='center'style="display: flex; flex-flow: wrap;">
-            <% @no_vacio = false %>
-            <div class="row">
-            <% @requests.each do |request|%>
-                <%if request.turno.user_id == current_user.id and request.estado == "PENDIENTE"%>
-                    <div class="column-turno">
-                        <% @no_vacio = true %>
-                        <p>Número Turno: <%= request.turno.id%></p>
-                        <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                        <p>Id Usuario Solicitud: <%= request.user_id%></p>
-                        <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
-                        <br/>
-                        <%= link_to 'Responder', requests_edit_path(:id => request.id)%>
-                    </div>
-                <% end %>
-            <% end %>
-            <% if not @no_vacio %>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-            <% end %>
+        <div class="row">
+            <div class="row_inner">
+                <div class="tile">
+                    <% @requests.each do |request|%>
+                        <%if request.turno.user_id == current_user.id and request.estado == "PENDIENTE"%>
+                            <div align='center' style="display: flex; flex-flow: wrap; ">
+                                <div class="column-turno">
+                                    <p>Número Turno: <%= request.turno.id%></p>
+                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
+                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                    <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
+                                    <br/>
+                                    <%= link_to 'Responder', requests_edit_path(:id => request.id)%>
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
@@ -44,30 +35,22 @@
             <h3 class = "title is-4 has-text-dark" >Solicitudes Recibidas Procesadas</h3>
         </div>
         <br/>
-        <div align='center' style="display: flex; flex-flow: wrap;">
-            <% @no_vacio = false %>
-            <div class="row">
-                <% @requests.each do |request|%>
-                    <%if request.turno.user_id == current_user.id and request.estado != "PENDIENTE"%>
-                        <div class="column-turno">
-                            <% @no_vacio = true %>
-                            <p>Número Turno: <%= request.turno.id%></p>
-                            <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                            <p>Id Usuario Solicitud: <%= request.user_id%></p>
-                            <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
-                        </div>
+        <div class="row">
+            <div class="row_inner">
+                <div class="tile">
+                    <% @requests.each do |request|%>
+                        <%if request.turno.user_id == current_user.id and request.estado != "PENDIENTE"%>
+                            <div align='center' style="display: flex; flex-flow: wrap; ">
+                                <div class="column-turno">
+                                    <p>Número Turno: <%= request.turno.id%></p>
+                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
+                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                    <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
+                                </div>
+                            </div>
+                        <% end %>
                     <% end %>
-                <% end %>
-                <% if not @no_vacio %>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                <% end %>
+                </div>
             </div>
         </div>
     </div>
@@ -78,32 +61,24 @@
             <h3 class = "title is-4 has-text-dark" >Solicitudes Enviadas Pendientes</h3>
         </div>
         <br/>
-        <div align='center' style="display: flex; flex-flow: wrap;">
-            <% @no_vacio = false %>
-            <div class="row">
-                <% @requests.each do |request|%>
-                    <%if request.user_id == current_user.id and request.estado == "PENDIENTE"%>
-                        <div class="column-turno">
-                            <% @no_vacio = true %>
-                            <p>Número Turno: <%= request.turno.id%></p>
-                            <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                            <p>Id Usuario Solicitud: <%= request.user_id%></p>
-                            <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
-                            <br/>
-                            <%= link_to 'Editar', requests_edit_path(:id => request.id)%>
-                        </div>
+        <div class="row">
+            <div class="row_inner">
+                <div class="tile">
+                    <% @requests.each do |request|%>
+                        <%if request.user_id == current_user.id and request.estado == "PENDIENTE"%>
+                            <div align='center' style="display: flex; flex-flow: wrap; ">
+                                <div class="column-turno">
+                                    <p>Número Turno: <%= request.turno.id%></p>
+                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
+                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                    <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
+                                    <br/>
+                                    <%= link_to 'Editar', requests_edit_path(:id => request.id)%>
+                                </div>
+                            </div>
+                        <% end %>
                     <% end %>
-                <% end %>
-                <% if not @no_vacio %>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                <% end %>
+                </div>
             </div>
         </div>
     </div>
@@ -114,30 +89,23 @@
             <h3 class = "title is-4 has-text-dark" >Solicitudes Enviadas Procesadas</h3>
         </div>
         <br/>
-        <div align='center' style="display: flex; flex-flow: wrap;">
-            <% @no_vacio = false %>
-            <div class="row">
-            <% @requests.each do |request|%>
-                <%if request.user_id == current_user.id and request.estado != "PENDIENTE"%>
-                    <div class="column-turno">
-                        <% @no_vacio = true %>
-                        <p>Número Turno: <%= request.turno.id%></p>
-                        <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                        <p>Id Usuario Solicitud: <%= request.user_id%></p>
-                        <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
-                    </div>
-                <% end %>
-            <% end %>
-            <% if not @no_vacio %>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-            <% end %>
+        <div class="row">
+            <div class="row_inner">
+                <div class="tile">
+                    <% @requests.each do |request|%>
+                        <%if request.user_id == current_user.id and request.estado != "PENDIENTE"%>
+                            <div align='center' style="display: flex; flex-flow: wrap; ">
+                                <div class="column-turno">
+                                    <% @no_vacio = true %>
+                                    <p>Número Turno: <%= request.turno.id%></p>
+                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
+                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                    <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>

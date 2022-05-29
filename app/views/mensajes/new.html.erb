@@ -1,5 +1,5 @@
 
-<div  align='center'>
+<!--<div  align='center'>
   <%= form_with(model: @mensaje, method: :post) do |form| %>
       <%= form.hidden_field :turno_id, value: @id_viaje%>
       <%= form.hidden_field :user_id, value: current_user.id%>
@@ -14,5 +14,9 @@
         </div>
       </div>
   <% end %>
-</div>
+</div>-->
 
+<div class="chatbox_input">
+  <input type="text" placeholder="Ingrese un mensaje">
+  <ion-icon name="send-outline"></ion-icon>
+</div>

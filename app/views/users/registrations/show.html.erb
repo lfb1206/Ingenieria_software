@@ -45,30 +45,24 @@
 
     
     <div class="row">
-        <% @no_vacio = false %>
-        <% @turnos.each do |turno|%>
-            <%if turno.user_id == current_user.id and turno.estado == "ACTIVO"%>
-                <% @no_vacio = true %>
-                <div class="column-turno">
-                    <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                    <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                    <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                    <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                    <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                    <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
-                </div>
-            <% end %>
-        <% end %>
-        <% if not @no_vacio %>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-        <% end %>
+        <div class="row_inner">
+            <div class="tile">
+                <% @turnos.each do |turno|%>
+                    <%if turno.user_id == current_user.id and turno.estado == "ACTIVO"%>
+                        <div align='center' style="display: flex; flex-flow: wrap; ">
+                            <div class="column-turno">
+                                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
+                                <b>Hora salida </b><p><%= turno.hora_salida%></p>
+                                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+                                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+                                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+                                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
     </div>
 
     <div class="column-cuenta">
@@ -78,30 +72,24 @@
     </div>
 
     <div class="row">
-    <% @turnos.each do |turno|%>
-        <% @no_vacio = false %>
-        <%if turno.user_id == current_user.id and turno.estado == "CONFIRMADO"%>
-            <div class="column-turno">
-                <% @no_vacio = true %>
-                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+        <div class="row_inner">
+            <div class="tile">
+                <% @turnos.each do |turno|%>
+                    <%if turno.user_id == current_user.id and turno.estado == "CONFIRMADO"%>
+                        <div align='center' style="display: flex; flex-flow: wrap; ">
+                            <div class="column-turno">
+                                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
+                                <b>Hora salida </b><p><%= turno.hora_salida%></p>
+                                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+                                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+                                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+                                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
             </div>
-        <% end %>
-    <% end %>
-    <% if not @no_vacio %>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-    <% end %>
+        </div>
     </div>
 
     <div class="column-cuenta">
@@ -111,30 +99,24 @@
     </div>
     
     <div class="row">
-        <% @no_vacio = false %>
-        <% @turnos.each do |turno|%>
-            <%if turno.user_id == current_user.id and turno.estado == "COMPLETADO"%>
-                <% @no_vacio = true %>
-                <div class="column-turno">
-                    <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                    <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                    <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                    <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                    <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                    <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
-                </div>
-            <% end %>
-        <% end %>
-        <% if not @no_vacio %>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-        <% end %>
+        <div class="row_inner">
+            <div class="tile">
+                <% @turnos.each do |turno|%>
+                    <%if turno.user_id == current_user.id and turno.estado == "COMPLETADO"%>
+                        <div align='center' style="display: flex; flex-flow: wrap; ">
+                            <div class="column-turno">
+                                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
+                                <b>Hora salida </b><p><%= turno.hora_salida%></p>
+                                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
+                                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
+                                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
+                                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+                            </div>
+                        </div>   
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
     </div>
 </div>
 

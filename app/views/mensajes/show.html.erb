@@ -1,16 +1,11 @@
 
-<div class="row">
-
-    <% @no_vacio = false %>
-    <% @mensaje.each do |mensaje|%>
+<!--<% @mensaje.each do |mensaje|%>
         <% if mensaje.user_id == current_user.id %>
-            <% @no_vacio = true %>
             <div class="column is-6"> 
                 <p><%= current_user.name%></p>
                 <p><%= @mensaje.contenido%></p>
             </div>
         <% else %>
-            <% @no_vacio = true %>
             <div class="column is-6 is-offset-6"> 
                 <p><%= @mensaje.user.name%></p>
                 <p><%= @mensaje.contenido%></p>
@@ -19,8 +14,93 @@
     <% end %>
     <% if not @no_vacio %>
         <p class="title is-5">No hay mensajes</p>
-    <% end %>
+    <% end %>-->
+
+<div class="rightSide">
+    <div class="head">
+        <div class="imgText">
+            <h4>numero turno chat</h4>
+        </div>
     </div>
-    <%= render "mensajes/new.html.erb", resource: resource %>
+    <div class="chatBox">
+        <div class="my_message">
+            <p>Buenas q tal?<br>12:15<span></p>
+        </div>
+        <div class="frnd_message">
+            <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+        </div>
+            <div class="my_message">
+            <p>Buenas q tal?<br>12:15<span></p>
+        </div>
+        <div class="frnd_message">
+            <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+        </div>
+            <div class="my_message">
+            <p>Buenas q tal?<br>12:15<span></p>
+        </div>
+        <div class="frnd_message">
+            <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+        </div>
+            <div class="my_message">
+            <p>Buenas q tal?<br>12:15<span></p>
+        </div>
+        <div class="frnd_message">
+            <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+        </div>
+            <div class="my_message">
+            
+            <p>Buenas q tal?<br>12:15<span></p>
+        </div>
+        <div class="frnd_message">
+            <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+        </div>
+            <div class="my_message">
+            <p>Buenas q tal?<br>12:15<span></p>
+        </div>
+        <div class="frnd_message">
+            <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+        </div>
+            <div class="my_message">
+            <p>Buenas q tal?<br>12:15<span></p>
+        </div>
+        <div class="frnd_message">
+            <p>Nombre usuario<br>Texto mas largo que es necesario para probar como quedan los mensajes largos y ya no se que es crboir<br>12:18<span></p>
+        </div>
+    </div>
+    <%= render "mensajes/new.html.erb" %>
 </div>
 
+<!--<% @mensaje.each do |mensaje|%>
+                <% if mensaje.user_id == current_user.id %>
+                    <div class="column is-6"> 
+                        <p><%= current_user.name%></p>
+                        <p><%= @mensaje.contenido%></p>
+                    </div>
+                <% else %>
+                    <div class="column is-6 is-offset-6"> 
+                        <p><%= @mensaje.user.name%></p>
+                        <p><%= @mensaje.contenido%></p>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if not @no_vacio %>
+                <p class="title is-5">No hay mensajes</p>
+            <% end %>-->
+
+            <!--<<% @no_vacio = false %>
+            <% @mensajes.each do |message|%>
+                <%if message.user_id == current_user.id %>
+                    <% @turno = Turno.find(message.turno.id)%> 
+                    <%if @turno.estado == "COMPLETADO"%>
+                        <% @no_vacio = true %>
+                        <div class="row">
+                            <a>
+                                <%= button_to message.turno_id, mensaje_index_path(id_viaje: @message.turno.id, ), class: "button is-white" %>
+                            </a>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <% if not @no_vacio %>
+                <p class="title is-5">No te han aceptado en un turno</p>
+            <% end %>-->

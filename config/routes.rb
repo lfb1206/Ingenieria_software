@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   #### CREATE
   get '/resenas/new', to: 'resenas#new', as: 'resenas'
-  post '/resenas', to: 'resenas#create', as: 'resenas_create'
+  post '/resenas/new', to: 'resenas#create', as: 'resenas_create'
 
   #### READ
   get '/resenas', to: 'resenas#index', as: 'resenas_index'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   #### CREATE
   get '/requests/new', to: 'requests#new', as: 'requests'
-  post '/requests', to: 'requests#create', as: 'requests_create'
+  post '/requests/new', to: 'requests#create', as: 'requests_create'
 
   #### READ
   get '/requests', to: 'requests#index', as: 'requests_index'
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   #### CREATE
   get '/turnos/new', to: 'turnos#new', as: 'turnos'
-  post '/turnos', to: 'turnos#create', as: 'turnos_create'
+  post '/turnos/new', to: 'turnos#create', as: 'turnos_create'
 
   #### READ
   get '/turnos', to: 'turnos#index', as: 'turnos_index'
@@ -56,11 +56,11 @@ Rails.application.routes.draw do
   #### DELETE
   delete '/turnos/:id', to: 'turnos#delete', as: 'turnos_delete'
 
-  # TURNOS --------------------------------------
+  # MENSAJES --------------------------------------
 
   #### CREATE
   get '/mensajes/new', to: 'mensajes#new', as: 'mensajes'
-  post '/mensajes', to: 'mensajes#create', as: 'mensajes_create'
+  post '/mensajes/new', to: 'mensajes#create', as: 'mensajes_create'
 
   #### READ
   get '/mensajes', to: 'mensajes#index', as: 'mensajes_index'

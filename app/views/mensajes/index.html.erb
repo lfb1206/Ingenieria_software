@@ -1,31 +1,205 @@
-<h1>Chats</h1>
-
-<div class="columns">
-  <div class="column is-narrow">
-    <div class="box" style="width: 200px;">
-        <p class="title is-5">Chats de turnos</p>
-        <% @no_vacio = false %>
-        <% @mensaje.each do |mensaje|%>
-            <%if mensaje.user_id == current_user.id %>
-                <% @turno = Turno.find(mensaje.turno.id)%> 
-                <%if @turno.estado == "COMPLETADO"%>
-                    <% @no_vacio = true %>
-                    <div class="row">
-                        <a>
-                            <%= button_to @mensaje.turno_id, mensaje_index_path(id_viaje: @mensaje.turno.id, ), class: "button is-white" %>
-                        </a>
+<div class="container">
+    <div class="leftSide">
+        <div class="head">
+            <!--<div class="userimg">
+                <img src="user.jpg" class="cover">
+            </div>-->
+            <p class="title is-5">Chats de turnos</p>
+        </div>
+        <div class="search_chat">
+            <div>
+                <input type="text" placeholder="Buscar un chat">
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="chatlist">
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno1</h4>
+                        <p class="time">10:30</p>
                     </div>
-                <% end %>
-            <% end %>
-        <% end %>
-        <% if not @no_vacio %>
-            <p class="title is-5">No te han aceptado en un turno</p>
-        <% end %>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno2</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno3</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="details">
+                    <div class="listhead">
+                        <h4>Numero turno4</h4>
+                        <p class="time">10:30</p>
+                    </div>
+                    <div class="message_p">
+                        <p>Nombre usuario: contenido mensaje</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
     </div>
-  </div>
-  <div class="column">
-    <div class="box">
-        <%= render "mensajes/show.html.erb", @chat_turno %>
+    <div class="rightSide">
+        <div class="head">
+            <div class="imgText">
+                <h4>numero turno chat</h4>
+            </div>
+        </div>
+        <div class="chatBox">
+            <div class="my_message">
+                <p>Buenas q tal?<br>12:15<span></p>
+            </div>
+            <div class="frnd_message">
+                <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+            </div>
+                <div class="my_message">
+                <p>Buenas q tal?<br>12:15<span></p>
+            </div>
+            <div class="frnd_message">
+                <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+            </div>
+                <div class="my_message">
+                <p>Buenas q tal?<br>12:15<span></p>
+            </div>
+            <div class="frnd_message">
+                <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+            </div>
+                <div class="my_message">
+                <p>Buenas q tal?<br>12:15<span></p>
+            </div>
+            <div class="frnd_message">
+                <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+            </div>
+                <div class="my_message">
+                
+                <p>Buenas q tal?<br>12:15<span></p>
+            </div>
+            <div class="frnd_message">
+                <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+            </div>
+                <div class="my_message">
+                <p>Buenas q tal?<br>12:15<span></p>
+            </div>
+            <div class="frnd_message">
+                <p>Nombre usuario<br>Bien y tu?<br>12:18<span></p>
+            </div>
+                <div class="my_message">
+                <p>Buenas q tal?<br>12:15<span></p>
+            </div>
+            <div class="frnd_message">
+                <p>Nombre usuario<br>Texto mas largo que es necesario para probar como quedan los mensajes largos y ya no se que es crboir<br>12:18<span></p>
+            </div>
+        </div>
+        
+        
     </div>
-  </div>
 </div>
