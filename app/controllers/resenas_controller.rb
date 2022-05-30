@@ -17,7 +17,7 @@ class ResenasController < ApplicationController
       redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Solicitud enviada exitosamente'
     else
       @id_viaje = @resenas_params['turno_id']
-      render 'new', notice: 'Error al crear reseña'
+      render action: 'new', notice: 'Error al crear reseña'
     end
   end
 
@@ -43,7 +43,7 @@ class ResenasController < ApplicationController
     if @resena.update(@resenas_params)
       redirect_to turnos_show_path(id: @resena.turno.id), notice: 'Reseña editada exitosamente'
     else
-      render 'edit', notice: 'Error al editar reseña'
+      render action: 'edit', notice: 'Error al editar reseña'
     end
   end
 

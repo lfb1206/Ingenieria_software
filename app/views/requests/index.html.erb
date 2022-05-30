@@ -8,15 +8,15 @@
         </div>
         <br/>
         <div class="row">
-            <div class="row_inner">
+            <div class="row_inner_request">
                 <div class="tile">
                     <% @requests.each do |request|%>
                         <%if request.turno.user_id == current_user.id and request.estado == "PENDIENTE"%>
                             <div align='center' style="display: flex; flex-flow: wrap; ">
-                                <div class="column-turno">
-                                    <p>Número Turno: <%= request.turno.id%></p>
-                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                <div class="column-request">
+                                    <p>Turno: <%= request.turno.id%></p>
+                                    <p>Conductor: <%=  User.find(request.turno.user_id).name %></p>
+                                    <p>Solicitante: <%=  User.find(request.user_id).name%></p>
                                     <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
                                     <br/>
                                     <%= link_to 'Responder', requests_edit_path(:id => request.id)%>
@@ -36,15 +36,15 @@
         </div>
         <br/>
         <div class="row">
-            <div class="row_inner">
+            <div class="row_inner_request">
                 <div class="tile">
                     <% @requests.each do |request|%>
                         <%if request.turno.user_id == current_user.id and request.estado != "PENDIENTE"%>
                             <div align='center' style="display: flex; flex-flow: wrap; ">
-                                <div class="column-turno">
-                                    <p>Número Turno: <%= request.turno.id%></p>
-                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                <div class="column-request">
+                                    <p>Turno: <%= request.turno.id%></p>
+                                    <p>Conductor: <%=  User.find(request.turno.user_id).name %></p>
+                                    <p>Solicitante: <%=  User.find(request.user_id).name%></p>
                                     <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
                                 </div>
                             </div>
@@ -62,15 +62,15 @@
         </div>
         <br/>
         <div class="row">
-            <div class="row_inner">
+            <div class="row_inner_request">
                 <div class="tile">
                     <% @requests.each do |request|%>
                         <%if request.user_id == current_user.id and request.estado == "PENDIENTE"%>
                             <div align='center' style="display: flex; flex-flow: wrap; ">
-                                <div class="column-turno">
-                                    <p>Número Turno: <%= request.turno.id%></p>
-                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                <div class="column-request">
+                                    <p>Turno: <%= request.turno.id%></p>
+                                    <p>Conductor: <%=  User.find(request.turno.user_id).name %></p>
+                                    <p>Solicitante: <%=  User.find(request.user_id).name%></p>
                                     <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
                                     <br/>
                                     <%= link_to 'Editar', requests_edit_path(:id => request.id)%>
@@ -90,16 +90,16 @@
         </div>
         <br/>
         <div class="row">
-            <div class="row_inner">
+            <div class="row_inner_request">
                 <div class="tile">
                     <% @requests.each do |request|%>
                         <%if request.user_id == current_user.id and request.estado != "PENDIENTE"%>
                             <div align='center' style="display: flex; flex-flow: wrap; ">
-                                <div class="column-turno">
+                                <div class="column-request">
                                     <% @no_vacio = true %>
-                                    <p>Número Turno: <%= request.turno.id%></p>
-                                    <p>Id Usuario Turno: <%= request.turno.user_id%></p>
-                                    <p>Id Usuario Solicitud: <%= request.user_id%></p>
+                                    <p>Turno: <%= request.turno.id%></p>
+                                    <p>Conductor: <%=  User.find(request.turno.user_id).name %></p>
+                                    <p>Solicitante: <%=  User.find(request.user_id).name%></p>
                                     <%= link_to 'Ver detalles', requests_show_path(:id => request.id)%>
                                 </div>
                             </div>

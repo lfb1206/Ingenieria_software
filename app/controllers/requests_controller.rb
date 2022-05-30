@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
       redirect_to requests_index_path, notice: 'Solicitud enviada exitosamente'
     else
       @turno_id = Turno.find(params[:request][:turno_id].to_i)
-      render 'new', notice: 'Error al crear solicitud'
+      render action: 'new', notice: 'Error al crear solicitud'
     end
   end
 
@@ -48,7 +48,7 @@ class RequestsController < ApplicationController
       if @request.update(request_params_update)
         redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else
-        render 'edit', notice: 'Error al editar solicitud'
+        render action: 'edit', notice: 'Error al editar solicitud'
       end
     end
   end

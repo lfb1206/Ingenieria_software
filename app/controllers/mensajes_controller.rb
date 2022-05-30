@@ -1,47 +1,54 @@
+# frozen_string_literal: true
+
 class MensajesController < ApplicationController
   #### CREATE
   def new
-    @mensaje = Mensaje.new
-    @id_viaje = params[:id_viaje]
+    mensajes = Mensaje.all.sort_by(&:created_at)
+    turnos = Turno.all
+    solicitudes = Request.all
+    @turnos_usuario = []
+    @mensajes_turnos = {}
+    if Turno.any?
+      @existen_turnos = true
+      turnos.each do |turno|
+        if turno.user_id == current_user.id
+          @turnos_usuario << turno
+        end
+        mensajes_turno = []
+        existen_mensajes = false
+        if Mensaje.any?
+          mensajes.each do |mensaje|
+            if mensaje.turno_id == turno.id
+              mensajes_turno << mensaje
+              existen_mensajes = true
+            end
+          end
+        end
+        @mensajes_turnos[turno.id] = {mensajes: mensajes_turno, existen: existen_mensajes }
+      end
+      if Request.any?
+        solicitudes.each do |solicitud|
+          if solicitud.user_id == current_user.id and solicitud.estado == 'ACEPTADO'
+            @turnos_usuario << Turno.find(solicitud.turno_id)
+          end
+        end
+      end
+      @mensaje = Mensaje.new
+    else
+      @existen_turnos = false
+    end
+    @turno_chat = params[:id_turno]
   end
 
   def create
-    @mensajes_params = params.require(:mensaje).permit(:contenido, :calificacion, :turno_id, :user_id)
+    @mensajes_params = params.require(:mensaje).permit(:contenido, :turno_id, :user_id)
     @mensaje = Mensaje.create(@mensajes_params)
     @mensaje.user = current_user
     @mensaje.turno = Turno.find(@mensajes_params['turno_id'])
     if @mensaje.save
-      redirect_to mensaje_index_path(id_viaje: @mensaje.turno.id, ), notice: 'Solicitud enviada exitosamente'
+      redirect_to mensajes_path(id_turno: @mensajes_params['turno_id']), notice: 'Solicitud enviada exitosamente'
     else
-      @id_viaje = @mensajes_params['turno_id']
-      render 'new', notice: 'Error al crear mensaje'
+      redirect_to mensajes_path(id_turno: @mensajes_params['turno_id']), notice: 'Error al crear mensaje'
     end
   end
-
-  #### READ
-  def index
-    @mensajes = Mensaje.all
-    puts 0
-    puts Mensaje.all
-    puts 0
-    @mensaje = Mensaje.new
-    @chat_turno = @mensajes[0]
-    # @id_viaje = @mensajes[0].turno_id
-  end
-
-  def show
-    @mensaje = Mensaje.find(params[:id])
-    @user_conductor = User.find(@mensaje.turno.user_id)
-  end
-
-  #### UPDATE
-  # def edit
-  # end
-
-  # def update
-  # end
-
-  #### DELETE
-  # def delete
-  # end
 end

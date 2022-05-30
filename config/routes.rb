@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  
   # INICIO --------------------------------------
   root 'articles#index'
   get '/articles', to: 'articles#index'
@@ -61,17 +60,6 @@ Rails.application.routes.draw do
   #### CREATE
   get '/mensajes/new', to: 'mensajes#new', as: 'mensajes'
   post '/mensajes/new', to: 'mensajes#create', as: 'mensajes_create'
-
-  #### READ
-  get '/mensajes', to: 'mensajes#index', as: 'mensajes_index'
-  get '/mensajes/:id', to: 'mensajes#show', as: 'mensajes_show'
-
-  #### UPDATE
-  get '/mensajes/:id/edit', to: 'mensajes#edit', as: 'mensajes_edit'
-  patch '/mensajes/:id', to: 'mensajes#update', as: 'mensajes_update'
-
-  #### DELETE
-  delete '/mensajes/:id', to: 'mensajes#delete', as: 'mensajes_delete'
 
   # USERS --------------------------------------
 
