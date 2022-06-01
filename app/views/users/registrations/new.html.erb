@@ -1,3 +1,8 @@
+<%require 'pexels'
+
+# Or just set the PEXELS_API_KEY env variable and it will be picked up automatically.
+client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c64d707')%>
+
 <h1 align='center' class = "title is-2 has-text-primary" >Registrarse</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -50,6 +55,21 @@
     <br/>
     <div class="field">
       <%= f.text_field :phone, class: "input is-primary is-rounded is-outlined", placeholder:"Teléfono" %>
+    </div>
+
+    <div class="field">
+      <%@tema = 'Nature'%>
+    </div>
+
+    <div>
+      <%client.photos.search(@tema, per_page: 1).each do |photo|
+      @foto = photo.src["original"]
+      end%>
+    </div>
+
+    <br/>
+    <div href="https://www.pexels.com">
+      <img src=<%=@foto%>>
     </div>
     
     <br/>
