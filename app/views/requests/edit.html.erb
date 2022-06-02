@@ -1,28 +1,43 @@
-<h1 align='center' class = "title is-2 has-text-primary" >Editar solicitud</h1>
+<div align='center'> 
+    <h1 align='center' class = "title is-2 has-text-primary" >Editar solicitud</h1>
 
-<%= form_with(model: @request, method: :patch, url: requests_update_path(:id => @request.id)) do |form| %>
+    <%= form_with(model: @request, method: :patch, url: requests_update_path(:id => @request.id)) do |form| %>
+        <div class="column is-4 is-offset-4">
+            <% if @request.errors.any? %>
+                <div>
+                    <h1 align='center' class = "title is-4 has-text-black" >Se produjeron los siguientes errores:</h1>
+                    <% @request.errors.full_messages.each do |message| %>
+                    <h1 align='center' class = "title is-6 has-text-black" ><%= message %></h1>
+                    <% end %>
+                    <br/>
+                </div>
+            <% end %>
 
-    <%if @request.user_id == current_user.id%>
-        <div>
-            <label class="label">Descripcion</label>
-            <%= form.text_field :descripcion%>
+            <%if @request.user_id == current_user.id%>
+                <div>
+                    <h1 align='center' class = "title is-6 has-text-black" >Descripcion</h1>
+                    <%= form.text_field :descripcion, class: "input is-primary is-rounded is-outlined", placeholder:"Descripción"%>
+                </div>
+            <% end %>
+            <%if @request.turno.user_id == current_user.id%>
+            
+                <% def options_for_status
+                    [
+                    ['Aceptar Solicitud','ACEPTADO'],
+                    ['Rechazar Solicitud','RECHAZADO'],
+                    ['Mantener Pendiente','PENDIENTE']
+                    ]
+                end %>
+                <div>
+                    <label class="label">Respuesta Solicitud</label>
+                    <%= form.select :estado, options_for_status, {}, prompt: 'Select One' %>
+                </div>
+            <% end %>
+            <br/>
+            <div>
+                <%= form.submit 'Editar', class: "button is-primary is-inverted is-rounded is-outlined" %>
+            </div>
         </div>
-    <% end %>
-    <%if @request.turno.user_id == current_user.id%>
-        <% def options_for_status
-            [
-            ['Aceptar Solicitud','ACEPTADO'],
-            ['Rechazar Solicitud','RECHAZADO'],
-            ['Mantener Pendiente','PENDIENTE']
-            ]
-        end %>
-        <div>
-            <label class="label">Respuesta Solicitud</label>
-            <%= form.select :estado, options_for_status, {}, prompt: 'Select One' %>
-        </div>
-    <% end %>
-    <div>
-        <%= form.submit 'Editar' %>
-    </div>
 
-<% end %>
+    <% end %>
+</div>

@@ -1,31 +1,46 @@
-<h1>Editar reseña</h1>
+<h1 align='center' class = "title is-2 has-text-primary" >Editar reseña</h1>
 
-<%= form_with(model: @resena, method: :patch, url: resenas_update_path(:id => @resena.id)) do |form| %>
+<div class="column is-4 is-offset-4">
+  <div  align='center'>
+    <%= form_with(model: @resena, method: :patch, url: resenas_update_path(:id => @resena.id)) do |form| %>
+        <% if @resena.errors.any? %>
+          <div>
+            <h1 align='center' class = "title is-4 has-text-black" >Se produjeron los siguientes errores:</h1>
+            <% @resena.errors.full_messages.each do |message| %>
+              <h1 align='center' class = "title is-6 has-text-black" ><%= message %></h1>
+            <% end %>
+            <br/>
+          </div>
+        <% end %>
+        <%= form.hidden_field :turno_id, value: @resena.turno.id%>
+        <%= form.hidden_field :user_id, value: current_user.id%>
 
-    <%= form.hidden_field :turno_id, value: @resena.turno.id%>
-    <%= form.hidden_field :user_id, value: current_user.id%>
+        <div>
+            <%= form.text_field :contenido, class: "input is-primary is-rounded is-outlined", placeholder:"Comentarios"%>
+        </div>
+        <% def options_for_status
+          [
+          ['Calificación',"a"],
+          ['0',0],
+          ['1',1],
+          ['2',2],
+          ['3',3],
+          ['4',4],
+          ['5',5]
+          ]
+        end %>
 
-    <div>
-        <%= form.label :Contenido %>
-        <%= form.text_field :contenido%>
-    </div>
-    <% def options_for_status
-      [
-      ['0','0'],
-      ['1','1'],
-      ['2','2'],
-      ['3','3'],
-      ['4','4'],
-      ['5','5']
-      ]
-    end %>
-    <div>
-      <label class="label">Calificación</label>
-      <%= form.select :calificacion, options_for_status, {}, prompt: 'Select One' %>
-    </div>
-    <div>
-        <%= form.submit 'Editar' %>
-    </div>
-
-<%= link_to 'Volver', turnos_show_path(:id => @resena.turno.id) %>
-<% end %>
+        <div>
+          <%= form.select :calificacion, options_for_status, {}, prompt: 'Select One' %>
+        </div>
+        <br/>
+        <div>
+          <%= form.submit 'Editar', class: "button is-primary is-inverted is-rounded is-outlined" %>
+        </div>
+        <br/>
+        <div>
+          <%= link_to 'Volver', turnos_show_path(:id => @resena.turno.id), class: "button is-primary is-inverted is-rounded is-outlined" %>
+        </div>
+    <% end %>
+  </div>
+</div>

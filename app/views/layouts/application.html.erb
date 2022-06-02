@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Grupo48</title>
+    <title>DCCARPOOLING</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,18 +10,11 @@
   </head>
 
   <body class="bg-img">
-    <div class="bg-img">
-    </div>
 
     <nav class="navbar is-black" role="navigation" aria-label="dropdown navigation">
       <div class="navbar-brand">
-        <a class="navbar-item">
-          <img id="logo" src="https://toppng.com/public/uploads/thumbnail/icono-de-auto-covoiturage-logo-11563318871cussi74k8u.png" width="50" height="100">
-        </a>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+        <a class="navbar-item" style = "position:relative; left:20px; top:0.001px;">
+          <ion-icon size="large" name="car-sport"></ion-icon>
         </a>
       </div>
 
@@ -32,9 +25,16 @@
 
       <% if current_user %>
         <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary is-rounded is-outlined is-right" href='/articles'>
+                <h4 class="title is-4 has-text-primary"> Ayuda </h4>
+              </a>
+            </div>
+          </div>
           <div class="navbar-item has-dropdown is-hoverable is-black">
             <a class="navbar-link is-arrowless">
-              <div style="border: 5px; width: 150px; padding: 10px; ";>
+              <div style="border: 5px; width: 150px; padding: 10px;";>
                 <h4 class="title is-3 has-text-primary">Menu</h4>
               </div>
             </a>
@@ -44,9 +44,34 @@
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos", turnos_index_path %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Solicitudes", requests_index_path %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Mensajes", mensajes_path(id_turno: 0) %></div>
                 <hr class="dropdown-divider">
                   <div align="center"  class="title is-5 has-text-black is-active has-text-center"><%= link_to "Cerrar sesion", destroy_user_session_path,  :method => :delete %></div>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary is-rounded is-outlined is-right" href='/articles'>
+                <h4 class="title is-4 has-text-primary"> Ayuda </h4>
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown is-hoverable is-black">
+            <a class="navbar-link is-arrowless">
+              <div style="border: 5px; width: 150px; padding: 10px;";>
+                <h4 class="title is-3 has-text-primary">Menu</h4>
+              </div>
+            </a>
+
+            <div class="navbar-dropdown is-center is-boxed">
+              <div class="dropdown-content">
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Iniciar Sesion", '/users/sign_in' %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Registrarse", '/users/sign_up' %></div>
               </div>
             </div>
           </div>
@@ -56,5 +81,7 @@
     <br/>
     
     <%= yield %>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>

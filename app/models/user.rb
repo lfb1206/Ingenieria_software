@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :turnos, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :resenas
+  has_many :mensajes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: { minimum: 3 }

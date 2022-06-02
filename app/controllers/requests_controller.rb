@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @turno_id = params[:id]
+    @turno_id = params[:id_viaje]
     @request = Request.new
   end
 
@@ -14,10 +14,11 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params_create)
     @request.estado = 'PENDIENTE'
     @request.user = current_user
-    if @request.save!
-      redirect_to turnos_index_path, notice: 'Solicitud enviada exitosamente'
+    if @request.save
+      redirect_to requests_index_path, notice: 'Solicitud enviada exitosamente'
     else
-      redirect_to turnos_index_path, notice: 'Error al enviar solicitud'
+      @turno_id = Turno.find(params[:request][:turno_id].to_i)
+      render action: 'new', notice: 'Error al crear solicitud'
     end
   end
 
@@ -37,17 +38,17 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-    if @request.turno.user_id == current_user.id
+    if request_params_update.key?('descripcion')
       if @request.update(request_params_update)
-        redirect_to users_show_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else
-        redirect_to users_show_path, notice: 'Error al editar solicitud'
+        redirect_to requests_index_path, notice: 'Error al editar solicitud'
       end
-    elsif @request.user_id == current_user.id
+    elsif request_params_update.key?('estado')
       if @request.update(request_params_update)
-        redirect_to turnos_index_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
       else
-        redirect_to turnos_index_path, notice: 'Error al editar solicitud'
+        render action: 'edit', notice: 'Error al editar solicitud'
       end
     end
   end
