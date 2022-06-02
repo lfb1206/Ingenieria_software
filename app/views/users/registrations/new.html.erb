@@ -57,19 +57,20 @@ client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c6
       <%= f.text_field :phone, class: "input is-primary is-rounded is-outlined", placeholder:"Teléfono" %>
     </div>
 
-    <div class="field">
-      <%@tema = 'Nature'%>
-    </div>
+    <! –– La idea es que despues se guarde en el usario @foto, para que en cada pagina se agreguen las lineas 72 a la 74 ––>
 
+    <! –– Falta hacer un try cuando la foto no exista y que se vuelva a cargar ––>
     <div>
-      <%client.photos.search(@tema, per_page: 1).each do |photo|
-      @foto = photo.src["original"]
-      end%>
+      <%
+      @numero = rand(999999)
+      puts "El numero es:", @numero
+      @photo = client.photos.find(@numero)
+      @link_foto = @photo.src["original"]%>
     </div>
 
     <br/>
     <div href="https://www.pexels.com">
-      <img src=<%=@foto%>>
+      <img src=<%=@link_foto%>>
     </div>
     
     <br/>
