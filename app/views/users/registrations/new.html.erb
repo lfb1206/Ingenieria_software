@@ -60,12 +60,28 @@ client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c6
     <! –– La idea es que despues se guarde en el usario @foto, para que en cada pagina se agreguen las lineas 72 a la 74 ––>
 
     <! –– Falta hacer un try cuando la foto no exista y que se vuelva a cargar ––>
+
     <div>
       <%
-      @numero = rand(999999)
-      puts "El numero es:", @numero
-      @photo = client.photos.find(@numero)
-      @link_foto = @photo.src["original"]%>
+      @valor = "True"
+      @vuelta = 0
+      while @valor == "True"
+        puts "La vuelta es",@vuelta
+        begin
+          @numero = rand(9999999)
+          @photo = client.photos.find(@numero)
+          puts "Link foto es:", @photo
+        rescue => exception
+          puts "Se entro al exception"
+        else 
+          puts "Se entro al else"
+          @valor = "False"
+        ensure
+          @vuelta = @vuelta + 1
+        end
+      end
+      @link_foto = @photo.src["original"]
+      puts "El link de la foto es:", @link_foto %>
     </div>
 
     <br/>
