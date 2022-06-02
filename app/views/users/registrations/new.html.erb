@@ -57,9 +57,9 @@ client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c6
       <%= f.text_field :phone, class: "input is-primary is-rounded is-outlined", placeholder:"Teléfono" %>
     </div>
 
-    <! –– La idea es que despues se guarde en el usario @foto, para que en cada pagina se agreguen las lineas 72 a la 74 ––>
+    <!-- La idea es que despues se guarde en el usario @foto, para que en cada pagina se agreguen las lineas 72 a la 74
 
-    <! –– Falta hacer un try cuando la foto no exista y que se vuelva a cargar ––>
+    Falta hacer un try cuando la foto no exista y que se vuelva a cargar -->
 
     <div>
       <%
@@ -70,24 +70,18 @@ client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c6
         begin
           @numero = rand(9999999)
           @photo = client.photos.find(@numero)
-          puts "Link foto es:", @photo
         rescue => exception
-          puts "Se entro al exception"
         else 
-          puts "Se entro al else"
           @valor = "False"
         ensure
           @vuelta = @vuelta + 1
         end
       end
-      @link_foto = @photo.src["original"]
-      puts "El link de la foto es:", @link_foto %>
+      @link_foto = @photo.src["original"] 
+      %>
     </div>
 
-    <br/>
-    <div href="https://www.pexels.com">
-      <img src=<%=@link_foto%>>
-    </div>
+    <%= f.hidden_field :foto, value: @link_foto%>
     
     <br/>
     <div class="actions">
