@@ -14,7 +14,7 @@
       <% if @existen_turnos %>
         <% @turnos_usuario.each do |turno|%>
           <% if turno.estado != 'COMPLETADO' %>
-            <%= link_to mensajes_path(id_turno: turno.id, busqueda: false), action: 'get' do %>
+            <%= link_to mensajes_path(id_turno: turno.id), action: 'get' do %>
               <div class="block">
                 <div class="details">
                   <div class="listhead">
