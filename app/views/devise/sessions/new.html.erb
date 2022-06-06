@@ -1,6 +1,7 @@
 <h1 align='center' class = "title is-2 has-text-primary" >Ingresar</h1>
   <div class="column is-4 is-offset-4">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
     <div align='center'>
     <div class="field">
       <%= f.email_field :email, class: "input is-primary is-rounded is-outlined", placeholder:"Email", autofocus: true, autocomplete: "email" %>

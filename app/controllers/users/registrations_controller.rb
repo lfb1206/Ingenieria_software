@@ -7,7 +7,7 @@ module Users
     before_action :configure_account_update_params, only: [:update]
 
     def show
-      @user = User.find(current_user.id)
+      @user = User.find(params[:id])
       @turnos = Turno.all
       @requests = Request.all
       @users = User.all

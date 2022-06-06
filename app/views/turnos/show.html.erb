@@ -7,7 +7,9 @@
     </p>
     <p>
         <strong>Nombre conductor: </strong>
-        <%= User.find(@turno.user_id).name %>
+        <%= link_to users_show_path(:id => @turno.user_id) do %>
+            <%= User.find(@turno.user_id).name %>
+        <% end %>
     </p>
     <p>
         <strong>Cantidad Asientos: </strong>

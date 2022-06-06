@@ -9,9 +9,9 @@ class User < ApplicationRecord
   has_many :mensajes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, presence: true, length: { minimum: 3 }
-  validates :address, presence: true
-  validates :description, presence: true
-  validates :phone, presence: true, length: { minimum: 8 }, numericality: { only_integer: true }
-  validates :gender, presence: true
+  validates :name, presence: { message: 'agrega un nombre' }, length: { minimum: 3, message: 'tiene un minimo de 3 caracteres' }
+  validates :address, presence: { message: 'agrega una dirección' }
+  validates :description, presence: { message: 'agrega una descripción' }
+  validates :phone, presence: { message: 'agrega un numero telefonico' }, length: { minimum: 8, message: 'ingresa un numero de 8 digitos' }, numericality: { only_integer: true, message: 'ingresa tan solo valores numericos' }
+  validates :gender, presence: { message: 'escoge un genero' }
 end

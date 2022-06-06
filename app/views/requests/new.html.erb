@@ -1,12 +1,12 @@
 <div align='center'>
     <h1 class="title is-3 has-text-primary">Nueva Solicitud</h1>
     <div class="column is-4 is-offset-4">
-        <%= form_with(model: @request, method: :post) do |form| %>
+        <%= form_for @request do |form| %>
             <% if @request.errors.any? %>
-            <div>
-                <h1 align='center' class = "title is-4 has-text-black" >Se produjeron los siguientes errores:</h1>
+            <div class="contenedor-error">
+                Se produjeron los siguientes errores:
                 <% @request.errors.full_messages.each do |message| %>
-                <h1 align='center' class = "title is-6 has-text-black" ><%= message %></h1>
+                <li><%= message %></li>
                 <% end %>
                 <br/>
             </div>
