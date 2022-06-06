@@ -11,9 +11,7 @@ class MensajesController < ApplicationController
     if Turno.any?
       @existen_turnos = true
       turnos.each do |turno|
-        if turno.user_id == current_user.id
-          @turnos_usuario << turno
-        end
+        @turnos_usuario << turno if turno.user_id == current_user.id
         mensajes_turno = []
         existen_mensajes = false
         if Mensaje.any?
@@ -24,11 +22,11 @@ class MensajesController < ApplicationController
             end
           end
         end
-        @mensajes_turnos[turno.id] = {mensajes: mensajes_turno, existen: existen_mensajes }
+        @mensajes_turnos[turno.id] = { mensajes: mensajes_turno, existen: existen_mensajes }
       end
       if Request.any?
         solicitudes.each do |solicitud|
-          if solicitud.user_id == current_user.id and solicitud.estado == 'ACEPTADO'
+          if (solicitud.user_id == current_user.id) && (solicitud.estado == 'ACEPTADO')
             @turnos_usuario << Turno.find(solicitud.turno_id)
           end
         end
