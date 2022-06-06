@@ -18,7 +18,7 @@ class TurnosController < ApplicationController
     @turno.hora_salida = horario
     @turno.user = current_user
     if @turno.save
-      redirect_to turnos_index_path(:tipo => 2), notice: 'Turno creado exitosamente'
+      redirect_to turnos_index_path(tipo: 2), notice: 'Turno creado exitosamente'
     else
       @turno.hora_salida = nil
       render action: 'new', notice: 'Error al crear turno'
@@ -58,7 +58,7 @@ class TurnosController < ApplicationController
     @parametros.delete('hora_salida(4i)')
     @parametros.delete('hora_salida(5i)')
     if @turno.update(@parametros)
-      redirect_to turnos_index_path(:tipo => 2), notice: 'Turno editado exitosamente'
+      redirect_to turnos_index_path(tipo: 2), notice: 'Turno editado exitosamente'
     else
       @turno.hora_salida = nil
       render action: 'edit', notice: 'Error al crear turno'

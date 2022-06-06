@@ -15,11 +15,11 @@ module Users
         cantidad = 0
         acumulado = 0
         resenas.each do |resena|
-          if resena.turno.user_id == @user.id
-            cantidad += 1
-            acumulado += (resena.calificacion).to_i
-            @resenas_usuario << resena
-          end
+          next unless resena.turno.user_id == @user.id
+
+          cantidad += 1
+          acumulado += resena.calificacion.to_i
+          @resenas_usuario << resena
         end
         if cantidad != 0
           @existen_resenas = true
