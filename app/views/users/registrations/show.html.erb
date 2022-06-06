@@ -28,97 +28,57 @@
         <%= @user.phone %>
     </p>
     <br/>
+    <p>
+        <strong align='center' class = "title is-5 has-text-black">Calificación:</strong>
+        <% if @existen_resenas %>
+            <%= @promedio %>
+        <% else %>
+            No ha sido calificado
+        <% end %>
+    </p>
+    <br/>
+    <p>
+        <strong align='center' class = "title is-5 has-text-black">Reglas auto:</strong>
+        <%= @user.reglas %>
+    </p>
+    <br/>
     <% if current_user.id == @user.id %>
         <a>
             <%= button_to "Editar cuenta", users_edit_path(:id => current_user.id), :class => "button is-primary is-rounded is-outlined is-right" %>
         </a>
-</div>
-
-    
-
-<div class="row">
-    
-    <div class="column-cuenta">
-        <div align='left' style="display: flex; flex-flow: wrap; ">
-            <h3 class = "title is-4 has-text-dark" >Turnos Publicados Activos</h3>
-        </div>
-    </div>
-
-    
-    <div class="row">
-        <div class="row_inner">
-            <div class="tile">
-                <% @turnos.each do |turno|%>
-                    <%if turno.user_id == current_user.id and turno.estado == "ACTIVO"%>
-                        <div align='center' style="display: flex; flex-flow: wrap; ">
-                            <div class="column-turno">
-                                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                                <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end %>
-            </div>
-        </div>
-    </div>
-
-    <div class="column-cuenta">
-        <div align='center' style="display: flex; flex-flow: wrap; ">
-            <h3 class = "title is-4 has-text-dark" >Turnos Publicados Confirmados</h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="row_inner">
-            <div class="tile">
-                <% @turnos.each do |turno|%>
-                    <%if turno.user_id == current_user.id and turno.estado == "CONFIRMADO"%>
-                        <div align='center' style="display: flex; flex-flow: wrap; ">
-                            <div class="column-turno">
-                                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                                <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end %>
-            </div>
-        </div>
-    </div>
-
-    <div class="column-cuenta">
-        <div align='center' style="display: flex; flex-flow: wrap; ">
-            <h3 class = "title is-4 has-text-dark" >Turnos Publicados Completados</h3>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="row_inner">
-            <div class="tile">
-                <% @turnos.each do |turno|%>
-                    <%if turno.user_id == current_user.id and turno.estado == "COMPLETADO"%>
-                        <div align='center' style="display: flex; flex-flow: wrap; ">
-                            <div class="column-turno">
-                                <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                                <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                                <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                                <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                                <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                                <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
-                            </div>
-                        </div>   
-                    <% end %>
-                <% end %>
-            </div>
-        </div>
-    </div>
     <% end %>
 </div>
 
+<% if @existen_resenas %>
+    <h1 class="title is-2 has-text-primary">Reseñas</h1>
+        <div class="row">
+            <div class="row_inner_resena">
+                <div class="tile">  
+                    <% @resenas_usuario.each do |resena|%>
+                        <% if resena.turno.user_id == @user.id%>
+                        <div align='center' style="display: flex; flex-flow: wrap; ">
+                            <div class="column-resena">
+                                <%
+                                    @estrellas1 = resena.calificacion
+                                    @estrellas2 = 5 - @estrellas1
+                                    %>
+                                <b>Nombre Pasajero</b><p><%= resena.user.name %></p>
+                                <b>Calificación </b>
+                                <p>
+                                    <% 1.step(@estrellas1, 1) do |num| %>
+                                        <ion-icon name="star"></ion-icon>
+                                    <% end %>
+                                    <% 1.step(@estrellas2, 1) do |num| %>
+                                        <ion-icon name="star-outline"></ion-icon>
+                                    <% end %>
+                                </p>
+                                <b></b><p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+                            </div>
+                        </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

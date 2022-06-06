@@ -8,9 +8,24 @@ module Users
 
     def show
       @user = User.find(params[:id])
-      @turnos = Turno.all
-      @requests = Request.all
-      @users = User.all
+      @existen_resenas = false
+      if Resena.any?
+        @resenas_usuario = []
+        resenas = Resena.all
+        cantidad = 0
+        acumulado = 0
+        resenas.each do |resena|
+          if resena.turno.user_id == @user.id
+            cantidad += 1
+            acumulado += (resena.calificacion).to_i
+            @resenas_usuario << resena
+          end
+        end
+        if cantidad != 0
+          @existen_resenas = true
+          @promedio = acumulado / cantidad
+        end
+      end
     end
 
     # GET /resource/sign_up
@@ -35,12 +50,12 @@ module Users
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_up_params
-      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name address description gender phone])
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name address description gender phone reglas])
     end
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_account_update_params
-      devise_parameter_sanitizer.permit(:account_update, keys: %i[name address description gender phone])
+      devise_parameter_sanitizer.permit(:account_update, keys: %i[name address description gender phone reglas])
     end
 
     # The path used after sign up.

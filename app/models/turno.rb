@@ -16,4 +16,5 @@ class Turno < ApplicationRecord
   validates :dia_semana, presence: { message: 'agrega un día de la semana' }
   validates :tipo, presence: { message: 'agrega un tipo de turno' }
   validates :hora_salida, presence: true
+  validates :espacio, presence: { message: 'escoge una opción' }
 end

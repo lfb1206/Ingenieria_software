@@ -95,6 +95,19 @@ html
   border-radius: 10px;
 }
 
+.column-ayuda 
+{
+  float: left;
+  width: 100%;
+  height: unset;
+  overflow: hidden;
+  padding: 10px;
+  background-color: rgba(238, 88, 88, 0.5);
+  border: solid 1px; 
+  margin: 5px;
+  border-radius: 10px;
+}
+
 .contenedor-resena
 {
   display: inline-block;
@@ -105,6 +118,7 @@ html
 {
   float: left;
   width: 200px;
+  height: 200px;
   padding: 10px;
   background-color: rgba(238, 88, 88, 0.5);
   border: solid 1px; 
@@ -136,6 +150,16 @@ html
   margin: 10px 0;
   padding-bottom: 10px;
   height: 370px;
+}
+
+.row_inner_resena
+{
+  transition: 450ms transform;
+  font-size: 0;
+  white-space: nowrap;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  height: 300px;
 }
 
 .row_inner_request

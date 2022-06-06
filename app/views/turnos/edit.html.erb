@@ -66,6 +66,18 @@
                 <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de llegada"%>
             </div>
             <br/>
+            <% def options_for_status
+            [
+            ['Espacio extra para objetos',nil],
+            ['Solo mochilas','Solo mochilas'],
+            ['Proyecto de tamaño mediano','Proyecto de tamaño mediano'],
+            ['Maqueta grande','Maqueta grande']
+            ]
+            end %>
+            <div>
+            <%= form.select :espacio, options_for_status, {}, prompt: 'Espacio' %>
+            </div>
+            <br/>
             <%if @turno.user_id == current_user.id%>
                 <% def options_for_status
                     [
