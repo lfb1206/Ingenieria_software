@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # INICIO --------------------------------------
   root 'articles#index'
-  get '/articles', to: 'articles#index'
+  get '/menu', to: 'articles#index', as: 'menu'
+  get '/ayuda', to: 'articles#show', as: 'ayuda'
 
   # RESENAS --------------------------------------
 

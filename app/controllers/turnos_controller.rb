@@ -18,7 +18,7 @@ class TurnosController < ApplicationController
     @turno.hora_salida = horario
     @turno.user = current_user
     if @turno.save
-      redirect_to users_show_path(id: current_user.id), notice: 'Turno creado exitosamente'
+      redirect_to turnos_index_path(tipo: 2), notice: 'Turno creado exitosamente'
     else
       @turno.hora_salida = nil
       render action: 'new', notice: 'Error al crear turno'
@@ -30,6 +30,7 @@ class TurnosController < ApplicationController
     @turnos = Turno.all
     @users = User.all
     @requests = Request.all
+    @tipo_index = params[:tipo]
   end
 
   def show
@@ -57,7 +58,7 @@ class TurnosController < ApplicationController
     @parametros.delete('hora_salida(4i)')
     @parametros.delete('hora_salida(5i)')
     if @turno.update(@parametros)
-      redirect_to users_show_path(id: current_user.id), notice: 'Turno editado exitosamente'
+      redirect_to turnos_index_path(tipo: 2), notice: 'Turno editado exitosamente'
     else
       @turno.hora_salida = nil
       render action: 'edit', notice: 'Error al crear turno'
@@ -76,11 +77,11 @@ class TurnosController < ApplicationController
 
   def turno_params_create
     params.require(:turno).permit(:cantidad_asientos, :hora_salida, :direccion_salida,
-                                  :direccion_llegada, :dia_semana, :tipo)
+                                  :direccion_llegada, :dia_semana, :tipo, :espacio)
   end
 
   def turno_params_update
     params.require(:turno).permit(:cantidad_asientos, :hora_salida,
-                                  :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado)
+                                  :direccion_salida, :direccion_llegada, :dia_semana, :tipo, :estado, :espacio)
   end
 end

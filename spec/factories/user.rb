@@ -11,6 +11,7 @@ FactoryBot.define do
     address { Faker::Address.full_address }
     description { Faker::Lorem.sentence }
     gender { Faker::Gender.binary_type }
-    phone { Faker::Number.between(from: 10_000_000, to: 99_999_999) }
+    phone { %w[2 9].sample + (Faker::Number.between(from: 1_000_000, to: 9_999_999)).to_s }
+    reglas { Faker::Lorem.sentence }
   end
 end

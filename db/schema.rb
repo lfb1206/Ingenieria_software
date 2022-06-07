@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_032545) do
+ActiveRecord::Schema.define(version: 2022_06_06_050853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_032545) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "estado"
     t.bigint "user_id", null: false
+    t.string "espacio"
     t.index ["user_id"], name: "index_turnos_on_user_id"
   end
 
@@ -101,7 +102,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_032545) do
     t.text "description"
     t.string "gender"
     t.string "phone"
-    t.string "foto"
+    t.string "reglas"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

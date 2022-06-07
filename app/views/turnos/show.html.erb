@@ -7,7 +7,9 @@
     </p>
     <p>
         <strong>Nombre conductor: </strong>
-        <%= User.find(@turno.user_id).name %>
+        <%= link_to users_show_path(:id => @turno.user_id) do %>
+            <%= User.find(@turno.user_id).name %>
+        <% end %>
     </p>
     <p>
         <strong>Cantidad Asientos: </strong>
@@ -56,16 +58,35 @@
     <% if @turno.estado == 'COMPLETADO'%>
         <br/>
         <h1 class="title is-2 has-text-primary">Reseñas viaje</h1>
-        <div class="contenedor-resena">    
-            <% @resenas.each do |resena|%>
-                <% if resena.turno_id == @turno.id%>
-                <div class="column-resena">
-                    <b>Nombre Pasajero</b><p><%= resena.user.name%></p>
-                    <b>Calificación </b><p><%= resena.calificacion%></p>
-                    <b></b><p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+            <div class="row">
+                <div class="row_inner_resena">
+                    <div class="tile">  
+                        <% @resenas.each do |resena|%>
+                            <% if resena.turno_id == @turno.id%>
+                            <div align='center' style="display: flex; flex-flow: wrap; ">
+                                <div class="column-resena">
+                                    <%
+                                        @estrellas1 = resena.calificacion
+                                        @estrellas2 = 5 - @estrellas1
+                                        %>
+                                    <b>Nombre Pasajero</b><p><%= resena.user.name%></p>
+                                    <b>Calificación </b>
+                                    <p>
+                                        <% 1.step(@estrellas1, 1) do |num| %>
+                                            <ion-icon name="star"></ion-icon>
+                                        <% end %>
+                                        <% 1.step(@estrellas2, 1) do |num| %>
+                                            <ion-icon name="star-outline"></ion-icon>
+                                        <% end %>
+                                    </p>
+                                    <b></b><p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+                                </div>
+                            </div>
+                            <% end %>
+                        <% end %>
+                    </div>
                 </div>
-                <% end %>
-            <% end %>
+            </div>
         </div>
     <% end %>
 </div>

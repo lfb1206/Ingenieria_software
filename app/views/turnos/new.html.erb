@@ -4,10 +4,10 @@
   <div  align='center'>
     <%= form_for @turno, as: :turno do |form| %>
         <% if @turno.errors.any? %>
-          <div>
-            <h1 align='center' class = "title is-4 has-text-black" >Se produjeron los siguientes errores:</h1>
+          <div class="contenedor-error">
+            Se produjeron los siguientes errores:
             <% @turno.errors.full_messages.each do |message| %>
-              <h1 align='center' class = "title is-6 has-text-black" ><%= message %></h1>
+              <li><%= message %></li>
             <% end %>
             <br/>
           </div>
@@ -57,6 +57,17 @@
         <br/>
         <div>
             <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección de llegada"%>
+        </div>
+        <% def options_for_status
+          [
+          ['Espacio extra para objetos',nil],
+          ['Solo mochilas','Solo mochilas'],
+          ['Proyecto de tamaño mediano','Proyecto de tamaño mediano'],
+          ['Maqueta grande','Maqueta grande']
+          ]
+        end %>
+        <div>
+          <%= form.select :espacio, options_for_status, {}, prompt: 'Espacio' %>
         </div>
         <br/>
         <div>

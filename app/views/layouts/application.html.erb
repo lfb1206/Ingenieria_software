@@ -27,22 +27,21 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary is-rounded is-outlined is-right" href='/articles'>
+              <a class="button is-primary is-rounded is-outlined is-right" href='/ayuda'>
                 <h4 class="title is-4 has-text-primary"> Ayuda </h4>
               </a>
             </div>
           </div>
           <div class="navbar-item has-dropdown is-hoverable is-black">
-            <a class="navbar-link is-arrowless">
-              <div style="border: 5px; width: 150px; padding: 10px;";>
-                <h4 class="title is-3 has-text-primary">Menu</h4>
-              </div>
-            </a>
+            <div style="border: 5px; width: 150px; padding: 10px;";>
+              <h4 class="title is-3 has-text-primary"><%= link_to "Menu", menu_path %></h4>
+            </div>
 
             <div class="navbar-dropdown is-center is-boxed">
               <div class="dropdown-content">
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></div>
-                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos", turnos_index_path %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos propios", turnos_index_path(:tipo => 2) %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos ajenos", turnos_index_path(:tipo => 1) %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Solicitudes", requests_index_path %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Mensajes", mensajes_path(id_turno: 0) %></div>
                 <hr class="dropdown-divider">
@@ -56,17 +55,15 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary is-rounded is-outlined is-right" href='/articles'>
+              <a class="button is-primary is-rounded is-outlined is-right" href='/ayuda'>
                 <h4 class="title is-4 has-text-primary"> Ayuda </h4>
               </a>
             </div>
           </div>
           <div class="navbar-item has-dropdown is-hoverable is-black">
-            <a class="navbar-link is-arrowless">
-              <div style="border: 5px; width: 150px; padding: 10px;";>
-                <h4 class="title is-3 has-text-primary">Menu</h4>
-              </div>
-            </a>
+            <div style="border: 5px; width: 150px; padding: 10px;";>
+              <h4 class="title is-3 has-text-primary"><%= link_to "Menu", menu_path %></h4>
+            </div>
 
             <div class="navbar-dropdown is-center is-boxed">
               <div class="dropdown-content">
