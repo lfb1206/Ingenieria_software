@@ -1,7 +1,16 @@
 <div align='center'>
     <h1 class="title is-3 has-text-primary">Nueva Solicitud</h1>
     <div class="column is-4 is-offset-4">
-        <%= form_for @request, as: :request do |form| %>
+        <%= form_for @request do |form| %>
+            <% if @request.errors.any? %>
+            <div class="contenedor-error">
+                Se produjeron los siguientes errores:
+                <% @request.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+                <br/>
+            </div>
+            <% end %>
 
             <%= form.hidden_field :turno_id, value: @turno_id %>
             <%= form.text_field :descripcion, {class: "input is-primary is-rounded is-outlined", placeholder:"Agrega aquí la dirección de encuentro"}%>

@@ -10,6 +10,7 @@ FactoryBot.define do
     direccion_llegada { Faker::Address.full_address }
     dia_semana { %w[Lunes Martes Miércoles Jueves Viernes Sabado].sample }
     tipo { %w[Ida Vuelta].sample }
+    espacio { %w[Solo_mochilas Proyecto_de_tamaño_mediano Maqueta_grande].sample }
     estado { %w[ACTIVO CONFIRMADO COMPLETADO].sample }
     association :user, factory: :user
   end

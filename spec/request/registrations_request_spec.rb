@@ -26,10 +26,12 @@ class RegistrationsTest < ActiveSupport::TestCase
       it 'should return a successful request' do
         # Se crea una instancia de User
         @user = FactoryBot.create(:user)
+        @turno = FactoryBot.create(:turno, user: @user)
+        @resena = FactoryBot.create(:resena, turno: @turno)
         sign_in @user
         # Se realiza un GET con el id del user recién creado y
         # se espra que la salida sea un 200 que es lo mismo que un ok
-        get "/users/show?id#{@user.id}"
+        get users_show_path(id: @user.id)
         expect(response).to have_http_status(:ok)
       end
     end
