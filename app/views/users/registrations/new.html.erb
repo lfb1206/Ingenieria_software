@@ -1,3 +1,8 @@
+<%require 'pexels'
+
+# Or just set the PEXELS_API_KEY env variable and it will be picked up automatically.
+client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c64d707')%>
+
 <h1 align='center' class = "title is-2 has-text-primary" >Registrarse</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -56,6 +61,31 @@
     <div class="field">
       <%= f.text_field :reglas, class: "input is-primary is-rounded is-outlined", placeholder:"Agrega alguna regla para tu auto" %>
     </div>
+    <!-- La idea es que despues se guarde en el usario @foto, para que en cada pagina se agreguen las lineas 72 a la 74
+
+    Falta hacer un try cuando la foto no exista y que se vuelva a cargar -->
+
+    <div>
+      <%
+      @valor = "True"
+      @vuelta = 0
+      while @valor == "True"
+        puts "La vuelta es",@vuelta
+        begin
+          @numero = rand(9999999)
+          @photo = client.photos.find(@numero)
+        rescue => exception
+        else 
+          @valor = "False"
+        ensure
+          @vuelta = @vuelta + 1
+        end
+      end
+      @link_foto = @photo.src["original"] 
+      %>
+    </div>
+
+    <%= f.hidden_field :foto, value: @link_foto%>
     
     <br/>
     <div class="actions">
