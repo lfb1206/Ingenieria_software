@@ -28,9 +28,22 @@ class TurnosController < ApplicationController
   #### READ
   def index
     @turnos = Turno.all
+    @turno = "-"
     @users = User.all
     @requests = Request.all
     @tipo_index = params[:tipo]
+    if params[:conductor].present?
+      @turnos = @turnos.where(user_id: (@users.find {|item| 
+      ((item.name).include? params[:conductor]) or (params[:conductor].include? (item.name))}).id)
+    end
+    if params[:dia_semana].present?
+      @turnos = @turnos.where(dia_semana: params[:dia_semana])
+      puts "--------------------dia"
+    end
+    if params[:tipo_turno].present?
+      @turnos = @turnos.where(tipo: params[:tipo_turno])
+      puts "--------------------tipo"
+    end
   end
 
   def show
