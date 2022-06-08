@@ -20,6 +20,8 @@ RSpec.describe 'Mensajes', type: :request do
 
   describe 'GET /new sin turno' do
     it 'returns http success' do
+      @user1 = FactoryBot.create(:user)
+      sign_in @user1
       get mensajes_path(id_turno: 0)
       expect(response).to have_http_status(:success)
     end

@@ -70,7 +70,6 @@ client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c6
       @valor = "True"
       @vuelta = 0
       while @valor == "True"
-        puts "La vuelta es",@vuelta
         begin
           @numero = rand(9999999)
           @photo = client.photos.find(@numero)
@@ -82,6 +81,7 @@ client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c6
         end
       end
       @link_foto = @photo.src["original"] 
+      puts @link_foto
       %>
     </div>
 

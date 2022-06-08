@@ -4,6 +4,7 @@ require 'faker'
 
 FactoryBot.define do
   factory :user do
+    foto { "https://images.pexels.com/photos/1987049/pexels-photo-1987049.jpeg" }
     email { Faker::Internet.safe_email }
     password { 'password' }
     password_confirmation { 'password' }
