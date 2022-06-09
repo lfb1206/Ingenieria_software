@@ -40,8 +40,8 @@
             <div class="navbar-dropdown is-center is-boxed">
               <div class="dropdown-content">
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id) %></div>
-                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos propios", turnos_index_path(:tipo => 2) %></div>
-                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos ajenos", turnos_index_path(:tipo => 1) %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos Conductor", turnos_index_path(:tipo => 2) %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos Pasajero", turnos_index_path(:tipo => 1) %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Solicitudes", requests_index_path %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Mensajes", mensajes_path(id_turno: 0) %></div>
                 <hr class="dropdown-divider">

@@ -1,1 +1,52 @@
-Este va a ser el menu
+<% 
+  if current_user 
+    @usuario = current_user.id
+  else 
+    @usuario = 0
+  end 
+  %>
+<%= link_to users_show_path(:id => @usuario), action: 'get' do %>
+  <div class="block">
+    <div class="details">
+      <div class="listhead">
+          Hola
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to turnos_index_path(:tipo => 2), action: 'get' do %>
+  <div class="block">
+    <div class="details">
+      <div class="listhead">
+          Hola
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to turnos_index_path(:tipo => 1), action: 'get' do %>
+  <div class="block">
+    <div class="details">
+      <div class="listhead">
+          Hola
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to requests_index_path, action: 'get' do %>
+  <div class="block">
+    <div class="details">
+      <div class="listhead">
+          Hola
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to mensajes_path(id_turno: 0), action: 'get' do %>
+  <div class="block">
+    <div class="details">
+      <div class="listhead">
+          Hola
+      </div>
+    </div>
+  </div>
+<% end %>
