@@ -40,7 +40,7 @@ AdminUser.create!(email: 'grupo48@uc.cl', password: 'grupo48', password_confirma
     phone: %w[2 9].sample + (Faker::Number.between(from: 1_000_000, to: 9_999_999)).to_s, 
     reglas: Faker::Lorem.sentence)
 
-  3.times do
+  5.times do
     hora = Faker::Number.between(from: 0, to: 23).to_s
     minuto = Faker::Number.between(from: 0, to: 59).to_s
     if hora.length == 1
@@ -60,11 +60,11 @@ AdminUser.create!(email: 'grupo48@uc.cl', password: 'grupo48', password_confirma
       espacio: %w[Solo_mochilas Proyecto_de_tamaño_mediano Maqueta_grande].sample,
       estado: %w[ACTIVO CONFIRMADO COMPLETADO].sample)
   end
-  10.times do
+  20.times do
     user.resenas.create(
       contenido: Faker::Lorem.sentence,
       calificacion: Faker::Number.between(from: 0, to: 5),
-      turno_id: Faker::Number.between(from: 1, to: 60))
+      turno_id: Faker::Number.between(from: 1, to: 100))
   end
   
   4.times do
@@ -74,7 +74,7 @@ AdminUser.create!(email: 'grupo48@uc.cl', password: 'grupo48', password_confirma
       turno_id: Faker::Number.between(from: 1, to: 60))
   end
   
-  15.times do
+  30.times do
     user.mensajes.create(
       contenido: Faker::Lorem.sentence,
       turno_id: Faker::Number.between(from: 1, to: 60))

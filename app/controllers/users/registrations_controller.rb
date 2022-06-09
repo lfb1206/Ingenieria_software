@@ -5,28 +5,32 @@ module Users
   class RegistrationsController < Devise::RegistrationsController
     before_action :configure_sign_up_params, only: [:create]
     before_action :configure_account_update_params, only: [:update]
-
+    
     def show
-      @user = User.find(params[:id])
-      @existen_resenas = false
-      if Resena.any?
-        @resenas_usuario = []
-        resenas = Resena.all
-        cantidad = 0
-        acumulado = 0
-        resenas.each do |resena|
-          next unless resena.turno.user_id == @user.id
+      if params[:id].to_i != 0
+        @user = User.find(params[:id])
+        @existen_resenas = false
+        if Resena.any?
+          @resenas_usuario = []
+          resenas = Resena.all
+          cantidad = 0
+          acumulado = 0
+          resenas.each do |resena|
+            next unless resena.turno.user_id == @user.id
 
-          cantidad += 1
-          acumulado += resena.calificacion.to_i
-          @resenas_usuario << resena
+            cantidad += 1
+            acumulado += resena.calificacion.to_i
+            @resenas_usuario << resena
+          end
+          if cantidad != 0
+            @existen_resenas = true
+            @promedio = acumulado / cantidad
+          end
         end
-        if cantidad != 0
-          @existen_resenas = true
-          @promedio = acumulado / cantidad
-        end
+        @tipo_lista = params[:tipo_lista]
+      else 
+        redirect_to "/users/sign_in"
       end
-      @tipo_lista = params[:tipo_lista]
     end
 
     # GET /resource/sign_up
