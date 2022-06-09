@@ -2,7 +2,7 @@
 
 # This class is for the articles controller
 class ArticlesController < ApplicationController
-  def index; 
+  def index
     render layout: false
   end
 

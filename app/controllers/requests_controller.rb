@@ -10,7 +10,6 @@ class RequestsController < ApplicationController
   end
 
   def create
-    puts params[:request]
     request_params_create[:turno] = Turno.find(params[:request][:turno_id].to_i)
     @request = Request.new(request_params_create)
     @request.estado = 'PENDIENTE'

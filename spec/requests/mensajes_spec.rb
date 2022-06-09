@@ -38,7 +38,6 @@ RSpec.describe 'Mensajes', type: :request do
       @mensaje = FactoryBot.create(:mensaje, turno: @turno, user: @user2)
       sign_in @user2
       expect do
-        puts @mensaje.attributes
         post mensajes_create_path(id: @mensaje.id), params: { mensaje: @mensaje.attributes }
       end.to change(Mensaje, :count).by(1)
     end

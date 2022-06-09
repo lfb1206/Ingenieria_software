@@ -5,9 +5,11 @@ module Users
   class RegistrationsController < Devise::RegistrationsController
     before_action :configure_sign_up_params, only: [:create]
     before_action :configure_account_update_params, only: [:update]
-    
+
     def show
-      if params[:id].to_i != 0
+      if params[:id].to_i.zero?
+        redirect_to '/users/sign_in'
+      else
         @user = User.find(params[:id])
         @existen_resenas = false
         if Resena.any?
@@ -28,8 +30,6 @@ module Users
           end
         end
         @tipo_lista = params[:tipo_lista]
-      else 
-        redirect_to "/users/sign_in"
       end
     end
 
