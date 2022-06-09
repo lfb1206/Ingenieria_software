@@ -9,7 +9,7 @@ require 'faker'
 require 'pexels'
 client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c64d707')
 
-AdminUser.create!(email: 'grupo48@uc.cl', password: 'grupo48', password_confirmation: 'grupo48') if Rails.env.development?
+AdminUser.create!(email: 'grupo48@uc.cl', password: 'grupo48', password_confirmation: 'grupo48')
 
 20.times do
   
