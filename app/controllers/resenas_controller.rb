@@ -2,6 +2,7 @@
 
 # This class is for the resenas controller
 class ResenasController < ApplicationController
+  before_action :authenticate_user!
   #### CREATE
   def new
     @resena = Resena.new

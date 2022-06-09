@@ -32,30 +32,34 @@ class TurnosController < ApplicationController
     @users = User.all
     @requests = Request.all
     @tipo_index = params[:tipo]
+    @tipo_lista = params[:tipo_lista]
     if params[:form].present?
-      puts params[:form]
-      if params[:form][:dia_semana].present?
-        puts "++++++++++++++"
-        puts params[:form][:dia_semana]
+      if params[:form][:conductor].present?
+        lista_turno_id = []
+        @users.each do |user|
+          if (user.name).include?(params[:form][:conductor]) or (params[:form][:conductor]).include?(user.name)
+            @turnos.each do |turno|
+              if turno.user_id == user.id
+                lista_turno_id.append(turno.id)
+              end
+            end
+          end
+        end
+        @turnos = @turnos.where(id: lista_turno_id)
       end
-      if params[:conductor].present?
-        @turnos = @turnos.where(user_id: (@users.find {|item| 
-        ((item.name).include? params[:conductor]) or (params[:conductor].include? (item.name))}).id)
-      end
       if params[:form][:dia_semana].present?
-        puts "DÍA SEMANA"
         @turnos = @turnos.where(dia_semana: params[:form][:dia_semana])
       end
       if params[:form][:tipo_turno].present?
-        puts "TIPO TURNO"
         @turnos = @turnos.where(tipo: params[:form][:tipo_turno])
       end
       if params[:form][:tipo].present?
         @tipo_index = params[:form][:tipo]
       end
+      if params[:form][:tipo_lista].present?
+        @tipo_lista = params[:form][:tipo_lista]
+      end
     end
-    puts "---------------"
-    puts @turnos
   end
 
   def show

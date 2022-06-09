@@ -17,7 +17,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to requests_index_path, notice: 'Solicitud enviada exitosamente'
     else
-      @turno_id = Turno.find(params[:request][:turno_id].to_i)
+      @turno_id = params[:request][:turno_id].to_i
       render action: 'new', notice: 'Error al crear solicitud'
     end
   end
@@ -25,6 +25,8 @@ class RequestsController < ApplicationController
   #### READ
   def index
     @requests = Request.all
+    @tipo_index = params[:tipo]
+    @tipo_lista = params[:tipo_lista]
   end
 
   def show

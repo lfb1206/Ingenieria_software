@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This class is for the requests mensajes
 class MensajesController < ApplicationController
   #### CREATE
   def new

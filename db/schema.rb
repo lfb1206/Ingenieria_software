@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_050853) do
     t.string "gender"
     t.string "phone"
     t.string "reglas"
+    t.string "foto"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

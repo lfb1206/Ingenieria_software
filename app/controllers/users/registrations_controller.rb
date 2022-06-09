@@ -7,24 +7,29 @@ module Users
     before_action :configure_account_update_params, only: [:update]
 
     def show
-      @user = User.find(params[:id])
-      @existen_resenas = false
-      if Resena.any?
-        @resenas_usuario = []
-        resenas = Resena.all
-        cantidad = 0
-        acumulado = 0
-        resenas.each do |resena|
-          next unless resena.turno.user_id == @user.id
+      if params[:id].to_i.zero?
+        redirect_to '/users/sign_in'
+      else
+        @user = User.find(params[:id])
+        @existen_resenas = false
+        if Resena.any?
+          @resenas_usuario = []
+          resenas = Resena.all
+          cantidad = 0
+          acumulado = 0
+          resenas.each do |resena|
+            next unless resena.turno.user_id == @user.id
 
-          cantidad += 1
-          acumulado += resena.calificacion.to_i
-          @resenas_usuario << resena
+            cantidad += 1
+            acumulado += resena.calificacion.to_i
+            @resenas_usuario << resena
+          end
+          if cantidad != 0
+            @existen_resenas = true
+            @promedio = acumulado / cantidad
+          end
         end
-        if cantidad != 0
-          @existen_resenas = true
-          @promedio = acumulado / cantidad
-        end
+        @tipo_lista = params[:tipo_lista]
       end
     end
 
@@ -50,12 +55,12 @@ module Users
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_up_params
-      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name address description gender phone reglas])
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name address description gender phone foto reglas])
     end
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_account_update_params
-      devise_parameter_sanitizer.permit(:account_update, keys: %i[name address description gender phone reglas])
+      devise_parameter_sanitizer.permit(:account_update, keys: %i[name address description gender phone foto reglas])
     end
 
     # The path used after sign up.
