@@ -26,6 +26,8 @@ class RequestsController < ApplicationController
   #### READ
   def index
     @requests = Request.all
+    @tipo_index = params[:tipo]
+    @tipo_lista = params[:tipo_lista]
   end
 
   def show

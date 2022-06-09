@@ -69,6 +69,18 @@ html
   padding: 10px;
 }
 
+.column_head_turno
+{
+  position: relative;
+  width: 70%;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 0px;
+  border-radius: 10px;
+}
+
 .column-turno 
 {
   float: left;
@@ -140,6 +152,18 @@ html
   overflow: scroll;
   overflow-y: hidden;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row_second
+{
+  overflow: scroll;
+  overflow-y: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .row_inner

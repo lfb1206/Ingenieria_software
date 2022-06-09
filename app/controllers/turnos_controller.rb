@@ -31,6 +31,7 @@ class TurnosController < ApplicationController
     @users = User.all
     @requests = Request.all
     @tipo_index = params[:tipo]
+    @tipo_lista = params[:tipo_lista]
   end
 
   def show

@@ -26,6 +26,7 @@ module Users
           @promedio = acumulado / cantidad
         end
       end
+      @tipo_lista = params[:tipo_lista]
     end
 
     # GET /resource/sign_up
