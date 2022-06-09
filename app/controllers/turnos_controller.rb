@@ -28,22 +28,34 @@ class TurnosController < ApplicationController
   #### READ
   def index
     @turnos = Turno.all
-    @turno = "-"
+    @turno = "form"
     @users = User.all
     @requests = Request.all
     @tipo_index = params[:tipo]
-    if params[:conductor].present?
-      @turnos = @turnos.where(user_id: (@users.find {|item| 
-      ((item.name).include? params[:conductor]) or (params[:conductor].include? (item.name))}).id)
+    if params[:form].present?
+      puts params[:form]
+      if params[:form][:dia_semana].present?
+        puts "++++++++++++++"
+        puts params[:form][:dia_semana]
+      end
+      if params[:conductor].present?
+        @turnos = @turnos.where(user_id: (@users.find {|item| 
+        ((item.name).include? params[:conductor]) or (params[:conductor].include? (item.name))}).id)
+      end
+      if params[:form][:dia_semana].present?
+        puts "DÍA SEMANA"
+        @turnos = @turnos.where(dia_semana: params[:form][:dia_semana])
+      end
+      if params[:form][:tipo_turno].present?
+        puts "TIPO TURNO"
+        @turnos = @turnos.where(tipo: params[:form][:tipo_turno])
+      end
+      if params[:form][:tipo].present?
+        @tipo_index = params[:form][:tipo]
+      end
     end
-    if params[:dia_semana].present?
-      @turnos = @turnos.where(dia_semana: params[:dia_semana])
-      puts "--------------------dia"
-    end
-    if params[:tipo_turno].present?
-      @turnos = @turnos.where(tipo: params[:tipo_turno])
-      puts "--------------------tipo"
-    end
+    puts "---------------"
+    puts @turnos
   end
 
   def show

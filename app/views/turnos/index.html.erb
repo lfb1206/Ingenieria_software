@@ -8,7 +8,8 @@
             <h3 class = "title is-4 has-text-dark" >Filtros</h3>
         </div>
     </div>
-    <%= form_for(@turno, as: :turno, url:turnos_index_path(:tipo => 1)) do |form| %>
+    <%= form_for(@turno, as: :turno, url:turnos_index_path, :html => { :method => 'GET' }) do |form| %>
+        <%= form.hidden_field :tipo, value: 1 %>
         <div>
             <%= form.text_field :conductor, class: "input is-primary is-rounded is-outlined", placeholder:"Nombre Conductor", 
             value: params[:conductor] %>
@@ -91,12 +92,12 @@
                                 <div align='center' style="display: flex; flex-flow: wrap; ">
                                     <div class="column-turno">
                                         <% @user = User.find(@turno.user_id)%>
-                                        <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
-                                        <b>Hora salida </b><p><%= turno.hora_salida%></p>
-                                        <b>Día de la semana </b><p><%= turno.dia_semana%></p>
-                                        <b>Dirección salida </b><p><%= turno.direccion_salida%></p>
-                                        <b>Dirección llegada </b><p><%= turno.direccion_llegada%></p>
-                                        <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => turno.id) %></p>
+                                        <b>Conductor </b><p><%= @users.find(@turno.user_id).name%></p>
+                                        <b>Hora salida </b><p><%= @turno.hora_salida%></p>
+                                        <b>Día de la semana </b><p><%= @turno.dia_semana%></p>
+                                        <b>Dirección salida </b><p><%= @turno.direccion_salida%></p>
+                                        <b>Dirección llegada </b><p><%= @turno.direccion_llegada%></p>
+                                        <b></b><p><%= link_to 'Ver detalles', turnos_show_path(:id => @turno.id) %></p>
                                     </div>
                                 </div>
                             <% end %>
