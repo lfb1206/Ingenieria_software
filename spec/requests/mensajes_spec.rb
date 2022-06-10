@@ -10,7 +10,7 @@ RSpec.describe 'Mensajes', type: :request do
       @user1 = FactoryBot.create(:user)
       @user2 = FactoryBot.create(:user)
       @turno = FactoryBot.create(:turno, user: @user1)
-      @request = FactoryBot.create(:request, turno: @turno, user: @user2, estado:'ACEPTADO')
+      @request = FactoryBot.create(:request, turno: @turno, user: @user2, estado: 'ACEPTADO')
       @mensaje = FactoryBot.create(:mensaje, turno: @turno, user: @user2)
       sign_in @user2
       get mensajes_path(id_turno: 0)
@@ -20,6 +20,8 @@ RSpec.describe 'Mensajes', type: :request do
 
   describe 'GET /new sin turno' do
     it 'returns http success' do
+      @user1 = FactoryBot.create(:user)
+      sign_in @user1
       get mensajes_path(id_turno: 0)
       expect(response).to have_http_status(:success)
     end
@@ -32,11 +34,10 @@ RSpec.describe 'Mensajes', type: :request do
       @user1 = FactoryBot.create(:user)
       @user2 = FactoryBot.create(:user)
       @turno = FactoryBot.create(:turno, user: @user1)
-      @request = FactoryBot.create(:request, turno: @turno, user: @user2, estado:'ACEPTADO')
+      @request = FactoryBot.create(:request, turno: @turno, user: @user2, estado: 'ACEPTADO')
       @mensaje = FactoryBot.create(:mensaje, turno: @turno, user: @user2)
       sign_in @user2
       expect do
-        puts @mensaje.attributes
         post mensajes_create_path(id: @mensaje.id), params: { mensaje: @mensaje.attributes }
       end.to change(Mensaje, :count).by(1)
     end
@@ -45,7 +46,7 @@ RSpec.describe 'Mensajes', type: :request do
       @user1 = FactoryBot.create(:user)
       @user2 = FactoryBot.create(:user)
       @turno = FactoryBot.create(:turno, user: @user1)
-      @request = FactoryBot.create(:request, turno: @turno, user: @user2, estado:'ACEPTADO')
+      @request = FactoryBot.create(:request, turno: @turno, user: @user2, estado: 'ACEPTADO')
       @mensaje = FactoryBot.create(:mensaje, turno: @turno, user: @user2)
       sign_in @user2
       expect do

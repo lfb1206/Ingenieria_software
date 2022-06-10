@@ -17,7 +17,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to requests_index_path, notice: 'Solicitud enviada exitosamente'
     else
-      @turno_id = Turno.find(params[:request][:turno_id].to_i)
+      @turno_id = params[:request][:turno_id].to_i
       render action: 'new', notice: 'Error al crear solicitud'
     end
   end
@@ -25,6 +25,8 @@ class RequestsController < ApplicationController
   #### READ
   def index
     @requests = Request.all
+    @tipo_index = params[:tipo]
+    @tipo_lista = params[:tipo_lista]
   end
 
   def show
@@ -40,15 +42,15 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     if request_params_update.key?('descripcion')
       if @request.update(request_params_update)
-        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path(:tipo => 2, :tipo_lista => 0), notice: 'Solicitud editada exitosamente'
       else
-        redirect_to requests_index_path, notice: 'Error al editar solicitud'
+        render action: 'edit', notice: 'Error al crear solicitud'
       end
     elsif request_params_update.key?('estado')
       if @request.update(request_params_update)
-        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path(:tipo => 1, :tipo_lista => 0), notice: 'Solicitud editada exitosamente'
       else
-        render action: 'edit', notice: 'Error al editar solicitud'
+        render action: 'edit', notice: 'Error al crear solicitud'
       end
     end
   end

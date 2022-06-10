@@ -1,13 +1,25 @@
 <div align='center'>
     <h1 class="title is-2 has-text-primary">Turno</h1>
 
+    <% 
+        if current_user
+            @usuario = current_user.id
+        else 
+            @usuario = 0
+        end 
+    %>
+
     <p>
         <strong>Número Turno: </strong>
         <%= @turno.id %>
     </p>
     <p>
         <strong>Nombre conductor: </strong>
-        <%= link_to users_show_path(:id => @turno.user_id) do %>
+        <%  if @usuario != 0 %>
+            <%= link_to users_show_path(:id => @turno.user_id) do %>
+                <%= User.find(@turno.user_id).name %>
+            <% end %>
+        <% else %>
             <%= User.find(@turno.user_id).name %>
         <% end %>
     </p>
@@ -40,14 +52,14 @@
         <%= @turno.estado %>
     </p>
 
-    <% if @turno.user_id == current_user.id %>
-        <%= button_to "Volver",  users_show_path(id: current_user.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
+    <% if @turno.user_id == @usuario %>
+        <%= button_to "Volver",  turnos_index_path(:tipo => 2, :tipo_lista => 0), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
         <% if @turno.estado != 'COMPLETADO'%>     
             <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), :id => "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
         <% end %>
         <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
-    <% else %>
-        <%= button_to "Volver", turnos_index_path,:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
+    <% elsif @usuario != 0 %>
+        <%= button_to "Volver", turnos_index_path(:tipo => 1, :tipo_lista => 0),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
         <% if @turno.estado != 'COMPLETADO'%>   
             <%= link_to 'Solicitar', requests_path(:id_viaje => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
         <% elsif @turno.estado == 'COMPLETADO'%>

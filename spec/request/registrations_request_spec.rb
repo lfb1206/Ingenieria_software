@@ -34,6 +34,14 @@ class RegistrationsTest < ActiveSupport::TestCase
         get users_show_path(id: @user.id)
         expect(response).to have_http_status(:ok)
       end
+
+      it 'should redirect' do
+        # Se crea una instancia de User
+        # Se realiza un GET con el id del user recién creado y
+        # se espra que la salida sea un 200 que es lo mismo que un ok
+        get users_show_path(id: 0)
+        expect(response).to have_http_status(:found)
+      end
     end
   end
 end

@@ -2,7 +2,6 @@
 
 # This class is for the turnos controller
 class TurnosController < ApplicationController
-  before_action :authenticate_user!
   #### CREATE
   def new
     @turno = Turno.new
@@ -31,6 +30,7 @@ class TurnosController < ApplicationController
     @users = User.all
     @requests = Request.all
     @tipo_index = params[:tipo]
+    @tipo_lista = params[:tipo_lista]
   end
 
   def show

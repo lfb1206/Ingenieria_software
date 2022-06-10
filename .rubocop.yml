@@ -17,6 +17,7 @@ AllCops:
     - 'app/views/**/*'
     - 'config/environments/*'
     - 'node_modules/**/*'
+    - 'app/admin/*'
 
 # Layout
 Layout/LineLength:
@@ -80,6 +81,8 @@ Style/DoubleNegation:
   Enabled: true
 Style/EmptyElse:
   Enabled: true
+Style/GuardClause:
+  Enabled: false
 
 # Lint
 Lint/AmbiguousAssignment:
