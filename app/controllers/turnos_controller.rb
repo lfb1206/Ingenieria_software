@@ -32,6 +32,9 @@ class TurnosController < ApplicationController
     @requests = Request.all
     @tipo_index = params[:tipo]
     @tipo_lista = params[:tipo_lista]
+    if params[:filtro].present?
+      @filtrar = params[:filtro]
+    end
     if params[:form].present?
       if params[:form][:conductor].present?
         lista_turno_id = []
@@ -108,7 +111,9 @@ class TurnosController < ApplicationController
       if params[:form][:tipo_lista].present?
         @tipo_lista = params[:form][:tipo_lista]
       end
-      puts @turnos
+      if params[:form][:filtro].present?
+        @filtrar = params[:filtro]
+      end
     end
   end
 
