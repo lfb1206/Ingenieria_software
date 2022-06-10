@@ -23,7 +23,7 @@
     </p>
 
     <br/>
-    <%= link_to 'Volver', turnos_show_path(:id => @resena.turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
+    <%= link_to 'Ir a turno', turnos_show_path(:id => @resena.turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
     <% if @resena.user.id == current_user.id%>
         <br/>
         <br/>
