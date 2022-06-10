@@ -108,6 +108,7 @@ class TurnosController < ApplicationController
       if params[:form][:tipo_lista].present?
         @tipo_lista = params[:form][:tipo_lista]
       end
+      puts @turnos
     end
   end
 

@@ -36,6 +36,15 @@
           null
         ]
       },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/reports_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
       "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/helpers/requests_helper.rb": {
         "lines": [
           null,
@@ -186,6 +195,43 @@
           1,
           1,
           1,
+          null
+        ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/admin/reports.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/models/report.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -341,6 +387,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           null,
@@ -424,6 +471,9 @@
           1,
           2,
           1,
+          null,
+          1,
+          1,
           1,
           1,
           1,
@@ -443,6 +493,14 @@
           null,
           null,
           1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
           null,
           1,
           null,
@@ -638,7 +696,6 @@
           null,
           null,
           1,
-          1,
           null,
           1,
           1,
@@ -738,6 +795,7 @@
           2,
           2,
           2,
+          2,
           1,
           1,
           1,
@@ -759,8 +817,6 @@
           1,
           null,
           null,
-          null,
-          1,
           null,
           1,
           null,
@@ -780,8 +836,40 @@
           null,
           null
         ]
+      },
+      "/Users/lucasfernandez/Documents/Ingenieria_de_software/grupo-48/app/controllers/reports_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1654800217
+    "timestamp": 1654890932
   }
 }
