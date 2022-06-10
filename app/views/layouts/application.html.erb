@@ -23,65 +23,56 @@
         align-text: center; margin: 5px; text-align: center; color: #198BB9";>
         <div class="title is-3 has-text-primary">DCCARPOOLING</div>
       </div>
-
-      <% if current_user %>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary is-rounded is-outlined is-right" href='/ayuda'>
-                <h4 class="title is-4 has-text-primary"> Ayuda </h4>
-              </a>
-            </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary is-rounded is-outlined is-right" href='/ayuda'>
+              <h4 class="title is-4 has-text-primary"> Ayuda </h4>
+            </a>
           </div>
-          <div class="navbar-item has-dropdown is-hoverable is-black">
-            <div style="border: 5px; width: 150px; padding: 10px;";>
-              <h4 class="title is-3 has-text-primary"><%= link_to "Menu", menu_path %></h4>
-            </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable is-black">
+          <div style="border: 5px; width: 150px; padding: 10px;";>
+            <h4 class="title is-3 has-text-primary"><%= link_to "Menu", menu_path %></h4>
+          </div>
 
-            <div class="navbar-dropdown is-center is-boxed">
-              <div class="dropdown-content">
+          <div class="navbar-dropdown is-center is-boxed">
+            <div class="dropdown-content">
+                <% 
+                  if current_user
+                    @usuario = current_user.id
+                  else 
+                    @usuario = 0
+                  end 
+                %>
+                <% if current_user %>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Cuenta", users_show_path(:id => current_user.id, :tipo_lista => 0) %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Turnos Conductor", turnos_index_path(:tipo => 2, :tipo_lista => 0) %></div>
-                  <div align="center"  class="title is-5 has-text-black is-active">
-                    <%= link_to(turnos_index_path(:tipo => 1, :tipo_lista => 0)) do %>
-                      Turnos 
-                      <br/>
-                      Pasajero  
-                    <% end %>
-                  </div>
+                <% end %>
+                <div align="center"  class="title is-5 has-text-black is-active">
+                  <%= link_to(turnos_index_path(:tipo => 1, :tipo_lista => 0)) do %>
+                    Turnos 
+                    <br/>
+                    Pasajero  
+                  <% end %>
+                </div>
+                <% if current_user %>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Solicitudes Recibidas", requests_index_path(:tipo => 1, :tipo_lista => 0) %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Solicitudes Enviadas", requests_index_path(:tipo => 2, :tipo_lista => 0) %></div>
-                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Mensajes", mensajes_path(id_turno: 0) %></div>
-                <hr class="dropdown-divider">
+                <% end %>
+                <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Chats turnos", mensajes_path(id_turno: 0) %></div>
+              <hr class="dropdown-divider">
+                <% if current_user %>
                   <div align="center"  class="title is-5 has-text-black is-active has-text-center"><%= link_to "Cerrar sesion", destroy_user_session_path,  :method => :delete %></div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <% else %>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary is-rounded is-outlined is-right" href='/ayuda'>
-                <h4 class="title is-4 has-text-primary"> Ayuda </h4>
+                <% else %>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Iniciar Sesion", '/users/sign_in' %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Registrarse", '/users/sign_up' %></div>
+                <% end %>
               </a>
             </div>
           </div>
-          <div class="navbar-item has-dropdown is-hoverable is-black">
-            <div style="border: 5px; width: 150px; padding: 10px;";>
-              <h4 class="title is-3 has-text-primary"><%= link_to "Menu", menu_path %></h4>
-            </div>
-
-            <div class="navbar-dropdown is-center is-boxed">
-              <div class="dropdown-content">
-                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Iniciar Sesion", '/users/sign_in' %></div>
-                  <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Registrarse", '/users/sign_up' %></div>
-              </div>
-            </div>
-          </div>
         </div>
-      <% end %>
+      </div>
     </nav>
     <br/>
     

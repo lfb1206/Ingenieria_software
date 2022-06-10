@@ -40,13 +40,21 @@
         <%= @turno.estado %>
     </p>
 
-    <% if @turno.user_id == current_user.id %>
+    <% 
+        if current_user
+            @usuario = current_user.id
+        else 
+            @usuario = 0
+        end 
+    %>
+
+    <% if @turno.user_id == @usuario %>
         <%= button_to "Volver",  turnos_index_path(:tipo => 2, :tipo_lista => 0), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
         <% if @turno.estado != 'COMPLETADO'%>     
             <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), :id => "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
         <% end %>
         <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
-    <% else %>
+    <% elsif @usuario != 0 %>
         <%= button_to "Volver", turnos_index_path(:tipo => 1, :tipo_lista => 0),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
         <% if @turno.estado != 'COMPLETADO'%>   
             <%= link_to 'Solicitar', requests_path(:id_viaje => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>

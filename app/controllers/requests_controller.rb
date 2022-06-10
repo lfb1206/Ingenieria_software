@@ -42,15 +42,15 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     if request_params_update.key?('descripcion')
       if @request.update(request_params_update)
-        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path(:tipo => 2, :tipo_lista => 0), notice: 'Solicitud editada exitosamente'
       else
-        redirect_to requests_index_path, notice: 'Error al editar solicitud'
+        render action: 'edit', notice: 'Error al crear solicitud'
       end
     elsif request_params_update.key?('estado')
       if @request.update(request_params_update)
-        redirect_to requests_index_path, notice: 'Solicitud editada exitosamente'
+        redirect_to requests_index_path(:tipo => 1, :tipo_lista => 0), notice: 'Solicitud editada exitosamente'
       else
-        render action: 'edit', notice: 'Error al editar solicitud'
+        render action: 'edit', notice: 'Error al crear solicitud'
       end
     end
   end

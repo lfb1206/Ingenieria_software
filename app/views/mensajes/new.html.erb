@@ -3,7 +3,9 @@
   <div class="leftSide">
     <div class="head">
       <div class="userimg">
-        <img src=<%= current_user.foto %> class="cover">
+        <% if current_user %>
+          <img src=<%= current_user.foto %> class="cover">
+        <% end %>
       </div>
       <div>
         <p class="title is-5">Chats de turnos</p>

@@ -2,7 +2,6 @@
 
 # This class is for the turnos controller
 class TurnosController < ApplicationController
-  before_action :authenticate_user!
   #### CREATE
   def new
     @turno = Turno.new
