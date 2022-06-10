@@ -5,6 +5,14 @@
 
     <br>
 
+    <% 
+        if current_user
+            @usuario = current_user.id
+        else 
+            @usuario = 0
+        end 
+    %>
+
     <div class="row">
         <div class="row_second">
             <div class="column_head_turno">
@@ -75,7 +83,7 @@
                 <div class="row_inner">
                     <div class="tile">
                         <% @turnos.each do |turno|%>
-                            <%if turno.user_id != current_user.id and turno.estado == "ACTIVO"%>
+                            <%if turno.user_id != @usuario and turno.estado == "ACTIVO"%>
                                 <div align='center' style="display: flex; flex-flow: wrap; ">
                                     <div class="column-turno">
                                         <b>Conductor </b><p><%= @users.find(turno.user_id).name%></p>
@@ -97,7 +105,7 @@
                 <div class="row_inner">
                     <div class="tile">
                         <% @requests.each do |request|%>
-                            <%if request.user_id == current_user.id %>
+                            <%if request.user_id == @usuario %>
                                 <% @turno = Turno.find(request.turno.id)%> 
                                 <%if @turno.estado == "CONFIRMADO"%>
                                     <div align='center' style="display: flex; flex-flow: wrap; ">
@@ -123,7 +131,7 @@
                 <div class="row_inner">
                     <div class="tile">
                         <% @requests.each do |request|%>
-                            <%if request.user_id == current_user.id %>
+                            <%if request.user_id == @usuario%>
                                 <% @turno = Turno.find(request.turno.id)%> 
                                 <%if @turno.estado == "COMPLETADO"%>
                                     <div align='center' style="display: flex; flex-flow: wrap; ">
