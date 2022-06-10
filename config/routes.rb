@@ -1,12 +1,22 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'reports/new'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # INICIO --------------------------------------
   root 'articles#index'
   get '/menu', to: 'articles#index', as: 'menu'
   get '/ayuda', to: 'articles#show', as: 'ayuda'
+
+  # REPORT --------------------------------------
+
+  #### CREATE
+  get '/report/new', to: 'reports#new', as: 'reports'
+  post '/report/new', to: 'reports#create', as: 'reports_create'
+
+  #### READ
+  get '/reports/:id', to: 'reports#show', as: 'reports_show'
 
   # RESENAS --------------------------------------
 

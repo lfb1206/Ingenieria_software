@@ -31,6 +31,15 @@
             </a>
           </div>
         </div>
+        <div class="navbar-item">
+          <% if current_user %>
+            <div class="buttons">
+              <a class="button is-primary is-rounded is-outlined is-right" href='/report/new'>
+                <h4 class="title is-4 has-text-primary"> Reportar </h4>
+              </a>
+            </div>
+          <% end %>
+        </div>
         <div class="navbar-item has-dropdown is-hoverable is-black">
           <div style="border: 5px; width: 150px; padding: 10px;";>
             <h4 class="title is-3 has-text-primary"><%= link_to "Menu", menu_path %></h4>

@@ -12,15 +12,35 @@
 <div class="row" align="center">
     <div class="row_second">
         <div class="column_head_turno">
-             <% if @tipo_lista.to_i == 1 %>
-                <h3 class = "title is-4 has-text-white" >Información</h3>
-                <h3 class = "title is-4" ><%= link_to "Reseñas", users_show_path(:id => current_user.id, :tipo_lista => 2) %></h3>
-            <% elsif @tipo_lista.to_i == 2 %>
-                <h3 class = "title is-4" ><%= link_to "Información", users_show_path(:id => current_user.id, :tipo_lista => 1) %></h3>
-                <h3 class = "title is-4 has-text-white" >Reseñas</h3>
+            <% if current_user.id == @user.id %>
+                <% if @tipo_lista.to_i == 1 %>
+                    <h3 class = "title is-4 has-text-white" >Información</h3>
+                    <h3 class = "title is-4" ><%= link_to "Reseñas", users_show_path(:id => @user.id, :tipo_lista => 2) %></h3>
+                    <h3 class = "title is-4" ><%= link_to "Reportes", users_show_path(:id => @user.id, :tipo_lista => 3) %></h3>
+                <% elsif @tipo_lista.to_i == 2 %>
+                    <h3 class = "title is-4" ><%= link_to "Información", users_show_path(:id => @user.id, :tipo_lista => 1) %></h3>
+                    <h3 class = "title is-4 has-text-white" >Reseñas</h3>
+                    <h3 class = "title is-4" ><%= link_to "Reportes", users_show_path(:id => @user.id, :tipo_lista => 3) %></h3>
+                <% elsif @tipo_lista.to_i == 3 %>
+                    <h3 class = "title is-4" ><%= link_to "Información", users_show_path(:id => @user.id, :tipo_lista => 1) %></h3>
+                    <h3 class = "title is-4" ><%= link_to "Reseñas", users_show_path(:id => @user.id, :tipo_lista => 2) %></h3>
+                    <h3 class = "title is-4 has-text-white" >Reportes</h3>
+                <% else %>
+                    <h3 class = "title is-4" ><%= link_to "Información", users_show_path(:id => @user.id, :tipo_lista => 1) %></h3>
+                    <h3 class = "title is-4" ><%= link_to "Reseñas", users_show_path(:id => @user.id, :tipo_lista => 2) %></h3>
+                    <h3 class = "title is-4" ><%= link_to "Reportes", users_show_path(:id => @user.id, :tipo_lista => 3) %></h3>
+                <% end %>
             <% else %>
-                <h3 class = "title is-4" ><%= link_to "Información", users_show_path(:id => current_user.id, :tipo_lista => 1) %></h3>
-                <h3 class = "title is-4" ><%= link_to "Reseñas", users_show_path(:id => current_user.id, :tipo_lista => 2) %></h3>
+                <% if @tipo_lista.to_i == 1 %>
+                    <h3 class = "title is-4 has-text-white" >Información</h3>
+                    <h3 class = "title is-4" ><%= link_to "Reseñas", users_show_path(:id => @user.id, :tipo_lista => 2) %></h3>
+                <% elsif @tipo_lista.to_i == 2 %>
+                    <h3 class = "title is-4" ><%= link_to "Información", users_show_path(:id => @user.id, :tipo_lista => 1) %></h3>
+                    <h3 class = "title is-4 has-text-white" >Reseñas</h3>
+                <% else %>
+                    <h3 class = "title is-4" ><%= link_to "Información", users_show_path(:id => @user.id, :tipo_lista => 1) %></h3>
+                    <h3 class = "title is-4" ><%= link_to "Reseñas", users_show_path(:id => @user.id, :tipo_lista => 2) %></h3>
+                <% end %>
             <% end %>
         </div>
     </div>
@@ -40,16 +60,20 @@
                 <%= @user.name %>
             </p>
             <br/>
-            <p>
-                <strong align='center' class = "title is-5 has-text-black">Email:</strong>
-                <%= @user.email %>
-            </p>
-            <br/>
-            <p>
-                <strong align='center' class = "title is-5 has-text-black">Dirección:</strong>
-                <%= @user.address %>
-            </p>
-            <br/>
+            <% if current_user.id == @user.id %>
+                <p>
+                    <strong align='center' class = "title is-5 has-text-black">Email:</strong>
+                    <%= @user.email %>
+                </p>
+                <br/>
+            <% end %>
+            <% if current_user.id == @user.id %>
+                <p>
+                    <strong align='center' class = "title is-5 has-text-black">Dirección:</strong>
+                    <%= @user.address %>
+                </p>
+                <br/>
+            <% end %>
             <p>
                 <strong align='center' class = "title is-5 has-text-black">Género:</strong>
                 <%= @user.gender %>
@@ -81,30 +105,52 @@
                     <div class="tile">  
                         <% @resenas_usuario.each do |resena|%>
                             <% if resena.turno.user_id == @user.id%>
-                            <div align='center' style="display: flex; flex-flow: wrap; ">
-                                <div class="column-resena">
-                                    <%
-                                        @estrellas1 = resena.calificacion
-                                        @estrellas2 = 5 - @estrellas1
-                                        %>
-                                    <b>Nombre Pasajero</b><p><%= resena.user.name %></p>
-                                    <b>Calificación </b>
-                                    <p>
-                                        <% 1.step(@estrellas1, 1) do |num| %>
-                                            <ion-icon name="star"></ion-icon>
-                                        <% end %>
-                                        <% 1.step(@estrellas2, 1) do |num| %>
-                                            <ion-icon name="star-outline"></ion-icon>
-                                        <% end %>
-                                    </p>
-                                    <b></b><p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+                                <div align='center' style="display: flex; flex-flow: wrap; ">
+                                    <div class="column-resena">
+                                        <%
+                                            @estrellas1 = resena.calificacion
+                                            @estrellas2 = 5 - @estrellas1
+                                            %>
+                                        <b>Nombre Pasajero</b><p><%= resena.user.name %></p>
+                                        <b>Calificación </b>
+                                        <p>
+                                            <% 1.step(@estrellas1, 1) do |num| %>
+                                                <ion-icon name="star"></ion-icon>
+                                            <% end %>
+                                            <% 1.step(@estrellas2, 1) do |num| %>
+                                                <ion-icon name="star-outline"></ion-icon>
+                                            <% end %>
+                                        </p>
+                                        <b></b><p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+                                    </div>
                                 </div>
-                            </div>
                             <% end %>
                         <% end %>
                     </div>
                 </div>
             </div>
+        <% end %>
+    <% elsif @tipo_lista.to_i == 3 %>
+        <% if current_user.id == @user.id %>
+            <% if @existen_reportes %>
+                <div class="row">
+                    <div class="row_inner_resena">
+                        <div class="tile">  
+                            <% @reportes_usuario.each do |report|%>
+                                <% if report.user_id == @user.id%>
+                                    <div align='center' style="display: flex; flex-flow: wrap; ">
+                                        <div class="column-resena">
+                                            <b>Usuario reportado:</b><p><%= report.usuario %></p>
+                                            <b>Estado reporte: </b><p><%= report.estado %></p>
+                                            <b></b><p><%= link_to 'Ver detalles', reports_show_path(:id => report.id) %></p>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
         <% end %>
     <% end %>
 </div>

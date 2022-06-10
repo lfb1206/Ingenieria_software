@@ -56,8 +56,8 @@
         <%= button_to "Volver",  turnos_index_path(:tipo => 2, :tipo_lista => 0), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
         <% if @turno.estado != 'COMPLETADO'%>     
             <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), :id => "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
+            <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
         <% end %>
-        <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
     <% elsif @usuario != 0 %>
         <%= button_to "Volver", turnos_index_path(:tipo => 1, :tipo_lista => 0),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
         <% if @turno.estado != 'COMPLETADO'%>   

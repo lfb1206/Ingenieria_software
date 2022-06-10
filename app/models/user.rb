@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :resenas
   has_many :mensajes
+  has_many :reports
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: { message: 'agrega un nombre' },
