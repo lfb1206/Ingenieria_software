@@ -27,10 +27,89 @@ class TurnosController < ApplicationController
   #### READ
   def index
     @turnos = Turno.all
+    @turno = "form"
     @users = User.all
     @requests = Request.all
     @tipo_index = params[:tipo]
     @tipo_lista = params[:tipo_lista]
+    if params[:form].present?
+      if params[:form][:conductor].present?
+        lista_turno_id = []
+        @users.each do |user|
+          if (user.name).include?(params[:form][:conductor]) or (params[:form][:conductor]).include?(user.name)
+            @turnos.each do |turno|
+              if turno.user_id == user.id
+                lista_turno_id.append(turno.id)
+              end
+            end
+          end
+        end
+        @turnos = @turnos.where(id: lista_turno_id)
+      end
+      if params[:form][:direccion_salida].present?
+        turnos_id = []
+        @turnos.each do |turno|
+          if (turno.direccion_salida.downcase).include?(params[:form][:direccion_salida].downcase) or (params[:form][:direccion_salida].downcase).include?(turno.direccion_salida.downcase)
+            turnos_id.append(turno.id)
+          end
+        end
+        @turnos = @turnos.where(id: turnos_id)
+      end
+      if params[:form][:direccion_llegada].present?
+        turnos_id = []
+        @turnos.each do |turno|
+          if (turno.direccion_llegada.downcase).include?(params[:form][:direccion_llegada].downcase) or (params[:form][:direccion_llegada].downcase).include?(turno.direccion_llegada.downcase)
+            turnos_id.append(turno.id)
+          end
+        end
+        @turnos = @turnos.where(id: turnos_id)
+      end
+      if params[:form][:direccion_salida].present?
+        puts params[:form][:direccion_salida]
+      end
+      if params[:form][:direccion_llegada].present?
+        puts params[:form][:direccion_llegada]
+      end
+      if params[:form][:dia_semana].present?
+        @turnos = @turnos.where(dia_semana: params[:form][:dia_semana])
+      end
+      if params[:form][:tipo_turno].present?
+        @turnos = @turnos.where(tipo: params[:form][:tipo_turno])
+      end
+      if params[:form]["hora_salida_min(4i)"].present? and params[:form]["hora_salida_max(4i)"].present?
+        turnos_id = []
+        hora_min = params[:form]["hora_salida_min(4i)"]
+        minuto_min = params[:form]["hora_salida_min(5i)"]
+        hora_max = params[:form]["hora_salida_max(4i)"]
+        minuto_max = params[:form]["hora_salida_max(5i)"]
+        @turnos.each do |turno|
+          lista = turno.hora_salida.split(":")
+          if lista[0].to_i > hora_min.to_i and lista[0].to_i < hora_max.to_i
+            turnos_id.append(turno.id)
+          elsif lista[0].to_i == hora_min.to_i and lista[0].to_i < hora_max.to_i
+            if lista[1].to_i >= minuto_min.to_i
+              turnos_id.append(turno.id)
+            end
+          elsif lista[0].to_i > hora_min.to_i and lista[0].to_i == hora_max.to_i
+            if lista[1].to_i <= minuto_max.to_i
+              turnos_id.append(turno.id)
+            end
+          elsif lista[0].to_i == hora_min.to_i and lista[0].to_i == hora_max.to_i
+            if lista[1].to_i >= minuto_min.to_i and lista[1].to_i <= minuto_max.to_i
+              turnos_id.append(turno.id)
+            end
+          end
+        end
+        @turnos = @turnos.where(id: turnos_id)
+      end 
+      if params[:form][:tipo].present?
+        @tipo_index = params[:form][:tipo]
+      end
+      if params[:form][:tipo_lista].present?
+        @tipo_lista = params[:form][:tipo_lista]
+      end
+      puts @turnos
+    end
   end
 
   def show
@@ -71,6 +150,11 @@ class TurnosController < ApplicationController
     @turno.destroy
 
     redirect_to turnos_index_path, notice: 'Turno eliminado'
+  end
+
+  #### FILTRO
+  def search
+    puts "search"
   end
 
   private

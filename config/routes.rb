@@ -74,6 +74,9 @@ Rails.application.routes.draw do
   get '/mensajes/new', to: 'mensajes#new', as: 'mensajes'
   post '/mensajes/new', to: 'mensajes#create', as: 'mensajes_create'
 
+  #### FILTRO
+  get 'turnos/search', to: 'turnos#search'
+
   # USERS --------------------------------------
 
   #### DEVISE
