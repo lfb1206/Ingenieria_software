@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Reports", type: :request do
-
+RSpec.describe 'Reports', type: :request do
   before do
     @user = FactoryBot.create(:user)
     sign_in @user
@@ -9,9 +10,9 @@ RSpec.describe "Reports", type: :request do
   let!(:report) { create(:report) }
   let!(:invalid_attr_report) { { contenido: nil } }
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/reports/new"
+  describe 'GET /new' do
+    it 'returns http success' do
+      get '/reports/new'
       expect(response).to have_http_status(:success)
     end
   end

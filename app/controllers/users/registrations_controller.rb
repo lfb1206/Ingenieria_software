@@ -20,6 +20,7 @@ module Users
           acumulado = 0
           resenas.each do |resena|
             next unless resena.turno.user_id == @user.id
+
             cantidad += 1
             acumulado += resena.calificacion.to_i
             @resenas_usuario << resena
@@ -34,6 +35,7 @@ module Users
           reportes = Report.all
           reportes.each do |report|
             next unless report.user_id == @user.id
+
             @reportes_usuario << report
             @existen_reportes = true
           end

@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get '/menu', to: 'articles#index', as: 'menu'
   get '/ayuda', to: 'articles#show', as: 'ayuda'
 
-
   # REPORT --------------------------------------
 
   #### CREATE

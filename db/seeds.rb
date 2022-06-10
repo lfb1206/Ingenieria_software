@@ -60,11 +60,19 @@ AdminUser.create!(email: 'grupo48@uc.cl', password: 'grupo48', password_confirma
       espacio: %w[Solo_mochilas Proyecto_de_tamaño_mediano Maqueta_grande].sample,
       estado: %w[ACTIVO CONFIRMADO COMPLETADO].sample)
   end
+
   20.times do
     user.resenas.create(
       contenido: Faker::Lorem.sentence,
       calificacion: Faker::Number.between(from: 0, to: 5),
       turno_id: Faker::Number.between(from: 1, to: 100))
+  end
+
+  20.times do
+    user.resenas.create(
+      usuario: { Faker::Name.name }
+      contenido: { Faker::Lorem.sentence }
+      estado: %w[En_revisión Revisado].sample)
   end
   
   4.times do
