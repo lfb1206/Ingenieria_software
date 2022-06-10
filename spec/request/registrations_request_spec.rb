@@ -28,6 +28,7 @@ class RegistrationsTest < ActiveSupport::TestCase
         @user = FactoryBot.create(:user)
         @turno = FactoryBot.create(:turno, user: @user)
         @resena = FactoryBot.create(:resena, turno: @turno)
+        @report = FactoryBot.create(:report, user: @user)
         sign_in @user
         # Se realiza un GET con el id del user recién creado y
         # se espra que la salida sea un 200 que es lo mismo que un ok

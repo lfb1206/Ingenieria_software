@@ -12,6 +12,7 @@ module Users
       else
         @user = User.find(params[:id])
         @existen_resenas = false
+        @existen_reportes = false
         if Resena.any?
           @resenas_usuario = []
           resenas = Resena.all
@@ -19,7 +20,6 @@ module Users
           acumulado = 0
           resenas.each do |resena|
             next unless resena.turno.user_id == @user.id
-
             cantidad += 1
             acumulado += resena.calificacion.to_i
             @resenas_usuario << resena
@@ -27,6 +27,15 @@ module Users
           if cantidad != 0
             @existen_resenas = true
             @promedio = acumulado / cantidad
+          end
+        end
+        if Report.any?
+          @reportes_usuario = []
+          reportes = Report.all
+          reportes.each do |report|
+            next unless report.user_id == @user.id
+            @reportes_usuario << report
+            @existen_reportes = true
           end
         end
         @tipo_lista = params[:tipo_lista]
