@@ -45,8 +45,11 @@
                 <%= form.hidden_field :tipo, value: 1 %>
                 <%= form.hidden_field :tipo_lista, value: 1 %>
                 <div>
-                    <%= form.text_field :conductor, class: "input is-primary is-rounded is-outlined", placeholder:"Nombre Conductor", 
-                    value: params[:conductor] %>
+                    <%= form.text_field :direccion_salida, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección salida"%>
+                </div>
+                </br>
+                <div>
+                    <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección llegada"%>
                 </div>
                 <% def options_for_status
                     [
@@ -64,17 +67,27 @@
                     <%= form.select :dia_semana, options_for_status, {}, prompt: 'Día', 
                     value: params[:dia_semana] %>
                 </div>
-                <% def options_for_status
-                    [
-                    ['Tipo',nil],
-                    ['Ida','Ida'],
-                    ['Vuelta','Vuelta']
-                    ]
-                end %>
-                <div>
-                    <%= form.select :tipo_turno, options_for_status, {}, prompt: 'Select One', 
-                    value: params[:tipo_turno] %>
+                <br/>
+                <div class="column">
+                    <div align='left' style="display: flex; flex-flow: wrap; ">
+                        <b>Hora de salida mínima</b>
+                    </div>
                 </div>
+                <div class="select">
+                    <%= form.time_select :hora_salida_min, default: {hour: 0, min: 1}, time_separator: '</div><div class="select">' %>
+                </div>
+                <br/>
+                <br/>
+                <div class="column">
+                    <div align='left' style="display: flex; flex-flow: wrap; ">
+                        <b>Hora de salida máxima</b>
+                    </div>
+                </div>
+                <div class="select">
+                    <%= form.time_select :hora_salida_max, default: {hour: 23, min: 59}, time_separator: '</div><div class="select">' %>
+                </div>
+                <br/>
+                <br/>
                 <div>
                     <%= form.submit 'Filtrar', class: "button is-primary is-rounded is-outlined is-right" %>
                 </div>
@@ -198,8 +211,11 @@
                 <%= form.hidden_field :tipo, value: 1 %>
                 <%= form.hidden_field :tipo_lista, value: 1 %>
                 <div>
-                    <%= form.text_field :conductor, class: "input is-primary is-rounded is-outlined", placeholder:"Nombre Conductor", 
-                    value: params[:conductor] %>
+                    <%= form.text_field :direccion_salida, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección salida"%>
+                </div>
+                </br>
+                <div>
+                    <%= form.text_field :direccion_llegada, class: "input is-primary is-rounded is-outlined", placeholder:"Dirección llegada"%>
                 </div>
                 <% def options_for_status
                     [
@@ -217,17 +233,27 @@
                     <%= form.select :dia_semana, options_for_status, {}, prompt: 'Día', 
                     value: params[:dia_semana] %>
                 </div>
-                <% def options_for_status
-                    [
-                    ['Tipo',nil],
-                    ['Ida','Ida'],
-                    ['Vuelta','Vuelta']
-                    ]
-                end %>
-                <div>
-                    <%= form.select :tipo_turno, options_for_status, {}, prompt: 'Select One', 
-                    value: params[:tipo_turno] %>
+                <br/>
+                <div class="column">
+                    <div align='left' style="display: flex; flex-flow: wrap; ">
+                        <b>Hora de salida mínima</b>
+                    </div>
                 </div>
+                <div class="select">
+                    <%= form.time_select :hora_salida_min, time_separator: '</div><div class="select">' %>
+                </div>
+                <br/>
+                <br/>
+                <div class="column">
+                    <div align='left' style="display: flex; flex-flow: wrap; ">
+                        <b>Hora de salida máxima</b>
+                    </div>
+                </div>
+                <div class="select">
+                    <%= form.time_select :hora_salida_max, time_separator: '</div><div class="select">' %>
+                </div>
+                <br/>
+                <br/>
                 <div>
                     <%= form.submit 'Filtrar', class: "button is-primary is-rounded is-outlined is-right" %>
                 </div>
