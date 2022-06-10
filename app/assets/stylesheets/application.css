@@ -171,8 +171,6 @@ html
 
 .row_second
 {
-  overflow: scroll;
-  overflow-y: hidden;
   width: 100%;
   display: flex;
   justify-content: center;
