@@ -22,17 +22,22 @@
         <%= @request.descripcion %>
     </p>
 
-    <br/>
-    <%= link_to 'Volver', requests_index_path, class: "button is-primary is-inverted is-rounded is-outlined" %>
-    <br/>
-    <br/>
-    <% if @request.user_id == current_user.id or @request.turno.user_id == current_user.id %>
+    <br/> 
+    <% if @request.user_id == current_user.id%>
+        <%= link_to 'Volver', requests_index_path(:tipo => 2, :tipo_lista => 0), class: "button is-primary is-inverted is-rounded is-outlined" %>
+        <br/>
+        <br/>
         <%= link_to 'Editar', requests_edit_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
         <br/>
         <br/>
-    <% end %>    
-    <% if @request.user_id == current_user.id%>
         <%= link_to 'Eliminar', requests_delete_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
+        <br/>
+        <br/>
+    <% else %>
+        <%= link_to 'Volver', requests_index_path(:tipo => 1, :tipo_lista => 0), class: "button is-primary is-inverted is-rounded is-outlined" %>
+        <br/>
+        <br/>
+        <%= link_to 'Editar', requests_edit_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
         <br/>
         <br/>
     <% end %>

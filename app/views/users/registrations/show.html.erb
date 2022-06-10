@@ -101,31 +101,33 @@
     <% elsif @tipo_lista.to_i == 2 %>
         <% if @existen_resenas %>
             <div class="row">
-                <div class="row_inner_resena">
-                    <div class="tile">  
-                        <% @resenas_usuario.each do |resena|%>
-                            <% if resena.turno.user_id == @user.id%>
-                                <div align='center' style="display: flex; flex-flow: wrap; ">
-                                    <div class="column-resena">
-                                        <%
-                                            @estrellas1 = resena.calificacion
-                                            @estrellas2 = 5 - @estrellas1
-                                            %>
-                                        <b>Nombre Pasajero</b><p><%= resena.user.name %></p>
-                                        <b>Calificación </b>
-                                        <p>
-                                            <% 1.step(@estrellas1, 1) do |num| %>
-                                                <ion-icon name="star"></ion-icon>
-                                            <% end %>
-                                            <% 1.step(@estrellas2, 1) do |num| %>
-                                                <ion-icon name="star-outline"></ion-icon>
-                                            <% end %>
-                                        </p>
-                                        <b></b><p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+                <div class="row_second">
+                    <div class="row_inner_resena">
+                        <div class="tile">  
+                            <% @resenas_usuario.each do |resena|%>
+                                <% if resena.turno.user_id == @user.id%>
+                                    <div align='center' style="display: flex; flex-flow: wrap; ">
+                                        <div class="column-resena">
+                                            <%
+                                                @estrellas1 = resena.calificacion
+                                                @estrellas2 = 5 - @estrellas1
+                                                %>
+                                            <b>Nombre Pasajero</b><p><%= resena.user.name %></p>
+                                            <b>Calificación </b>
+                                            <p>
+                                                <% 1.step(@estrellas1, 1) do |num| %>
+                                                    <ion-icon name="star"></ion-icon>
+                                                <% end %>
+                                                <% 1.step(@estrellas2, 1) do |num| %>
+                                                    <ion-icon name="star-outline"></ion-icon>
+                                                <% end %>
+                                            </p>
+                                            <b></b><p><%= link_to 'Ver detalles', resenas_show_path(:id => resena.id) %></p>
+                                        </div>
                                     </div>
-                                </div>
+                                <% end %>
                             <% end %>
-                        <% end %>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,19 +136,21 @@
         <% if current_user.id == @user.id %>
             <% if @existen_reportes %>
                 <div class="row">
-                    <div class="row_inner_resena">
-                        <div class="tile">  
-                            <% @reportes_usuario.each do |report|%>
-                                <% if report.user_id == @user.id%>
-                                    <div align='center' style="display: flex; flex-flow: wrap; ">
-                                        <div class="column-resena">
-                                            <b>Usuario reportado:</b><p><%= report.usuario %></p>
-                                            <b>Estado reporte: </b><p><%= report.estado %></p>
-                                            <b></b><p><%= link_to 'Ver detalles', reports_show_path(:id => report.id) %></p>
+                    <div class="row_second">
+                        <div class="row_inner_resena">
+                            <div class="tile">  
+                                <% @reportes_usuario.each do |report|%>
+                                    <% if report.user_id == @user.id%>
+                                        <div align='center' style="display: flex; flex-flow: wrap; ">
+                                            <div class="column-resena">
+                                                <b>Usuario reportado:</b><p><%= report.usuario %></p>
+                                                <b>Estado reporte: </b><p><%= report.estado %></p>
+                                                <b></b><p><%= link_to 'Ver detalles', reports_show_path(:id => report.id) %></p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <% end %>
                                 <% end %>
-                            <% end %>
+                            </div>
                         </div>
                     </div>
                 </div>
