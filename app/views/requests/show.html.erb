@@ -3,11 +3,15 @@
 
     <p>
         <strong>Número Turno: </strong>
-        <%= @request.turno.id %>
+        <%= link_to turno_show_path(:id => @request.turno.id) do %>
+            <%= @request.turno.id %>>
+        <% end %>
     </p>
     <p>
         <strong>Nombre conductor: </strong>
-        <%= User.find(@request.turno.user_id).name %>
+        <%= link_to users_show_path(:id => @request.turno.user_id) do %>
+            <%= User.find(@request.turno.user_id).name %>
+        <% end %>
     </p>
     <p>
         <strong>Nombre Solicitante </strong>
