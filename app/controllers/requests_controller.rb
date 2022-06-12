@@ -47,6 +47,16 @@ class RequestsController < ApplicationController
         render action: 'edit', notice: 'Error al crear solicitud'
       end
     elsif request_params_update.key?('estado')
+      if request_params_update[:estado] == 'ACEPTADO'
+        @turno = Turno.find(@request.turno_id)
+        asientos_actualizado = @turno.cantidad_asientos - 1
+        parametros = {'cantidad_asientos' => asientos_actualizado}
+        if asientos_actualizado == 0
+          puts "---------------------------- SE ACABARON LOS ASIENTOS"
+          parametros = {'estado' => 'CONFIRMADO'}
+        end
+        @turno.update(parametros)
+      end
       if @request.update(request_params_update)
         redirect_to requests_index_path(tipo: 1, tipo_lista: 0), notice: 'Solicitud editada exitosamente'
       else
