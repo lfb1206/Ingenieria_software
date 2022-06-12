@@ -10,8 +10,8 @@ class RequestTest < ActiveSupport::TestCase
       @user = FactoryBot.create(:user)
       sign_in @user
     end
-    let!(:turno) { create(:turno) }
-    let!(:request) { create(:request) }
+    let!(:turno) { create(:turno, cantidad_asientos: 0, estado: 'CONFIRMADO') }
+    let!(:request) { create(:request, estado: 'Pendiente', turno: turno) }
     let!(:invalid_attr_request) { { descripcion: nil } }
 
     # Se describe lo que se testea
@@ -102,6 +102,14 @@ class RequestTest < ActiveSupport::TestCase
       it 'should change a Request' do
         expect do
           patch requests_update_path(id: request.id), params: { request: { estado: 'Completado' } }
+          # Se recarga la instancia de request nuevamente con los posibles nuevos atributos
+          # Luego se revisa si cambió alguno de los atributos del usuario
+          request.reload
+        end.to change(request, :estado)
+      end
+      it 'should change a Request' do
+        expect do
+          patch requests_update_path(id: request.id), params: { request: { estado: 'ACEPTADO' } }
           # Se recarga la instancia de request nuevamente con los posibles nuevos atributos
           # Luego se revisa si cambió alguno de los atributos del usuario
           request.reload

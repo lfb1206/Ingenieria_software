@@ -142,10 +142,6 @@ class TurnosController < ApplicationController
     redirect_to turnos_index_path, notice: 'Turno eliminado'
   end
 
-  #### FILTRO
-  def search
-  end
-
   private
 
   def turno_params_create
