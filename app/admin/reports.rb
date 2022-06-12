@@ -7,6 +7,8 @@ ActiveAdmin.register Report do
   #
   # permit_params :usuario, :contenido, :user_id
   #
+  belongs_to :user, optional: true
+  permit_params :estado
   # or
   #
   # permit_params do
