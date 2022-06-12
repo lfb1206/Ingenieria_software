@@ -27,24 +27,20 @@ class TurnosController < ApplicationController
   #### READ
   def index
     @turnos = Turno.all
-    @turno = "form"
+    @turno = 'form'
     @users = User.all
     @requests = Request.all
     @tipo_index = params[:tipo]
     @tipo_lista = params[:tipo_lista]
-    if params[:filtro].present?
-      @filtrar = params[:filtro]
-    end
+    @filtrar = params[:filtro] if params[:filtro].present?
     if params[:form].present?
       if params[:form][:conductor].present?
         lista_turno_id = []
         @users.each do |user|
-          if (user.name).include?(params[:form][:conductor]) or (params[:form][:conductor]).include?(user.name)
-            @turnos.each do |turno|
-              if turno.user_id == user.id
-                lista_turno_id.append(turno.id)
-              end
-            end
+          next unless (user.name).include?(params[:form][:conductor]) || (params[:form][:conductor]).include?(user.name)
+
+          @turnos.each do |turno|
+            lista_turno_id.append(turno.id) if turno.user_id == user.id
           end
         end
         @turnos = @turnos.where(id: lista_turno_id)
@@ -52,68 +48,46 @@ class TurnosController < ApplicationController
       if params[:form][:direccion_salida].present?
         turnos_id = []
         @turnos.each do |turno|
-          if (turno.direccion_salida.downcase).include?(params[:form][:direccion_salida].downcase) or (params[:form][:direccion_salida].downcase).include?(turno.direccion_salida.downcase)
-            turnos_id.append(turno.id)
-          end
+          condicion1 = (turno.direccion_salida.downcase).include?(params[:form][:direccion_salida].downcase)
+          condicion2 = (params[:form][:direccion_salida].downcase).include?(turno.direccion_salida.downcase)
+          turnos_id.append(turno.id) if condicion1 || condicion2
         end
         @turnos = @turnos.where(id: turnos_id)
       end
       if params[:form][:direccion_llegada].present?
         turnos_id = []
         @turnos.each do |turno|
-          if (turno.direccion_llegada.downcase).include?(params[:form][:direccion_llegada].downcase) or (params[:form][:direccion_llegada].downcase).include?(turno.direccion_llegada.downcase)
-            turnos_id.append(turno.id)
-          end
+          condicion1 = (turno.direccion_llegada.downcase).include?(params[:form][:direccion_llegada].downcase)
+          condicion2 = (params[:form][:direccion_llegada].downcase).include?(turno.direccion_llegada.downcase)
+          turnos_id.append(turno.id) if condicion1 || condicion2
         end
         @turnos = @turnos.where(id: turnos_id)
       end
-      if params[:form][:direccion_salida].present?
-        puts params[:form][:direccion_salida]
-      end
-      if params[:form][:direccion_llegada].present?
-        puts params[:form][:direccion_llegada]
-      end
-      if params[:form][:dia_semana].present?
-        @turnos = @turnos.where(dia_semana: params[:form][:dia_semana])
-      end
-      if params[:form][:tipo_turno].present?
-        @turnos = @turnos.where(tipo: params[:form][:tipo_turno])
-      end
-      if params[:form]["hora_salida_min(4i)"].present? and params[:form]["hora_salida_max(4i)"].present?
+      @turnos = @turnos.where(dia_semana: params[:form][:dia_semana]) if params[:form][:dia_semana].present?
+      @turnos = @turnos.where(tipo: params[:form][:tipo_turno]) if params[:form][:tipo_turno].present?
+      if params[:form]['hora_salida_min(4i)'].present? && params[:form]['hora_salida_max(4i)'].present?
         turnos_id = []
-        hora_min = params[:form]["hora_salida_min(4i)"]
-        minuto_min = params[:form]["hora_salida_min(5i)"]
-        hora_max = params[:form]["hora_salida_max(4i)"]
-        minuto_max = params[:form]["hora_salida_max(5i)"]
+        hora_min = params[:form]['hora_salida_min(4i)']
+        minuto_min = params[:form]['hora_salida_min(5i)']
+        hora_max = params[:form]['hora_salida_max(4i)']
+        minuto_max = params[:form]['hora_salida_max(5i)']
         @turnos.each do |turno|
-          lista = turno.hora_salida.split(":")
-          if lista[0].to_i > hora_min.to_i and lista[0].to_i < hora_max.to_i
+          lista = turno.hora_salida.split(':')
+          if (lista[0].to_i > hora_min.to_i) && (lista[0].to_i < hora_max.to_i)
             turnos_id.append(turno.id)
-          elsif lista[0].to_i == hora_min.to_i and lista[0].to_i < hora_max.to_i
-            if lista[1].to_i >= minuto_min.to_i
-              turnos_id.append(turno.id)
-            end
-          elsif lista[0].to_i > hora_min.to_i and lista[0].to_i == hora_max.to_i
-            if lista[1].to_i <= minuto_max.to_i
-              turnos_id.append(turno.id)
-            end
-          elsif lista[0].to_i == hora_min.to_i and lista[0].to_i == hora_max.to_i
-            if lista[1].to_i >= minuto_min.to_i and lista[1].to_i <= minuto_max.to_i
-              turnos_id.append(turno.id)
-            end
+          elsif (lista[0].to_i == hora_min.to_i) && (lista[0].to_i < hora_max.to_i)
+            turnos_id.append(turno.id) if lista[1].to_i >= minuto_min.to_i
+          elsif (lista[0].to_i > hora_min.to_i) && (lista[0].to_i == hora_max.to_i)
+            turnos_id.append(turno.id) if lista[1].to_i <= minuto_max.to_i
+          elsif (lista[0].to_i == hora_min.to_i) && (lista[0].to_i == hora_max.to_i)
+            turnos_id.append(turno.id) if (lista[1].to_i >= minuto_min.to_i) && (lista[1].to_i <= minuto_max.to_i)
           end
         end
         @turnos = @turnos.where(id: turnos_id)
-      end 
-      if params[:form][:tipo].present?
-        @tipo_index = params[:form][:tipo]
       end
-      if params[:form][:tipo_lista].present?
-        @tipo_lista = params[:form][:tipo_lista]
-      end
-      if params[:form][:filtro].present?
-        @filtrar = params[:filtro]
-      end
+      @tipo_index = params[:form][:tipo] if params[:form][:tipo].present?
+      @tipo_lista = params[:form][:tipo_lista] if params[:form][:tipo_lista].present?
+      @filtrar = params[:filtro] if params[:form][:filtro].present?
     end
   end
 
@@ -121,10 +95,10 @@ class TurnosController < ApplicationController
     @turno = Turno.find(params[:id])
     @requests = Request.all
     @resenas = @turno.resenas.all
-    @condicion = TRUE
-    @requests.each do |r|
-      if r.user_id.to_i == current_user.id.to_i and r.turno_id.to_i == params[:id].to_i
-        @condicion = FALSE
+    @condicion = true
+    @requests.each do |solicitud|
+      if (solicitud.user_id.to_i == current_user.id.to_i) && (solicitud.turno_id.to_i == params[:id].to_i)
+        @condicion = false
       end
     end
   end
@@ -147,12 +121,8 @@ class TurnosController < ApplicationController
     @parametros.delete('hora_salida(3i)')
     @parametros.delete('hora_salida(4i)')
     @parametros.delete('hora_salida(5i)')
-    puts "********"
-    puts @parametros
-    puts @parametros['cantidad_asientos']
     if @parametros['cantidad_asientos'] == '0'
-      puts "-------"
-      parametro_estado = {'estado' => 'CONFIRMADO'}
+      parametro_estado = { 'estado' => 'CONFIRMADO' }
       @parametros.delete('estado')
       @parametros.merge!(parametro_estado)
     end
@@ -174,7 +144,6 @@ class TurnosController < ApplicationController
 
   #### FILTRO
   def search
-    puts "search"
   end
 
   private

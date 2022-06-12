@@ -47,16 +47,14 @@ class RequestsController < ApplicationController
         render action: 'edit', notice: 'Error al crear solicitud'
       end
     elsif request_params_update.key?('estado')
-      if request_params_update[:estado] == 'ACEPTADO'
-        @turno = Turno.find(@request.turno_id)
-        asientos_actualizado = @turno.cantidad_asientos - 1
-        parametros = {'cantidad_asientos' => asientos_actualizado}
-        if asientos_actualizado == 0
-          parametros = {'estado' => 'CONFIRMADO', 'cantidad_asientos' => '0'}
-        end
-        @turno.update(parametros)
-      end
       if @request.update(request_params_update)
+        if request_params_update[:estado] == 'ACEPTADO'
+          @turno = Turno.find(@request.turno_id)
+          asientos_actualizado = @turno.cantidad_asientos - 1
+          parametros = { 'cantidad_asientos' => asientos_actualizado }
+          parametros = { 'estado' => 'CONFIRMADO', 'cantidad_asientos' => '0' } if asientos_actualizado.zero?
+          @turno.update(parametros)
+        end
         redirect_to requests_index_path(tipo: 1, tipo_lista: 0), notice: 'Solicitud editada exitosamente'
       else
         render action: 'edit', notice: 'Error al crear solicitud'
@@ -69,9 +67,9 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @turno = Turno.find(@request.turno_id)
     @asientos_actualizado = @turno.cantidad_asientos + 1
-    parametros = {'cantidad_asientos' => @asientos_actualizado}
-    if @turno.cantidad_asientos == 0 and @turno.estado == 'CONFIRMADO'
-      parametros = {'cantidad_asientos' => @asientos_actualizado, 'estado' => 'ACTIVO'}
+    parametros = { 'cantidad_asientos' => @asientos_actualizado }
+    if @turno.cantidad_asientos.zero? && (@turno.estado == 'CONFIRMADO')
+      parametros = { 'cantidad_asientos' => @asientos_actualizado, 'estado' => 'ACTIVO' }
     end
     @turno.update(parametros)
     @request.destroy
