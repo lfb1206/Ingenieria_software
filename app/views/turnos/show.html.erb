@@ -53,18 +53,20 @@
     </p>
 
     <% if @turno.user_id == @usuario %>
-        <%= button_to "Volver",  turnos_index_path(:tipo => 2, :tipo_lista => 0), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
-        <% if @turno.estado != 'COMPLETADO'%>     
+    <% if @turno.estado != 'COMPLETADO'%>     
             <%= link_to 'Editar', turnos_edit_path(:id => @turno.id), :id => "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
             <%= button_to "Eliminar", turnos_delete_path(:id => @turno.id), :id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
         <% end %>
+        <h3 class = "title is-4" ><%= link_to "Volver", turnos_index_path(:tipo => 2, :tipo_lista => 2) %></h3>
     <% elsif @usuario != 0 %>
-        <%= button_to "Volver", turnos_index_path(:tipo => 1, :tipo_lista => 0),:id => "boton_volver", :class => "button is-primary is-inverted is-rounded is-outlined", method: :get%>
-        <% if @turno.estado != 'COMPLETADO'%>   
+        <% if @turno.estado == 'ACTIVO' and @condicion == TRUE%> 
             <%= link_to 'Solicitar', requests_path(:id_viaje => @turno.id),id: "boton_volver", class: "button is-primary is-inverted is-rounded is-outlined"%>
+        <% elsif @turno.estado == 'ACTIVO' and @condicion == FALSE %>
+            <strong>Has enviado una solicitud a este turno</strong>
         <% elsif @turno.estado == 'COMPLETADO'%>
             <%= link_to 'Agregar reseña ', resenas_path(:id_viaje => @turno.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
         <% end %>
+        <h3 class = "title is-4" ><%= link_to "Volver", turnos_index_path(:tipo => 1, :tipo_lista => 1) %></h3>
     <% end %>
 
     <% if @turno.estado == 'COMPLETADO'%>

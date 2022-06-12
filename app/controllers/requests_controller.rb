@@ -52,8 +52,7 @@ class RequestsController < ApplicationController
         asientos_actualizado = @turno.cantidad_asientos - 1
         parametros = {'cantidad_asientos' => asientos_actualizado}
         if asientos_actualizado == 0
-          puts "---------------------------- SE ACABARON LOS ASIENTOS"
-          parametros = {'estado' => 'CONFIRMADO'}
+          parametros = {'estado' => 'CONFIRMADO', 'cantidad_asientos' => '0'}
         end
         @turno.update(parametros)
       end
@@ -68,6 +67,13 @@ class RequestsController < ApplicationController
   #### DELETE
   def delete
     @request = Request.find(params[:id])
+    @turno = Turno.find(@request.turno_id)
+    @asientos_actualizado = @turno.cantidad_asientos + 1
+    parametros = {'cantidad_asientos' => @asientos_actualizado}
+    if @turno.cantidad_asientos == 0 and @turno.estado == 'CONFIRMADO'
+      parametros = {'cantidad_asientos' => @asientos_actualizado, 'estado' => 'ACTIVO'}
+    end
+    @turno.update(parametros)
     @request.destroy
 
     redirect_to requests_index_path, notice: 'Request eliminado'

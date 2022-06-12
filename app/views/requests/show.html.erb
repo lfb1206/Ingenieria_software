@@ -3,8 +3,8 @@
 
     <p>
         <strong>Número Turno: </strong>
-        <%= link_to turno_show_path(:id => @request.turno.id) do %>
-            <%= @request.turno.id %>>
+        <%= link_to turnos_show_path(:id => @request.turno.id) do %>
+            <%= @request.turno.id %>
         <% end %>
     </p>
     <p>
@@ -31,7 +31,9 @@
         <%= link_to 'Volver', requests_index_path(:tipo => 2, :tipo_lista => 0), class: "button is-primary is-inverted is-rounded is-outlined" %>
         <br/>
         <br/>
-        <%= link_to 'Editar', requests_edit_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
+        <% if @request.estado == "PENDIENTE" %>
+            <%= link_to 'Editar', requests_edit_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
+        <% end %>
         <br/>
         <br/>
         <%= link_to 'Eliminar', requests_delete_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined", method: :delete%>
@@ -41,7 +43,9 @@
         <%= link_to 'Volver', requests_index_path(:tipo => 1, :tipo_lista => 0), class: "button is-primary is-inverted is-rounded is-outlined" %>
         <br/>
         <br/>
-        <%= link_to 'Editar', requests_edit_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
+        <% if @request.estado == "PENDIENTE" %>
+            <%= link_to 'Editar', requests_edit_path(:id => @request.id), class: "button is-primary is-inverted is-rounded is-outlined"%>
+        <% end %>
         <br/>
         <br/>
     <% end %>

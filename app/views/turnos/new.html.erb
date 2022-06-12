@@ -12,9 +12,21 @@
             <br/>
           </div>
         <% end %>
-        <div>
-            <%= form.text_field :cantidad_asientos, class: "input is-primary is-rounded is-outlined", placeholder:"Cantidad asientos"%>
-        </div>
+        <% def options_for_status
+            [
+            ['1','1'],
+            ['2','2'],
+            ['3','3'],
+            ['4','4'],
+            ['5','5'],
+            ['6','6'],
+            ['7','7']
+            ]
+          end %>
+          <div>
+            <h4 align='center' class = "title is-6 has-text-black" >Cantidad asientos</h4>
+            <%= form.select :cantidad_asientos, options_for_status, {}, prompt: 'Select One' %>
+          </div>
         <br/>
         <div class="field-group">
             <h1 align='center' class = "title is-4 has-text-black" >Hora de salida</h1>

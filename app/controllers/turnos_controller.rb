@@ -121,6 +121,12 @@ class TurnosController < ApplicationController
     @turno = Turno.find(params[:id])
     @requests = Request.all
     @resenas = @turno.resenas.all
+    @condicion = TRUE
+    @requests.each do |r|
+      if r.user_id.to_i == current_user.id.to_i and r.turno_id.to_i == params[:id].to_i
+        @condicion = FALSE
+      end
+    end
   end
 
   #### UPDATE
@@ -141,6 +147,15 @@ class TurnosController < ApplicationController
     @parametros.delete('hora_salida(3i)')
     @parametros.delete('hora_salida(4i)')
     @parametros.delete('hora_salida(5i)')
+    puts "********"
+    puts @parametros
+    puts @parametros['cantidad_asientos']
+    if @parametros['cantidad_asientos'] == '0'
+      puts "-------"
+      parametro_estado = {'estado' => 'CONFIRMADO'}
+      @parametros.delete('estado')
+      @parametros.merge!(parametro_estado)
+    end
     if @turno.update(@parametros)
       redirect_to turnos_index_path(tipo: 2), notice: 'Turno editado exitosamente'
     else
