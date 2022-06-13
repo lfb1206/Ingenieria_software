@@ -10,7 +10,10 @@ class TurnosTest < ActiveSupport::TestCase
       @user = FactoryBot.create(:user)
       sign_in @user
     end
-    let!(:turno) { create(:turno) }
+    let!(:turno) { create(:turno, hora_salida: '12:10') }
+    let!(:turno1) { create(:turno, hora_salida: '15:00') }
+    let!(:turno2) { create(:turno, hora_salida: '06:10') }
+    let!(:request) { create(:request, estado: 'Pendiente', user: @user, turno: turno) }
     let!(:invalid_attr_turno) { { cantidad_asientos: 5 } }
 
     # Se describe lo que se testea
@@ -28,6 +31,54 @@ class TurnosTest < ActiveSupport::TestCase
       it 'should return a successful turno' do
         # Se le señala a Rails que se haga un GET a la ruta /turno
         get turnos_index_path(id: turno.id)
+        # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
+        expect(response).to have_http_status(:ok)
+      end
+      it 'filtro direccion llegada' do
+        # Se le señala a Rails que se haga un GET a la ruta /turno
+        ruta = '/turnos?form%5Btipo%5D=1&form%5Btipo_lista%5D=1&form%5Bdireccion_salida%5D=Casa_Central&form%' \
+               '5Bdireccion_llegada%5D=&form%5Bdia_semana%5D=Martes&form%5Bhora_salida_min%281i%29%5D=2022&fo' \
+               'rm%5Bhora_salida_min%282i%29%5D=6&form%5Bhora_salida_min%283i%29%5D=13&form%5Bhora_salida_min%' \
+               '284i%29%5D=00&form%5Bhora_salida_min%285i%29%5D=01&form%5Bhora_salida_max%281i%29%5D=2022&form' \
+               '%5Bhora_salida_max%282i%29%5D=6&form%5Bhora_salida_max%283i%29%5D=13&form%5Bhora_salida_max%284' \
+               'i%29%5D=23&form%5Bhora_salida_max%285i%29%5D=59&commit=Filtrar'
+        get ruta
+        # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
+        expect(response).to have_http_status(:ok)
+      end
+      it 'filtro direccion salida' do
+        # Se le señala a Rails que se haga un GET a la ruta /turno
+        ruta = '/turnos?form%5Btipo%5D=1&form%5Btipo_lista%5D=1&form%5Bdireccion_salida%5D=&form%5Bdireccion_llegad' \
+               'a%5D=Campus_Lo_contador&form%5Bdia_semana%5D=&form%5Bhora_salida_min%281i%29%5D=2022&form%5Bhora_sal' \
+               'ida_min%282i%29%5D=6&form%5Bhora_salida_min%283i%29%5D=13&form%5Bhora_salida_min%284i%29%5D=06&form%' \
+               '5Bhora_salida_min%285i%29%5D=04&form%5Bhora_salida_max%281i%29%5D=2022&form%5Bhora_salida_max%282i%2' \
+               '9%5D=6&form%5Bhora_salida_max%283i%29%5D=13&form%5Bhora_salida_max%284i%29%5D=10&form%5Bhora_salida_' \
+               'max%285i%29%5D=52&commit=Filtrar'
+        get ruta
+        # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
+        expect(response).to have_http_status(:ok)
+      end
+      it 'filtro hora' do
+        # Se le señala a Rails que se haga un GET a la ruta /turno
+        ruta = '/turnos?form%5Btipo%5D=1&form%5Btipo_lista%5D=1&form%5Bdireccion_salida%5D=&form%5Bdireccion_llegad' \
+               'a%5D=&form%5Bdia_semana%5D=&form%5Bhora_salida_min%281i%29%5D=2022&form%5Bhora_salida_min%282i%29%5' \
+               'D=6&form%5Bhora_salida_min%283i%29%5D=13&form%5Bhora_salida_min%284i%29%5D=06&form%5Bhora_salida_mi' \
+               'n%285i%29%5D=01&form%5Bhora_salida_max%281i%29%5D=2022&form%5Bhora_salida_max%282i%29%5D=6&form%5Bh' \
+               'ora_salida_max%283i%29%5D=13&form%5Bhora_salida_max%284i%29%5D=15&form%5Bhora_salida_max%285i%29%5D' \
+               '=59&commit=Filtrar'
+        get ruta
+        # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
+        expect(response).to have_http_status(:ok)
+      end
+      it 'filtro hora exacta' do
+        # Se le señala a Rails que se haga un GET a la ruta /turno
+        ruta = '/turnos?form%5Btipo%5D=1&form%5Btipo_lista%5D=1&form%5Bdireccion_salida%5D=&form%5Bdireccion_llegad' \
+               'a%5D=&form%5Bdia_semana%5D=&form%5Bhora_salida_min%281i%29%5D=2022&form%5Bhora_salida_min%282i%29%5' \
+               'D=6&form%5Bhora_salida_min%283i%29%5D=13&form%5Bhora_salida_min%284i%29%5D=12&form%5Bhora_salida_mi' \
+               'n%285i%29%5D=02&form%5Bhora_salida_max%281i%29%5D=2022&form%5Bhora_salida_max%282i%29%5D=6&form%5Bh' \
+               'ora_salida_max%283i%29%5D=13&form%5Bhora_salida_max%284i%29%5D=12&form%5Bhora_salida_max%285i%29%5D' \
+               '=50&commit=Filtrar'
+        get ruta
         # Lo esperado es que la respuesta tenga un status ok o 200 que representa que todo ha salido bien
         expect(response).to have_http_status(:ok)
       end
@@ -72,11 +123,14 @@ class TurnosTest < ActiveSupport::TestCase
           turno.reload
         end.to change(turno, :dia_semana)
       end
-    end
-
-    # En este caso se trata de haer un update pero con atributos que no son válidos por las validaciones hechas.
-
-    describe 'update' do
+      it 'should change a Turno' do
+        expect do
+          patch turnos_update_path(id: turno.id), params: { turno: { cantidad_asientos: 0 } }
+          # Se recarga la instancia de turno nuevamente con los posibles nuevos atributos
+          # Luego se revisa si cambió alguno de los atributos del usuario
+          turno.reload
+        end.to change(turno, :cantidad_asientos)
+      end
       it 'should not change a Turno' do
         expect do
           patch turnos_update_path(id: turno.id), params: { turno: { dia_semana: nil } }

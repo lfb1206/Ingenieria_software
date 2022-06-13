@@ -34,17 +34,6 @@ class TurnosController < ApplicationController
     @tipo_lista = params[:tipo_lista]
     @filtrar = params[:filtro] if params[:filtro].present?
     if params[:form].present?
-      if params[:form][:conductor].present?
-        lista_turno_id = []
-        @users.each do |user|
-          next unless (user.name).include?(params[:form][:conductor]) || (params[:form][:conductor]).include?(user.name)
-
-          @turnos.each do |turno|
-            lista_turno_id.append(turno.id) if turno.user_id == user.id
-          end
-        end
-        @turnos = @turnos.where(id: lista_turno_id)
-      end
       if params[:form][:direccion_salida].present?
         turnos_id = []
         @turnos.each do |turno|
