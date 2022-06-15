@@ -72,7 +72,11 @@
                 <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Chats turnos", mensajes_path(id_turno: 0) %></div>
               <hr class="dropdown-divider">
                 <% if current_user %>
-                  <div align="center"  class="title is-5 has-text-black is-active has-text-center"><%= link_to "Cerrar sesion", destroy_user_session_path,  :method => :delete %></div>
+                  <div align="center"  class="title is-5 has-text-black is-active has-text-center"><%= link_to destroy_user_session_path,  :method => :delete do %>
+                    Cerrar sesion de
+                    <br/>
+                    <%= current_user.name %>
+                  <% end %>
                 <% else %>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Iniciar Sesion", '/users/sign_in' %></div>
                   <div align="center"  class="title is-5 has-text-black is-active"><%= link_to "Registrarse", '/users/sign_up' %></div>

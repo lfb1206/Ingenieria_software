@@ -58,10 +58,12 @@ client = Pexels::Client.new('563492ad6f917000010000014e7da287474c41f586d037fa8c6
     </div>
 
     <br/>
-    <div class="field">
-      <%= f.text_field :reglas, class: "input is-primary is-rounded is-outlined", placeholder:"Agrega alguna regla para tu auto" %>
-    </div>
-  
+    <details>
+      <summary class = "title is-5 has-text-black">¿Tienes auto o alguna regla que establecer?</summary>
+      <div class="field">
+        <%= f.text_field :reglas, class: "input is-primary is-rounded is-outlined", placeholder:"Agrega alguna regla para tu auto" %>
+      </div>
+    </details>
     <%
       @valor = true
       @vuelta = 0

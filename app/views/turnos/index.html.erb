@@ -77,7 +77,10 @@
                             </div>
                             <br/>
                             <div class="column">
-                                <b>Hora de salida mínima</b>
+                                <b>¿Entre qué horas quieres salir?</b>
+                            </div>
+                            <div class="column">
+                                <b>Hora mínima</b>
                             </div>
                             <div class="select">
                                 <%= form.time_select :hora_salida_min, default: {hour: 0, min: 1}, time_separator: '</div><div class="select">' %>
@@ -85,7 +88,7 @@
                             <br/>
                             <br/>
                             <div class="column">
-                                <b>Hora de salida máxima</b>
+                                <b>Hora máxima</b>
                             </div>
                             <div class="select">
                                 <%= form.time_select :hora_salida_max, default: {hour: 23, min: 59}, time_separator: '</div><div class="select">' %>
