@@ -49,7 +49,9 @@
     <% if @turno_chat != "0" %>
       <div class="head">
         <div class="imgText">
-            <h4>Chat turno <%= @turno_chat %></h4>
+          <%= link_to turnos_show_path(:id => @turno_chat) do %>
+              <h4>Chat turno <%= @turno_chat %></h4>
+          <% end %>
         </div>
       </div>
       <div class="chatBox">
