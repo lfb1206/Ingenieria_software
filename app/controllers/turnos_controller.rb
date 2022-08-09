@@ -86,7 +86,11 @@ class TurnosController < ApplicationController
     @resenas = @turno.resenas.all
     @condicion = true
     @requests.each do |solicitud|
-      if (solicitud.user_id.to_i == current_user.id.to_i) && (solicitud.turno_id.to_i == params[:id].to_i)
+      if current_user
+        if (solicitud.user_id.to_i == current_user.id.to_i) && (solicitud.turno_id.to_i == params[:id].to_i)
+          @condicion = false
+        end
+      else
         @condicion = false
       end
     end
